@@ -1,0 +1,7 @@
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\bin\Debug\POP-SF07-16.exe.config
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\bin\Debug\POP-SF07-16.exe
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\bin\Debug\POP-SF07-16.pdb
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\obj\Debug\POP-SF07-16.csprojResolveAssemblyReference.cache
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\obj\Debug\POP-SF07-16.csproj.CoreCompileInputs.cache
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\obj\Debug\POP-SF07-16.exe
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16\obj\Debug\POP-SF07-16.pdb
