@@ -19,6 +19,6 @@ namespace POP_SF07_16.Model
         public string PIB { get; set; }
         public string MaticniBroj { get; set; }
         public string BrojZiroRacuna { get; set; }
-
+            
     }
 }

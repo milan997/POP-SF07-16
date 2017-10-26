@@ -13,6 +13,8 @@ namespace POP_SF07_16.Model
 
         public DateTime DatumPocetka { get; set; }
         public DateTime DatumZavrsetka { get; set; }
+        public decimal Popust { get; set; }
+
 
     }
 }

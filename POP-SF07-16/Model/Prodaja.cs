@@ -16,7 +16,7 @@ namespace POP_SF07_16.Model
         public string Kupac { get; set; }
         public List<DodatnaUsluga> DodatneUsluge { get; set; }
 
-        public double PDV { get; set; }
+        public const double PDV = 0.02;
         public double UkupnaCena { get; set; }
 
 
