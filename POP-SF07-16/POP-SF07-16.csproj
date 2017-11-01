@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KonzolniInterfejs\Extra.cs" />
+    <Compile Include="KonzolniInterfejs\GlavniMeni.cs" />
+    <Compile Include="KonzolniInterfejs\Podaci.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaNamestaj.cs" />
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\DodatnaUsluga.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -56,8 +60,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="KonzolniInterfejs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

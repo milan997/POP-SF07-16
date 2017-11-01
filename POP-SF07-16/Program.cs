@@ -1,10 +1,5 @@
 ﻿using POP_SF07_16.Model;
-using POP_SF07_16.Tests;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POP_SF07_16
 {
@@ -15,44 +10,9 @@ namespace POP_SF07_16
 
         public static void Main(string[] args)
         {
-            Salon s1 = new Salon()
-            {
-                Id = 1,
-                Adresa = "Trg Dositeja Obradovica 6",
-                BrojZiroRacuna = "840-000171666-45",
-                Email = "dekan@ftn.uns.ac.rs",
-                MaticniBroj = "352343",
-                Naziv = "Forma FTNale",
-                PIB = "123123",
-                Telefon = "021/454-58578",
-                WebAdresa = "http://www.ftn.uns.ac.rs"
-            };
-
-            var tp1 = new TipNamestaja()
-            {
-                Id = 1,
-                Naziv = "Krevet",
-                
-            };
-
-            var n1 = new Namestaj()
-            {
-                Id = 1,
-                Cena = 777,
-                TipNamestaja = tp1,
-                Naziv = "Ekstra Krevet",
-                KolicinaUMagacinu = 100,
-                Sifra = "KR123333"
-            };
-
-            NamestajLista.Add(n1);
-            TipNamestajaLista.Add(tp1);
-
-            Console.WriteLine($"=== Dobrodosli u Salon Namestaja {s1.Naziv} ===");
-
-            IspisiGlavniMeni();
+            KonzolniInterfejs.GlavniMeni.glavniMeni();
         }
-
+        /*
         private static void IspisiGlavniMeni()
         {
             int izbor = 0;
@@ -82,7 +42,7 @@ namespace POP_SF07_16
             } while (izbor != 0);
 
         }
-
+        *//*
         private static void NamestajMeni()
         {
             int izbor = 0;
@@ -113,7 +73,8 @@ namespace POP_SF07_16
                     break;
             }
         }
-
+        */
+        /*
         private static void ObrisiNamestaj()
         {
             Console.WriteLine("=== Brisanje Namestaja ===");
@@ -135,7 +96,8 @@ namespace POP_SF07_16
                 NamestajLista.Remove(trazeniNamestaj);
             }
         }
-
+        */
+        /*
         private static void IzmenaNamestaja()
         {
             Console.WriteLine("=== Izmena Namestaja ===");
@@ -161,7 +123,8 @@ namespace POP_SF07_16
                 trazeniNamestaj.Cena = double.Parse(Console.ReadLine());
             }
         }
-
+        */
+        /*
         private static void DodajNamestaj()
         {
             Console.WriteLine("=== Dodavanje Novog Namestaja ===");
@@ -197,7 +160,8 @@ namespace POP_SF07_16
 
             NamestajLista.Add(noviNamestaj);
         }
-
+        */
+        /*
         private static void PrikaziNamestaj()
         {
             Console.WriteLine("=== Prikaz Namestaja ===");
@@ -207,13 +171,7 @@ namespace POP_SF07_16
                 Console.WriteLine($"{i + 1} Naziv: {NamestajLista[i].Naziv}, Cena: {NamestajLista[i].Cena} "); //// NIJE GOTOVO!!!
             }
         }
-
-        private static void IspisiCRUDMeni()
-        {
-            Console.WriteLine("1. Prikazi Listing");
-            Console.WriteLine("2. Dodaj Novi");
-            Console.WriteLine("3. Izmeni Postojeci");
-            Console.WriteLine("4. Obrisi Postojeci");
-        }
+        */
+        
     }
 }
