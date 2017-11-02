@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POP_SF07_16.KonzolniInterfejs
 {
-    class Podaci
+    static class Podaci
     {
         public static List<Namestaj> ListaNamestaj = new List<Namestaj>();
         public static List<TipNamestaja> ListaTipNamestaja = new List<TipNamestaja>();
@@ -17,7 +17,7 @@ namespace POP_SF07_16.KonzolniInterfejs
         public static List<DodatnaUsluga> ListaDodatnaUsluga = new List<DodatnaUsluga>();
         public static List<Akcija> ListaAkcija = new List<Akcija>();
 
-        public Podaci()
+        public static void UcitajPodatke()
         {
             /// Ovde stavljamo sve objekte koje zelimo da inicijalizujemo pre pocetka aplikacije
             /// 
@@ -53,6 +53,18 @@ namespace POP_SF07_16.KonzolniInterfejs
 
             ListaNamestaj.Add(n1);
             ListaTipNamestaja.Add(tp1);
+
+            Console.WriteLine("Podaci ucitani!!!");
         }
+        /*
+        public static List<Object> VratiListu(string entitet)
+        {
+            string en = entitet.ToLower().Trim();
+            if (en == "namestaj")
+            {
+                return (List<Object>) ListaNamestaj;
+            }
+        }
+        */
     }
 }

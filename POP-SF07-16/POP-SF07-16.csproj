@@ -45,10 +45,17 @@
     <Compile Include="KonzolniInterfejs\Extra.cs" />
     <Compile Include="KonzolniInterfejs\GlavniMeni.cs" />
     <Compile Include="KonzolniInterfejs\Podaci.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaAkcija.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaDodatnaUsluga.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaKorisnik.cs" />
     <Compile Include="KonzolniInterfejs\RadSaNamestaj.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaProdaja.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaSalonom.cs" />
+    <Compile Include="KonzolniInterfejs\RadSaTipNamestaja.cs" />
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\DodatnaUsluga.cs" />
     <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\KupljeniNamestaj.cs" />
     <Compile Include="Model\Namestaj.cs" />
     <Compile Include="Model\Prodaja.cs" />
     <Compile Include="Model\Salon.cs" />

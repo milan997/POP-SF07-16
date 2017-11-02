@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace POP_SF07_16.KonzolniInterfejs
 {
-    class GlavniMeni
+    static class GlavniMeni
     {
         public static void glavniMeni()
         {
-            new Podaci(); // Inicijalizujemo klasu Podaci() u kojoj se nalaze liste svih objekata, 
-                          // kao i inicijalizacija pocetnih objekata pri startovanju aplikacije.
+            Podaci.UcitajPodatke(); // Ucitavamo podatke u staticke liste
 
             Console.WriteLine("=== Dobrodosli u Aplikaciju!!! ===");
             int izbor = 0;
@@ -32,12 +31,30 @@ namespace POP_SF07_16.KonzolniInterfejs
 
                     izbor = int.Parse(Console.ReadLine());
 
-                } while (izbor < 0 || izbor > 2);
+                } while (izbor < 0 || izbor > 7);
 
                 switch (izbor)
                 {
                     case 1:
-                        RadSaNamestaj.namestajMeni();
+                        RadSaNamestaj.NamestajMeni();
+                        break;
+                    case 2:
+                        RadSaTipNamestaja.TipNamestajaMeni();
+                        break;
+                    case 3:
+                        RadSaSalonom.SalonMeni();
+                        break;
+                    case 4:
+                        RadSaKorisnik.KorisnikMeni();
+                        break;
+                    case 5:
+                        RadSaProdaja.ProdajaMeni();
+                        break;
+                    case 6:
+                        RadSaAkcija.AkcijaMeni();
+                        break;
+                    case 7:
+                        RadSaDodatnaUsluga.DodatnaUslugaMeni();
                         break;
                     default:
                         break;
@@ -45,6 +62,9 @@ namespace POP_SF07_16.KonzolniInterfejs
 
 
             } while (izbor != 0);
+
+            Console.WriteLine("=== DOVIDJENJA!!! ===");
+            Console.ReadLine();
         }
     }
 }

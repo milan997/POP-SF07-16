@@ -1,12 +1,11 @@
-﻿using POP_SF07_16.Model;
-using System.Collections.Generic;
+﻿using System;
 
 namespace POP_SF07_16
 {
     class Program
     {
-        public static List<Namestaj> NamestajLista = new List<Namestaj>();
-        public static List<TipNamestaja> TipNamestajaLista = new List<TipNamestaja>();
+        //public static List<Namestaj> NamestajLista = new List<Namestaj>();
+        //public static List<TipNamestaja> TipNamestajaLista = new List<TipNamestaja>();
 
         public static void Main(string[] args)
         {
