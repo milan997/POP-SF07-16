@@ -58,15 +58,25 @@
     <Compile Include="Model\KupljeniNamestaj.cs" />
     <Compile Include="Model\Namestaj.cs" />
     <Compile Include="Model\Prodaja.cs" />
+    <Compile Include="Model\Projekat.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\A.cs" />
+    <Compile Include="Utils\GenericSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\namestaj.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\tipNamestaja.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

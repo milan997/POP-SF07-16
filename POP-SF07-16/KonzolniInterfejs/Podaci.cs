@@ -21,6 +21,7 @@ namespace POP_SF07_16.KonzolniInterfejs
         {
             /// Ovde stavljamo sve objekte koje zelimo da inicijalizujemo pre pocetka aplikacije
             /// 
+
             Salon s1 = new Salon()
             {
                 Id = 1,

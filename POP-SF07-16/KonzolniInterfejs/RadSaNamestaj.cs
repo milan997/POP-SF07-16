@@ -95,32 +95,11 @@ namespace POP_SF07_16.KonzolniInterfejs
 
             Console.WriteLine("Unesite naziv tipa namestaja (ID): "); // NAPOMENA: U praksi se sve veze preko ID-a
             int idTipaNamestaja = int.Parse(Console.ReadLine());
-
-            TipNamestaja trazeniTipNamestaja = null;
-
-            foreach (var tipNamestaja in TipNamestajaLista)
-            {
-                if (tipNamestaja.Id == idTipaNamestaja)
-                {
-                    trazeniTipNamestaja = tipNamestaja;
-                    break;
-                }
-
-            }
+            TipNamestaja trazeniTipNamestaja = RadSaTipNamestaja.PoId(idTipaNamestaja);
 
             Console.WriteLine("Unesite akciju koju namestaj ima (ID):");
             int idAkcije = int.Parse(Console.ReadLine());
-
-            Akcija trazenaAkcija = null;
-
-            foreach (var akcija in AkcijaLista)
-            {
-                if (akcija.Id == idAkcije)
-                {
-                    trazenaAkcija = akcija;
-                    break;
-                }
-            }
+            Akcija trazenaAkcija = RadSaAkcija.PoId(idAkcije);
 
 
             var noviNamestaj = new Namestaj()
@@ -166,34 +145,11 @@ namespace POP_SF07_16.KonzolniInterfejs
 
                     Console.WriteLine("Unesite novi tip namestaja (ID): "); // NAPOMENA: U praksi se sve veze preko ID-a
                     int idTipaNamestaja = int.Parse(Console.ReadLine());
-
-                    TipNamestaja noviTipNamestaja = null;
-
-                    foreach (var tipNamestaja in TipNamestajaLista)
-                    {
-                        if (tipNamestaja.Id == idTipaNamestaja)
-                        {
-                            noviTipNamestaja = tipNamestaja;
-                            break;
-                        }
-
-                    }
-                    namestajZaIzmenu.TipNamestaja = noviTipNamestaja;
+                    namestajZaIzmenu.TipNamestaja = RadSaTipNamestaja.PoId(idTipaNamestaja);
 
                     Console.WriteLine("Unesite novu akciju koju namestaj ima (ID): ");
                     int idAkcije = int.Parse(Console.ReadLine());
-
-                    Akcija novaAkcija = null;
-
-                    foreach (var akcija in AkcijaLista)
-                    {
-                        if (akcija.Id == idAkcije)
-                        {
-                            novaAkcija = akcija;
-                            break;
-                        }
-                    }
-                    namestajZaIzmenu.Akcija = novaAkcija;
+                    namestajZaIzmenu.Akcija = RadSaAkcija.PoId(idAkcije);
                 }
             }
         }

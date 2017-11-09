@@ -19,7 +19,7 @@ namespace POP_SF07_16.KonzolniInterfejs
             Console.WriteLine("4. Obrisi Postojeci");
             Console.WriteLine("0. Povratak");
         }
-
+        /*
         public static Object Pronadji(string entitet, int id)
         {
             // Funkcija kojoj prosledjujemo id namestaja koji trazimo.
@@ -44,5 +44,6 @@ namespace POP_SF07_16.KonzolniInterfejs
 
             return nadjeniNamestaj;
         }
+        */
     }
 }

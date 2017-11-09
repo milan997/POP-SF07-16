@@ -1,4 +1,7 @@
-﻿using System;
+﻿using POP_SF07_16.Model;
+using POP_SF07_16.Utils;
+using System;
+using System.Collections.Generic;
 
 namespace POP_SF07_16
 {
@@ -9,7 +12,58 @@ namespace POP_SF07_16
 
         public static void Main(string[] args)
         {
-            KonzolniInterfejs.GlavniMeni.glavniMeni();
+            //KonzolniInterfejs.GlavniMeni.glavniMeni();
+
+            Salon s1 = new Salon()
+            {
+                Id = 1,
+                Adresa = "Trg Dositeja Obradovica 6",
+                BrojZiroRacuna = "840-000171666-45",
+                Email = "dekan@ftn.uns.ac.rs",
+                MaticniBroj = "352343",
+                Naziv = "Forma FTNale",
+                PIB = "123123",
+                Telefon = "021/454-58578",
+                WebAdresa = "http://www.ftn.uns.ac.rs"
+            };
+
+            var tp1 = new TipNamestaja()
+            {
+                Id = 1,
+                Naziv = "Krevet"
+            };
+
+            var tp2 = new TipNamestaja()
+            {
+                Id = 2,
+                Naziv = "Stolica"
+            };
+
+            var n1 = new Namestaj()
+            {
+                Id = 1,
+                Cena = 777,
+                TipNamestaja = tp1,
+                Naziv = "Ekstra Krevet",
+                KolicinaUMagacinu = 100,
+                Sifra = "KR123333"
+            };
+
+
+            var listaNamestaja = new List<Namestaj>();
+            var listaTipNamestaja = new List<TipNamestaja>();
+            listaNamestaja.Add(n1);
+            listaTipNamestaja.Add(tp1);
+            listaTipNamestaja.Add(tp2);
+            GenericSerializer.Serialize<Namestaj>("namestaj.xml", listaNamestaja);
+            GenericSerializer.Serialize<TipNamestaja>("tipNamestaja.xml", listaTipNamestaja);
+            Console.WriteLine("Finished serialization!!!");
+            var novaListaNamestaja = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+            var novaListaTipNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
+            Console.WriteLine(novaListaNamestaja);
+            Console.WriteLine(novaListaTipNamestaja);
+            Console.ReadLine();
+
         }
         /*
         private static void IspisiGlavniMeni()
