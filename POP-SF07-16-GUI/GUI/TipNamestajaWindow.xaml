@@ -1,0 +1,28 @@
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.TipNamestajaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
+        mc:Ignorable="d"
+        Title="NamestajWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0">Naziv: </Label>
+        <TextBox Name="tbNaziv" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162">Default</TextBox>
+        <Button Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"
+                Name="btnIzlaz" Click="btnIzlaz_Click" Margin="0,91,27,10" Width="113">
+            Zatvori</Button>
+        <Button Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"
+                Name="btnDodaj" Margin="0,52,27,49" Width="113"
+                Click="btnDodaj_Click">
+            Dodaj</Button>
+    </Grid>
+</Window>
