@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace POP_SF07_16.Model
 {
-
     public enum TipKorisnika
     {
         Administrator,
         Prodavac
     }
-
 
     public class Korisnik //Abstract?????
     {

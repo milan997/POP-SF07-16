@@ -26,23 +26,6 @@ namespace POP_SF07_16_GUI
     {
         public MainWindow()
         {
-            /* ************************************* */
-            /* ODJE KODA ZA PUNITI  */
-            
-            Korisnik k = new Korisnik
-            {
-                Id = Projekat.Instance.KorisnikLista.Count + 1,
-                Obrisan = false,
-                Ime = "Milan",
-                Prezime = "Miljus",
-                KorIme = "milan997",
-                Lozinka = "123",
-                TipKorisnika = TipKorisnika.Administrator
-            };
-
-            KorisnikDAL.Add(k);
-
-            /* ***********************/
             InitializeComponent();
 
             OsveziPrikaz();

@@ -11,12 +11,19 @@ namespace POP_SF07_16_GUI.DAL
     { 
         public static void Add(TipNamestaja tipNamestaja)
         {
-            Projekat.Instance.TipNamestajaLista.Add(tipNamestaja);
+            List<TipNamestaja> lista = Projekat.Instance.TipNamestajaLista;
+            lista.Add(tipNamestaja);
+            Projekat.Instance.TipNamestajaLista = lista;
         }
 
         public static List<TipNamestaja> Get()
         {
             return Projekat.Instance.TipNamestajaLista;
+        }
+
+        public static void UpdateList(List<TipNamestaja> newList)
+        {
+            Projekat.Instance.TipNamestajaLista= newList;
         }
 
         public static TipNamestaja GetById(int id)

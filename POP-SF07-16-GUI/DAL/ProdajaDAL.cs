@@ -21,6 +21,11 @@ namespace POP_SF07_16_GUI.DAL
             return Projekat.Instance.ProdajaLista;
         }
 
+        public static void UpdateList(List<Prodaja> newList)
+        {
+            Projekat.Instance.ProdajaLista = newList;
+        }
+
         public static Prodaja GetById(int id)
         {
             Prodaja prodaja = null;

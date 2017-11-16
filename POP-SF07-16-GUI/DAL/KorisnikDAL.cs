@@ -21,6 +21,11 @@ namespace POP_SF07_16_GUI.DAL
             return Projekat.Instance.KorisnikLista;
         }
 
+        public static void UpdateList(List<Korisnik> newList)
+        {
+            Projekat.Instance.KorisnikLista = newList;
+        }
+
         public static Korisnik GetById(int id)
         {
             Korisnik korisnik = null;

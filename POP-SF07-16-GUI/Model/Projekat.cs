@@ -11,7 +11,7 @@ namespace POP_SF07_16.Model
     {
         public static Projekat Instance { get; private set; } = new Projekat();
 
-        public Korisnik logovaniKorisnik { get; set; }
+        public Korisnik LogovaniKorisnik { get; set; }
 
         private List<Akcija> akcijaLista;
         private List<DodatnaUsluga> dodatnaUslugaLista;

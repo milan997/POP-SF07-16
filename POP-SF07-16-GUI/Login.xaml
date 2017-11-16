@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI"
         mc:Ignorable="d"
-        Title="Login" Height="200" Width="420">
+        Title="Login" Height="200" Width="420"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

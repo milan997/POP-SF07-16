@@ -9,45 +9,4 @@
     <Lozinka>123</Lozinka>
     <TipKorisnika>Administrator</TipKorisnika>
   </Korisnik>
-  <Korisnik>
-    <Id>2</Id>
-    <Obrisan>false</Obrisan>
-    <Ime>Milan</Ime>
-    <Prezime>Miljus</Prezime>
-    <KorIme>milan997</KorIme>
-    <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
-  </Korisnik>
-  <Korisnik>
-    <Id>3</Id>
-    <Obrisan>false</Obrisan>
-    <Ime>Milan</Ime>
-    <Prezime>Miljus</Prezime>
-    <KorIme>milan997</KorIme>
-    <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
-  </Korisnik>
-  <Korisnik>
-    <Id>4</Id>
-    <Obrisan>false</Obrisan>
-    <Ime>Milan</Ime>
-    <Prezime>Miljus</Prezime>
-    <KorIme>milan997</KorIme>
-    <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
-  </Korisnik>
-  <Korisnik>
-    <Id>5</Id>
-    <Obrisan>false</Obrisan>
-    <Ime>Milan</Ime>
-    <Prezime>Miljus</Prezime>
-    <KorIme>milan997</KorIme>
-    <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
-  </Korisnik>
-  <Korisnik>
-    <Id>0</Id>
-    <Obrisan>false</Obrisan>
-    <TipKorisnika>Administrator</TipKorisnika>
-  </Korisnik>
 </ArrayOfKorisnik>

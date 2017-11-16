@@ -46,7 +46,6 @@ namespace POP_SF07_16_GUI
             {
                 loginAttempts++;
                 MessageBox.Show("Neispravni kreditencijali!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
 
         }
@@ -59,7 +58,7 @@ namespace POP_SF07_16_GUI
                 if (k.KorIme == username.Trim() && k.Lozinka == password.Trim())
                 {
                     login = true;
-                    Projekat.Instance.logovaniKorisnik = k;
+                    Projekat.Instance.LogovaniKorisnik = k;
                     break;
                 }
             }

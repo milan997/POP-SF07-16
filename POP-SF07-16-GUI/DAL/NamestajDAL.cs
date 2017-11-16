@@ -19,6 +19,11 @@ namespace POP_SF07_16_GUI.DAL
             return Projekat.Instance.NamestajLista;
         }
 
+        public static void UpdateList(List<Namestaj> newList)
+        {
+            Projekat.Instance.NamestajLista = newList;
+        }
+
         public static Namestaj GetById(int id)
         {
             Namestaj namestaj = null;
