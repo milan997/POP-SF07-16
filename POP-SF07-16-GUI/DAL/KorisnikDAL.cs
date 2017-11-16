@@ -10,7 +10,7 @@ namespace POP_SF07_16_GUI.DAL
     public static class KorisnikDAL
     {
         public static void Add(Korisnik korisnik)
-        { 
+        {
             List<Korisnik> lista = Projekat.Instance.KorisnikLista;
             lista.Add(korisnik);
             Projekat.Instance.KorisnikLista = lista;

@@ -21,6 +21,8 @@ namespace POP_SF07_16_GUI
     /// </summary>
     public partial class Login : Window
     {
+        private int loginAttempts = 0;
+
         public Login()
         {
             InitializeComponent();
@@ -36,13 +38,20 @@ namespace POP_SF07_16_GUI
                 var window = new MainWindow();
                 this.Close();
                 window.Show();
+            } else if (loginAttempts >= 2)
+            { 
+               MessageBox.Show("Uneli ste pogresne podatke 3 puta, program se gasi!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+               this.Close();
             } else
             {
+                loginAttempts++;
                 MessageBox.Show("Neispravni kreditencijali!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
+
         }
 
-        public static bool LoginValidan(string username, string password)
+        public bool LoginValidan(string username, string password)
         {
             bool login = false;
             foreach (Korisnik k in KorisnikDAL.GetList())
@@ -50,6 +59,7 @@ namespace POP_SF07_16_GUI
                 if (k.KorIme == username.Trim() && k.Lozinka == password.Trim())
                 {
                     login = true;
+                    Projekat.Instance.logovaniKorisnik = k;
                     break;
                 }
             }

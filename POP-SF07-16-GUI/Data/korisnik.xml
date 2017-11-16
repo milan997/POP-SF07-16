@@ -45,4 +45,9 @@
     <Lozinka>123</Lozinka>
     <TipKorisnika>Administrator</TipKorisnika>
   </Korisnik>
+  <Korisnik>
+    <Id>0</Id>
+    <Obrisan>false</Obrisan>
+    <TipKorisnika>Administrator</TipKorisnika>
+  </Korisnik>
 </ArrayOfKorisnik>
