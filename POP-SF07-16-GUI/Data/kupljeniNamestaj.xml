@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKupljeniNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <KupljeniNamestaj>
+    <Id>0</Id>
+    <NamestajID>1</NamestajID>
+    <Kolicina>4</Kolicina>
+  </KupljeniNamestaj>
+</ArrayOfKupljeniNamestaj>

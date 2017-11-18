@@ -55,21 +55,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BLL\TipNamestajaBLL.cs" />
+    <Compile Include="DAL\AkcijaDAL.cs" />
+    <Compile Include="DAL\DodatnaUslugaDAL.cs" />
     <Compile Include="DAL\KorisnikDAL.cs" />
+    <Compile Include="DAL\KupljeniNamestajDAL.cs" />
     <Compile Include="DAL\NamestajDAL.cs" />
     <Compile Include="DAL\ProdajaDAL.cs" />
+    <Compile Include="DAL\SalonDAL.cs" />
     <Compile Include="DAL\TipNamestajaDAL.cs" />
-    <Compile Include="GUI\TipNamestajaWindow.xaml.cs">
-      <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
-    <Page Include="GUI\TipNamestajaWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +129,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\korisnik.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\akcija.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\dodatnaUsluga.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\kupljeniNamestaj.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\prodaja.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\salon.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

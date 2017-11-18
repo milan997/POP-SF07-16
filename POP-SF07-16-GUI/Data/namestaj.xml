@@ -3,14 +3,21 @@
   <Namestaj>
     <Id>1</Id>
     <Obrisan>false</Obrisan>
-    <Naziv>Ekstra Krevet</Naziv>
-    <Sifra>KR123333</Sifra>
-    <Cena>777</Cena>
-    <KolicinaUMagacinu>100</KolicinaUMagacinu>
-    <TipNamestaja>
-      <Id>1</Id>
-      <Obrisan>false</Obrisan>
-      <Naziv>Krevet</Naziv>
-    </TipNamestaja>
+    <Naziv>Super Udobna Fotelja</Naziv>
+    <Sifra>SF123123</Sifra>
+    <Cena>12000</Cena>
+    <KolicinaUMagacinu>20</KolicinaUMagacinu>
+    <TipNamestajaID>1</TipNamestajaID>
+    <AkcijaID>0</AkcijaID>
+  </Namestaj>
+  <Namestaj>
+    <Id>2</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>Neudoban krevet</Naziv>
+    <Sifra>Krevet123</Sifra>
+    <Cena>24000</Cena>
+    <KolicinaUMagacinu>30</KolicinaUMagacinu>
+    <TipNamestajaID>1</TipNamestajaID>
+    <AkcijaID>0</AkcijaID>
   </Namestaj>
 </ArrayOfNamestaj>

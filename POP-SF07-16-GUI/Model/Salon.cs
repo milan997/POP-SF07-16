@@ -18,7 +18,6 @@ namespace POP_SF07_16.Model
         public string WebAdresa { get; set; }
         public string PIB { get; set; }
         public string MaticniBroj { get; set; }
-        public string BrojZiroRacuna { get; set; }
-            
+        public string BrojZiroRacuna { get; set; }   
     }
 }

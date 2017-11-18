@@ -111,13 +111,13 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                salon = GenericSerializer.Deserialize<Salon>("akcija.xml")[0];
+                salon = GenericSerializer.Deserialize<Salon>("salon.xml")[0];
                 return salon;
             }
             set
             {
                 salon = value;
-                GenericSerializer.Serialize<Salon>("akcija.xml", new List<Salon> { salon });
+                GenericSerializer.Serialize<Salon>("salon.xml", new List<Salon> { salon });
             }
         }
 
