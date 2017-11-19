@@ -1,0 +1,79 @@
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.ProdajaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
+        mc:Ignorable="d"
+        Title="ProdajaWindow" Height="420" Width="300" FontSize="14">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbKupljeniNamestaj" Content="Kupljeni: " />
+        <Button Grid.Column="0" Grid.Row="1"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+                Content="Dodaj" Width="90"
+                Name="DodajNamestaj" Click="DodajNamestaj_Click"/>
+        <ListBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="lbxKupljeniNamestaj" Height="88"  />
+
+        <Label Grid.Column="0" Grid.Row="2"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbDatumProdaje" Content="DatumProdaje: " />
+        <DatePicker Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbSifra"  Height="29" />
+
+        <Label Grid.Column="0" Grid.Row="3"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbBrojRacuna" Content="Broj racuna: " />
+        <TextBox Grid.Column="1" Grid.Row="3"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbBrojRacuna"  Height="29" />
+
+        <Label Grid.Column="0" Grid.Row="4"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbKupac" Content="Kupac: " />
+        <TextBox Grid.Column="1" Grid.Row="4"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbKupac" Height="29" />
+
+        <Label Grid.Column="0" Grid.Row="5"
+               HorizontalAlignment="Right" VerticalAlignment="Top"
+               Name="lbDodatneUsluga" Content="Dodatne usluge: " />
+        <Button Grid.Column="0" Grid.Row="5"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Content="Dodaj" Width="90"
+               Name="DodajUsluge" Click="DodajUsluge_Click"/>
+        <ListBox Grid.Column="1" Grid.Row="5"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="lbxDodatneUsluge" Height="44"  />
+
+        <Button Grid.Column="1" Grid.Row="6"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="btPotvrdi" Content="Potvrdi"
+               Click="btPotvrdi_Click" Height="28"  Width="165" 
+                IsDefault="True" />
+        <Button Grid.Column="1" Grid.Row="7"
+               HorizontalAlignment="Stretch" VerticalAlignment="Center"
+               Name="btOtkazi" Content="Otkazi"
+               Click="btOtkazi_Click" Height="28"  Width="165" 
+                IsCancel="True" Margin="0,10"/>
+    </Grid>
+
+</Window>

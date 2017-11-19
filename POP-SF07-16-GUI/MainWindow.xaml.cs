@@ -26,9 +26,11 @@ namespace POP_SF07_16_GUI
     {
         public MainWindow()
         {
-            InitializeComponent();
+            var pw = new SalonWindow();
+            pw.ShowDialog();
+            //InitializeComponent();
 
-            OsveziPrikaz();
+            //OsveziPrikaz();
         }
 
         private void OsveziPrikaz()

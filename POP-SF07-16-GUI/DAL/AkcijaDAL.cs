@@ -11,9 +11,18 @@ namespace POP_SF07_16_GUI.DAL
     {
         public static void Add(Akcija akcija)
         {
-            List<Akcija> lista = Projekat.Instance.AkcijaLista;
+            akcija.Id = GetList().Count;
+            akcija.Obrisan = false;
+            List<Akcija> lista = GetList();
             lista.Add(akcija);
-            Projekat.Instance.AkcijaLista = lista;
+            UpdateList(lista);
+        }
+
+        public static void Update(Akcija akcija)
+        {
+            List<Akcija> list = GetList();
+            list[akcija.Id] = akcija;
+            UpdateList(list);
         }
 
         public static List<Akcija> GetList()
@@ -29,7 +38,7 @@ namespace POP_SF07_16_GUI.DAL
         public static Akcija GetById(int id)
         {
             Akcija akcija = null;
-            foreach (Akcija a in Projekat.Instance.AkcijaLista)
+            foreach (Akcija a in GetList())
             {
                 if (a.Id == id)
                 {

@@ -1,0 +1,78 @@
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.NamestajWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
+        mc:Ignorable="d"
+        Title="NamestajWindow" Height="480" Width="300" FontSize="14"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbNaziv" Content="Naziv: " />
+        <TextBox Grid.Column="1" Grid.Row="0"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbNaziv"  Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="1"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbSifra" Content="Sifra: " />
+        <TextBox Grid.Column="1" Grid.Row="1"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbSifra" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="2"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbCena" Content="Cena: " />
+        <TextBox Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbCena" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="3"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbKolicinaUMagacinu" Content="Kolicina: " />
+        <TextBox Grid.Column="1" Grid.Row="3"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbKolicinaUMagacinu"  Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="4"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbTipNamestaja" Content="Tip: " />
+        <ComboBox Grid.Column="1" Grid.Row="4"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+            Name="cbTipNamestaja" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="5"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbAkcija" Content="Akcija: " />
+        <ComboBox Grid.Column="1" Grid.Row="5"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+            Name="cbAkcija" Height="29" />
+        
+        <Button Grid.Column="1" Grid.Row="6"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Name="btPotvrdi" Content="Potvrdi"
+               Click="btPotvrdi_Click" Height="29"  Width="165" 
+                IsDefault="True" />
+        <Button Grid.Column="1" Grid.Row="7"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Name="btOtkazi" Content="Otkazi"
+               Click="btOtkazi_Click" Height="29"  Width="165" 
+                IsCancel="True" />
+    </Grid>
+</Window>

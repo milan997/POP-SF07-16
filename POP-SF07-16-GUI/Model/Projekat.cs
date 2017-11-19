@@ -97,12 +97,12 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                ProdajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
+                prodajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
                 return ProdajaLista;
             }
             set
             {
-                ProdajaLista = value;
+                prodajaLista = value;
                 GenericSerializer.Serialize<Prodaja>("prodaja.xml", ProdajaLista);
             }
         }

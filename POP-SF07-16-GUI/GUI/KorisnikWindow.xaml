@@ -1,0 +1,69 @@
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.KorisnikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="KorisnikWindow" Height="420" Width="300" FontSize="14"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbIme" Content="Ime: " />
+        <TextBox Grid.Column="1" Grid.Row="0"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbIme"  Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="1"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbPrezime" Content="Prezime: " />
+        <TextBox Grid.Column="1" Grid.Row="1"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbPrezime" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="2"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbKorisnickoIme" Content="Kor. ime: " />
+        <TextBox Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbKorisnickoIme" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="3"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbLozinka" Content="Lozinka: " />
+        <TextBox Grid.Column="1" Grid.Row="3"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+               Name="tbLozinka" Height="29" />
+        
+        <Label Grid.Column="0" Grid.Row="4"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbTipKorisnika" Content="Tip Korisnika: " />
+        <ComboBox Grid.Column="1" Grid.Row="4"
+               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+            Name="cbTipKorisnika" Height="29" />
+        
+        <Button Grid.Column="1" Grid.Row="5"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Name="btPotvrdi" Content="Potvrdi"
+               Click="btPotvrdi_Click" Height="28"  Width="165" 
+                IsDefault="True" />
+        <Button Grid.Column="1" Grid.Row="6"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Name="btOtkazi" Content="Otkazi"
+               Click="btOtkazi_Click" Height="28"  Width="165" 
+                IsCancel="True" />
+    </Grid>
+</Window>

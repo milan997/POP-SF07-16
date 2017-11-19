@@ -4,7 +4,28 @@
     <Id>0</Id>
     <Obrisan>false</Obrisan>
     <DatumPocetka>2017-11-17T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2097-10-23T00:00:00</DatumZavrsetka>
+    <DatumZavrsetka>2018-10-23T00:00:00</DatumZavrsetka>
     <Popust>0</Popust>
+  </Akcija>
+  <Akcija>
+    <Id>1</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-11-20T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2017-11-24T00:00:00</DatumZavrsetka>
+    <Popust>20</Popust>
+  </Akcija>
+  <Akcija>
+    <Id>2</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-11-27T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
+    <Popust>69</Popust>
+  </Akcija>
+  <Akcija>
+    <Id>3</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-11-27T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
+    <Popust>97</Popust>
   </Akcija>
 </ArrayOfAkcija>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\App.xaml
-2-419086188
+91013148415
 
-292106518432
+36-247329587
 131569487696
-Login.xaml;MainWindow.xaml;
+GUI\AkcijaWindow.xaml;GUI\DodatnaUslugaWindow.xaml;GUI\KorisnikWindow.xaml;GUI\NamestajWindow.xaml;GUI\ProdajaWindow.xaml;GUI\SalonWindow.xaml;GUI\TipNamestajaWindow.xaml;Login.xaml;MainWindow.xaml;
 
 False
 
