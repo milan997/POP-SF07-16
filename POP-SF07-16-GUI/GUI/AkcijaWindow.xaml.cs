@@ -32,10 +32,6 @@ namespace POP_SF07_16_GUI.GUI
 
             dpDatumPocetka.SelectedDate = DateTime.Today;
             dpDatumZavrsetka.SelectedDate = DateTime.Today;
-
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-            //dpDatumPocetka.PreviewKeyDown += new KeyEventHandler(HandleDatePicker);
-            //dpDatumZavrsetka.PreviewKeyDown += new KeyEventHandler(HandleDatePicker);
         }
 
         public AkcijaWindow(Akcija a)
@@ -48,10 +44,6 @@ namespace POP_SF07_16_GUI.GUI
             dpDatumPocetka.SelectedDate = akcija.DatumPocetka;
             dpDatumZavrsetka.SelectedDate = akcija.DatumZavrsetka;
             tbPopust.Text = akcija.Popust.ToString();
-
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-            //dpDatumPocetka.PreviewKeyDown += new KeyEventHandler(HandleDatePicker);
-            //dpDatumZavrsetka.PreviewKeyDown += new KeyEventHandler(HandleDatePicker);
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -81,8 +73,8 @@ namespace POP_SF07_16_GUI.GUI
                 MessageBox.Show("Niste izvrsili nijednu izmenu", "!!!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            else if(MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNo, MessageBoxImage.Question)
-                == MessageBoxResult.Yes)
+            else if(MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)
+                     == MessageBoxResult.Yes)
             {
                 if(akcija == null)
                 {
@@ -109,23 +101,10 @@ namespace POP_SF07_16_GUI.GUI
 
         private void btOtkazi_Click(object sender, RoutedEventArgs e)
         {
-            Call.Otkazi(this);  
-        }
-
-
-
-        
-        private void HandleEsc(object sender, KeyEventArgs e)
-        {
-            //Funkcija reaguje na pritisak ESC tastera, ako je ista uneseno u prozor pitace da li 
-            // zelimo da sacuvamo izmene, ako nije prosto ce zatvoriti dijalog
-            if (e.Key == Key.Escape)
-            {
-                if (NapravljeneIzmene() == false)
-                    Close();
-                else
-                    Call.Otkazi(this);
-            }
+            if (NapravljeneIzmene())
+                Call.CheckOnClose(this);
+            else
+                Close();
         }
         
         private Boolean NapravljeneIzmene()
@@ -147,11 +126,13 @@ namespace POP_SF07_16_GUI.GUI
             return true;
         }
 
-        private void HandleDatePicker(object sender, KeyEventArgs e)
+        private void Handle(object sender, KeyEventArgs e)
         {
-            //Funkcija koja otvara DatePicker ukoliko pritisnemo 'space' dok je u fokusu
-            if (e.Key == Key.Space)
-                ((DatePicker)sender).IsDropDownOpen = true;
+            //Funkcija za 'hendlanje evenata', poziva se za sve 'hendlove'
+            if (e.Key == Key.Escape)
+                Handlers.HandleEsc(sender, e, NapravljeneIzmene());
+            if (sender is DatePicker && e.Key == Key.Space)
+                Handlers.HandleDatePicker(sender, e);
         }
     }
 }

@@ -63,7 +63,6 @@
         <Button Grid.Column="1" Grid.Row="6"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"
-               Click="btOtkazi_Click" Height="28"  Width="165" 
-                IsCancel="True" />
+               Click="btOtkazi_Click" Height="28"  Width="165"  />
     </Grid>
 </Window>

@@ -11,24 +11,32 @@ namespace POP_SF07_16_GUI.Utils
 {
     public static class Handlers
     {
-        public static void HandleEsc(Window window, KeyEventArgs e, Boolean napravljeneIzmene)
+        public static void HandleEsc(object sender, KeyEventArgs e, Boolean napravljeneIzmene)
         {
             //Funkcija reaguje na pritisak ESC tastera, ako je ista uneseno u prozor pitace da li 
             // zelimo da sacuvamo izmene, ako nije - prosto ce zatvoriti dijalog
             if (e.Key == Key.Escape)
             {
+                Window w;
+                try { w = sender as Window; }
+                catch (InvalidCastException ex) { return; }
+                
                 if (napravljeneIzmene == false)
-                    window.Close();
+                    w.Close();
                 else
-                    Call.Otkazi(window);
+                    Call.CheckOnClose(w);
             }
         }
 
-        public static void HandleDatePicker(DatePicker datePicker, KeyEventArgs e)
+        public static void HandleDatePicker(object sender, KeyEventArgs e)
         {
             //Funkcija koja otvara DatePicker ukoliko pritisnemo 'space' dok je u fokusu
-            if (e.Key == Key.Space)
-                datePicker.IsDropDownOpen = true;
+
+            if (e.Key == Key.Space) 
+            {
+                DatePicker dp = sender as DatePicker;
+                dp.IsDropDownOpen = true;
+            }
         }
     }
 }

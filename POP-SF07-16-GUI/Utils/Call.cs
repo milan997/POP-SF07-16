@@ -10,7 +10,7 @@ namespace POP_SF07_16_GUI.Utils
     public static class Call
     {
         //Spaghetti klasa, trpamo svasta
-        public static void Otkazi(Window window)
+        public static void CheckOnClose(Window window)
         {
             //Funkcija pita da li zelimo da sacuvamo izmene, prosto
             //Izdvojena je iz razloga lakseg odrzavanja, ako nekad budemo zeleli izmeniti mozemo sa jednog mesta

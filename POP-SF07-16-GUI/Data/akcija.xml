@@ -31,8 +31,8 @@
   <Akcija>
     <Id>4</Id>
     <Obrisan>false</Obrisan>
-    <DatumPocetka>2017-11-30T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
-    <Popust>69</Popust>
+    <DatumPocetka>2017-12-26T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2018-01-10T00:00:00</DatumZavrsetka>
+    <Popust>66</Popust>
   </Akcija>
 </ArrayOfAkcija>
