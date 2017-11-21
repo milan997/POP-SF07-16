@@ -11,9 +11,18 @@ namespace POP_SF07_16_GUI.DAL
     {
         public static void Add(DodatnaUsluga dodatnaUsluga)
         {
-            List<DodatnaUsluga> lista = Projekat.Instance.DodatnaUslugaLista;
-            lista.Add(dodatnaUsluga);
-            Projekat.Instance.DodatnaUslugaLista = lista;
+            dodatnaUsluga.Id = GetList().Count;
+            dodatnaUsluga.Obrisana = false;
+            List<DodatnaUsluga> list = GetList();
+            list.Add(dodatnaUsluga);
+            UpdateList(list);
+        }
+
+        public static void Update(DodatnaUsluga dodatnaUsluga)
+        {
+            List<DodatnaUsluga> list = GetList();
+            list[dodatnaUsluga.Id] = dodatnaUsluga;
+            UpdateList(list);
         }
 
         public static List<DodatnaUsluga> GetList()

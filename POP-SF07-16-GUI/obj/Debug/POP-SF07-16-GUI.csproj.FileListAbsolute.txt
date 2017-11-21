@@ -27,3 +27,5 @@ C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\Na
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\ProdajaWindow.baml
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\SalonWindow.g.cs
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\SalonWindow.baml
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\TipNamestajaWindow.g.cs
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\TipNamestajaWindow.baml

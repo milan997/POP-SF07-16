@@ -88,6 +88,8 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Compile Include="Utils\Call.cs" />
+    <Compile Include="Utils\Handlers.cs" />
     <Page Include="GUI\AkcijaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

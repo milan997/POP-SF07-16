@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="TipNamestajaWindow" Height="300" Width="300">
+        Title="TipNamestajaWindow" Height="180" Width="300" 
+        WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -16,6 +17,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+        
         <Label Grid.Column="0" Grid.Row="0"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbNaziv" Content="Naziv: "/>
@@ -23,10 +25,10 @@
                Name="tbNaziv" HorizontalAlignment="Stretch" />
 
         <Button Grid.Column="1" Grid.Row="1"
-               HorizontalAlignment="Center" VerticalAlignment="Center"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"
                Name="btPotvrdi" Content="Potvrdi"
                Click="btPotvrdi_Click" Height="28"  Width="165" 
-               IsDefault="True" />
+               IsDefault="True"  />
         <Button Grid.Column="1" Grid.Row="2"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"

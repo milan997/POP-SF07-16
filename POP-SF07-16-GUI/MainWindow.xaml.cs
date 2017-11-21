@@ -26,7 +26,7 @@ namespace POP_SF07_16_GUI
     {
         public MainWindow()
         {
-            var pw = new SalonWindow();
+            var pw = new AkcijaWindow(AkcijaDAL.GetList()[4]);
             pw.ShowDialog();
             //InitializeComponent();
 

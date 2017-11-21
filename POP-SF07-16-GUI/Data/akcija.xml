@@ -28,4 +28,11 @@
     <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
     <Popust>97</Popust>
   </Akcija>
+  <Akcija>
+    <Id>4</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-11-30T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
+    <Popust>69</Popust>
+  </Akcija>
 </ArrayOfAkcija>

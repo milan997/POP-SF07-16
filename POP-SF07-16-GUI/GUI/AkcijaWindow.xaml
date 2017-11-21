@@ -24,14 +24,16 @@
                Name="lbDatumPocetka" Content="Pocetak: "/>
         <DatePicker Grid.Column="1" Grid.Row="0" 
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="dpDatumPocetka" />
+               Name="dpDatumPocetka" 
+               Keyboard.PreviewKeyDown="HandleDatePicker"/>
         
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbDatumZavrsetka" Content="Kraj: " />
         <DatePicker Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom" 
-               Name="dpDatumZavrsetka" />
+               Name="dpDatumZavrsetka" 
+               Keyboard.PreviewKeyDown="HandleDatePicker"/>
         
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
@@ -43,13 +45,10 @@
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btPotvrdi" Content="Potvrdi"
                Click="btPotvrdi_Click" Height="28"  Width="165" 
-                IsDefault="True" />
+               IsDefault="True" />
         <Button Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"
-               Click="btOtkazi_Click" Height="28"  Width="165" 
-                IsCancel="True"/>
-
-
+               Click="btOtkazi_Click" Height="28"  Width="165" />
     </Grid>
 </Window>
