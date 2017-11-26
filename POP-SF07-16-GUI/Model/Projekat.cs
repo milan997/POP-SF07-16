@@ -1,6 +1,7 @@
 ﻿using POP_SF07_16.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +12,44 @@ namespace POP_SF07_16.Model
     {
         public static Projekat Instance { get; private set; } = new Projekat();
 
-        public Korisnik LogovaniKorisnik { get; set; }
+        private Korisnik logovaniKorisnik;
 
-        private List<Akcija> akcijaLista;
-        private List<DodatnaUsluga> dodatnaUslugaLista;
-        private List<Korisnik> korisnikLista;
-        private List<KupljeniNamestaj> kupljeniNamestajLista;
-        private List<Namestaj> namestajLista;
-        private List<Prodaja> prodajaLista;
+        // NOVI NACIN!!!
+        private ObservableCollection<Akcija> akcijaLista;
+        private ObservableCollection<DodatnaUsluga> dodatnaUslugaLista;
+        private ObservableCollection<Korisnik> korisnikLista;
+        private ObservableCollection<KupljeniNamestaj> kupljeniNamestajLista;
+        private ObservableCollection<Prodaja> prodajaLista;
+        private ObservableCollection<Namestaj> namestajLista;
+        private ObservableCollection<TipNamestaja> tipNamestajaLista;
+        private ObservableCollection<Salon> salonLista;
         private Salon salon;
-        private List<TipNamestaja> tipNamestajaLista;
-        //private Projekat() { } --- Ne znam treba li ovo, eto ga
 
-        public List<Akcija> AkcijaLista
+        private Projekat()
+        {
+            akcijaLista = GenericSerializer.Deserialize<Akcija>("akcija.xml");
+            dodatnaUslugaLista = GenericSerializer.Deserialize<DodatnaUsluga>("dodatnaUsluga.xml");
+            korisnikLista = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
+            kupljeniNamestajLista = GenericSerializer.Deserialize<KupljeniNamestaj>("kupljeniNamestaj.xml");
+            prodajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
+            tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
+            namestajLista = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+            salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
+        }
+
+        public Korisnik LogovaniKorisnik
+        {
+            get { return logovaniKorisnik; }
+            set
+            {
+                if (logovaniKorisnik != null)
+                    logovaniKorisnik = value;
+                else;
+                    //Ovde smisliti sta se desava ako neko pokusa da se loguje preko vec ulogovanog, neam pojm
+            }
+        }
+        
+        public ObservableCollection<Akcija> AkcijaLista
         {
             get
             {
@@ -37,7 +63,7 @@ namespace POP_SF07_16.Model
             }
         }
 
-        public List<DodatnaUsluga> DodatnaUslugaLista
+        public ObservableCollection<DodatnaUsluga> DodatnaUslugaLista
         {
             get
             {
@@ -51,7 +77,7 @@ namespace POP_SF07_16.Model
             }
         }
 
-        public List<Korisnik> KorisnikLista
+        public ObservableCollection<Korisnik> KorisnikLista
         {
             get
             {
@@ -65,7 +91,7 @@ namespace POP_SF07_16.Model
             }
         }
 
-        public List<KupljeniNamestaj> KupljeniNamestajLista
+        public ObservableCollection<KupljeniNamestaj> KupljeniNamestajLista
         {
             get
             {
@@ -78,8 +104,8 @@ namespace POP_SF07_16.Model
                 GenericSerializer.Serialize<KupljeniNamestaj>("kupljeniNamestaj.xml", kupljeniNamestajLista);
             }
         }
-
-        public List<Namestaj> NamestajLista
+        
+        public ObservableCollection<Namestaj> NamestajLista
         {
             get
             {
@@ -92,8 +118,8 @@ namespace POP_SF07_16.Model
                 GenericSerializer.Serialize<Namestaj>("namestaj.xml", namestajLista);
             }
         }
-
-        public List<Prodaja> ProdajaLista
+        
+        public ObservableCollection<Prodaja> ProdajaLista
         {
             get
             {
@@ -103,7 +129,21 @@ namespace POP_SF07_16.Model
             set
             {
                 prodajaLista = value;
-                GenericSerializer.Serialize<Prodaja>("prodaja.xml", ProdajaLista);
+                GenericSerializer.Serialize<Prodaja>("prodaja.xml", prodajaLista);
+            }
+        }
+
+        public ObservableCollection<Salon> SalonLista
+        {
+            get
+            {
+                salonLista = GenericSerializer.Deserialize<Salon>("prodaja.xml");
+                return salonLista;
+            }
+            set
+            {
+                salonLista = value;
+                GenericSerializer.Serialize<Salon>("prodaja.xml", salonLista);
             }
         }
 
@@ -111,24 +151,28 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                salon = GenericSerializer.Deserialize<Salon>("salon.xml")[0];
+                salonLista = GenericSerializer.Deserialize<Salon>("prodaja.xml");
+                salon = salonLista[0];
                 return salon;
             }
             set
             {
                 salon = value;
-                GenericSerializer.Serialize<Salon>("salon.xml", new List<Salon> { salon });
+                var lista = new ObservableCollection<Salon>();
+                salonLista.Add(salon);
+                SalonLista = lista;
             }
         }
 
-        public List<TipNamestaja> TipNamestajaLista
+
+        public ObservableCollection<TipNamestaja> TipNamestajaLista
         {
             get
             {
                 tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
                 return tipNamestajaLista;
             }
-            set 
+            set
             {
                 tipNamestajaLista = value;
                 GenericSerializer.Serialize<TipNamestaja>("tipNamestaja.xml", tipNamestajaLista);

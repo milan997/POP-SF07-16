@@ -30,6 +30,9 @@ namespace POP_SF07_16_GUI.GUI
             //Konstruktor bez parametara, poziva se prilikom dodavanja akcije
             InitializeComponent();
 
+            /*
+
+            */
             dpDatumPocetka.SelectedDate = DateTime.Today;
             dpDatumZavrsetka.SelectedDate = DateTime.Today;
         }

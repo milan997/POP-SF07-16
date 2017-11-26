@@ -11,9 +11,13 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" x:Name="lbTipNamestaja" HorizontalAlignment="Left" VerticalAlignment="Top" Height="auto" Width="525"/>
+        <DataGrid Grid.Row="0" x:Name="dgNamestaj" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+        
         <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnDodajNamestaj" Click="btnDodajTipNamestaja_Click">Dodaj Namestaj</Button>
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >   EXIT   </Button>
+        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >/tEXIT/t</Button>
     </Grid>
 
 </Window>

@@ -1,39 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace POP_SF07_16.Model
 {
-    public class Prodaja
+    public class Prodaja : INotifyPropertyChanged
     {
-        public int Id { get; set; }
+        private int id;
 
-        public List<int> KupljeniNamestajID { get; set; }
-        public DateTime DatumProdaje { get; set; }
-        public string BrojRacuna { get; set; }
-        public string Kupac { get; set; }
-        public List<int> DodatneUslugeID { get; set; }
+        private List<int> kupljeniNamestajID;
+        private DateTime datumProdaje;
+        private string brRacuna;
+        private string kupac;
+        private List<int> dodatneUslugeID;
 
         public const double PDV = 0.02;
-        //public double UkupnaCena { get; private set; }
 
-        public Prodaja()
+        public int Id
         {
-            
-        }
-        /*
-        public double Cena()
-        {
-            double cena = 0;
-            foreach (KupljeniNamestaj kp in KupljeniNamestaj)
+            get { return id; }
+            set
             {
-                cena += kp.Cena();
+                id = value;
+                OnPropertyChanged("Id");
             }
-            UkupnaCena = cena;
-            return cena;
         }
-        */
+        
+        public List<int> KupljeniNamestajID
+        {
+            get { return kupljeniNamestajID; }
+            set
+            {
+                kupljeniNamestajID = value;
+                OnPropertyChanged("KupljeniNamestajID");
+            }
+        }
+        
+        public DateTime DatumProdaje
+        {
+            get { return datumProdaje; }
+            set
+            {
+                datumProdaje = value;
+                OnPropertyChanged("DatumProdaje");
+            }
+        }
+        
+        public string BrRacuna
+        {
+            get { return brRacuna; }
+            set
+            {
+                brRacuna = value;
+                OnPropertyChanged("BrRacuna");
+            }
+        }
+        
+        public string Kupac
+        {
+            get { return kupac; }
+            set
+            {
+                kupac = value;
+                OnPropertyChanged("Kupac");
+            }
+        }
+        
+        public List<int> DodatneUslugeID
+        {
+            get { return dodatneUslugeID; }
+            set
+            {
+                dodatneUslugeID = value;
+                OnPropertyChanged("DodatneUslugeID");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

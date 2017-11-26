@@ -29,21 +29,9 @@ namespace POP_SF07_16_GUI
             var pw = new KorisnikWindow();
             pw.ShowDialog();
             //InitializeComponent();
-
-            //OsveziPrikaz();
-        }
-
-        private void OsveziPrikaz()
-        {
-            lbTipNamestaja.Items.Clear();
-
-            foreach (var tipNamestaja in Projekat.Instance.TipNamestajaLista)
-            {
-                lbTipNamestaja.Items.Add(tipNamestaja);
-            }
-
-            //lbNamestaj.; POSTAVI NA NAJGORNJI ITEM DA JE SELEKTOVANO
-            // pastebin.com/u50U4AeE
+            dgNamestaj.ItemsSource = Projekat.Instance.NamestajLista;
+            dgNamestaj.DataContext = this;
+            dgNamestaj.IsSynchronizedWithCurrentItem = true;
         }
 
         private void btnDodajTipNamestaja_Click(object sender, RoutedEventArgs e)

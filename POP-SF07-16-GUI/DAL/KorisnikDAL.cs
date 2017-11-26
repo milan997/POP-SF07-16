@@ -1,6 +1,7 @@
 ﻿using POP_SF07_16.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,26 @@ namespace POP_SF07_16_GUI.DAL
     {
         public static void Add(Korisnik korisnik)
         {
-            List<Korisnik> lista = Projekat.Instance.KorisnikLista;
+            korisnik.Id = GetList().Count;
+            korisnik.Obrisan = false;
+            ObservableCollection<Korisnik> lista = GetList();
             lista.Add(korisnik);
-            Projekat.Instance.KorisnikLista = lista;
+            UpdateList(lista);
         }
 
-        public static List<Korisnik> GetList()
+        public static void Update(Korisnik korisnik)
+        {
+            ObservableCollection<Korisnik> list = GetList();
+            list[korisnik.Id] = korisnik;
+            UpdateList(list);
+        }
+
+        public static ObservableCollection<Korisnik> GetList()
         {
             return Projekat.Instance.KorisnikLista;
         }
 
-        public static void UpdateList(List<Korisnik> newList)
+        public static void UpdateList(ObservableCollection<Korisnik> newList)
         {
             Projekat.Instance.KorisnikLista = newList;
         }

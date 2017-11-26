@@ -1,6 +1,7 @@
 ﻿using POP_SF07_16.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,17 @@ namespace POP_SF07_16_GUI.DAL
     {
         public static void Add(Prodaja prodaja)
         {
-            List<Prodaja> lista = Projekat.Instance.ProdajaLista;
+            ObservableCollection<Prodaja> lista = GetList();
             lista.Add(prodaja);
-            Projekat.Instance.ProdajaLista = lista;
+            UpdateList(lista);
         }
 
-        public static List<Prodaja> GetList()
+        public static ObservableCollection<Prodaja> GetList()
         {
             return Projekat.Instance.ProdajaLista;
         }
 
-        public static void UpdateList(List<Prodaja> newList)
+        public static void UpdateList(ObservableCollection<Prodaja> newList)
         {
             Projekat.Instance.ProdajaLista = newList;
         }
@@ -29,7 +30,7 @@ namespace POP_SF07_16_GUI.DAL
         public static Prodaja GetById(int id)
         {
             Prodaja prodaja = null;
-            foreach (Prodaja p in Projekat.Instance.ProdajaLista)
+            foreach (Prodaja p in GetList())
             {
                 if (p.Id == id)
                 {
