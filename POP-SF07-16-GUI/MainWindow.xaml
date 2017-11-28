@@ -5,16 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI"
         mc:Ignorable="d"
-        Title="GlavniProzor" Height="420" Width="525">
+        Title="GlavniProzor" Height="420" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" x:Name="dgNamestaj" 
+        
+        <TabControl Grid.Row="0" TabStripPlacement="Top">
+            <TabItem Header="Akcije">
+                <DataGrid Name="dgAkcija" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+            
+            <TabItem Header="Dodatne Usluge">
+                <DataGrid Name="dgDodatnaUsluga" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+            
+            <TabItem Header="Korisnici">
+                <DataGrid Name="dgKorisnik" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+            
+            <TabItem Header="Namestaj">
+                <DataGrid Name="dgNamestaj" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+            
+            <TabItem Header="Salon">
+                <DataGrid Name="dgSalon" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+
+            <TabItem Header="Tipovi Namestaja">
+                <DataGrid Name="dgTipNamestaja" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+            </TabItem>
+        </TabControl>
         
         <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnDodajNamestaj" Click="btnDodajTipNamestaja_Click">Dodaj Namestaj</Button>
         <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >/tEXIT/t</Button>

@@ -137,22 +137,21 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                salonLista = GenericSerializer.Deserialize<Salon>("prodaja.xml");
+                salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
                 return salonLista;
             }
             set
             {
                 salonLista = value;
-                GenericSerializer.Serialize<Salon>("prodaja.xml", salonLista);
+                GenericSerializer.Serialize<Salon>("salon.xml", salonLista);
             }
         }
-
+        
         public Salon Salon
         {
             get
             {
-                salonLista = GenericSerializer.Deserialize<Salon>("prodaja.xml");
-                salon = salonLista[0];
+                salon = SalonLista[0];
                 return salon;
             }
             set
@@ -163,7 +162,7 @@ namespace POP_SF07_16.Model
                 SalonLista = lista;
             }
         }
-
+        
 
         public ObservableCollection<TipNamestaja> TipNamestajaLista
         {
