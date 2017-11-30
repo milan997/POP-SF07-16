@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POP_SF07_16.Model
 {
-    public class Akcija : INotifyPropertyChanged
+    public class Akcija : INotifyPropertyChanged, ICloneable
     {
         private int id;
         private bool obrisan;
@@ -74,6 +74,34 @@ namespace POP_SF07_16.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        /*
+        public Akcija Clone(Akcija a)
+        {
+            Akcija newAkcija = new Akcija()
+            {
+                Id = this.Id,
+                Obrisan = this.Obrisan,
+                DatumPocetka = this.DatumPocetka,
+                DatumZavrsetka = this.DatumZavrsetka,
+                Popust = this.Popust
+            };
+
+            return newAkcija;
+        }
+        */
+
+        public object Clone()
+        {
+            return new Akcija()
+            {
+                id = this.Id,
+                datumPocetka = this.DatumPocetka,
+                datumZavrsetka = this.DatumZavrsetka,
+                popust = this.Popust,
+                obrisan = this.Obrisan
+            };
         }
     }
 }

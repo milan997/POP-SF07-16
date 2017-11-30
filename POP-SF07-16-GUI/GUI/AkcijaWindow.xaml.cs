@@ -23,7 +23,10 @@ namespace POP_SF07_16_GUI.GUI
     /// </summary>
     public partial class AkcijaWindow : Window
     {
-        Akcija akcija;
+        Akcija original;
+        Akcija kopija;
+        //public Akcija IzabranaAkcija { get; set; } //Selektovana akcija u data-gridu
+        bool jesteDodavanje = false;
 
         public AkcijaWindow()
         {
@@ -33,29 +36,36 @@ namespace POP_SF07_16_GUI.GUI
             /*
 
             */
-            dpDatumPocetka.SelectedDate = DateTime.Today;
-            dpDatumZavrsetka.SelectedDate = DateTime.Today;
+            jesteDodavanje = true;
+            /*
+            akcija = new Akcija();
+            this.DataContext = akcija;
+            akcija.DatumPocetka = DateTime.Today;
+            akcija.DatumZavrsetka = DateTime.Today;
+            */
         }
 
         public AkcijaWindow(Akcija a)
         {
             //Konstruktor kome prosledjuemo akciju koju zelimo da izmenimo
-            akcija = a;
+           
 
             InitializeComponent();
 
-            dpDatumPocetka.SelectedDate = akcija.DatumPocetka;
-            dpDatumZavrsetka.SelectedDate = akcija.DatumZavrsetka;
-            tbPopust.Text = akcija.Popust.ToString();
+            original = a;
+            kopija = a.Clone() as Akcija;
+            this.DataContext = kopija;
+            //tbPopust.Text = akcija.Popust.ToString();
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if(dpDatumPocetka.SelectedDate == null || dpDatumZavrsetka.SelectedDate == null || tbPopust.Text == "")
+            /*
+            if(akcija.DatumPocetka == null || akcija.DatumZavrsetka == null || akcija.Popust.ToString() == "")
             {
                 MessageBox.Show("Niste uneli sve podatke!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (dpDatumZavrsetka.SelectedDate < DateTime.Now.AddDays(-1))
+            else if (akcija.DatumZavrsetka < DateTime.Now.AddDays(-1))
             {
                 MessageBox.Show("Ne mozete izabrati datum koji je prosao!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -75,31 +85,47 @@ namespace POP_SF07_16_GUI.GUI
             {
                 MessageBox.Show("Niste izvrsili nijednu izmenu", "!!!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-            else if(MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)
+            */
+            
+            if(MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)
                      == MessageBoxResult.Yes)
             {
-                if(akcija == null)
+                if(jesteDodavanje) // Ako dodajemo objekat
                 {
                     //DODAVANJE 
-                    akcija = new Akcija()
-                    {
-                        DatumPocetka = dpDatumPocetka.SelectedDate.Value,
-                        DatumZavrsetka = dpDatumZavrsetka.SelectedDate.Value,
-                        Popust = popust
-                    };
-                    AkcijaDAL.Add(akcija);
+                    AkcijaDAL.Add(kopija);
                 }
-                else if (akcija != null)
+                else if (!jesteDodavanje) // Ako menjamo objekat, akciju
                 {
+                    original.Id = kopija.Id;
+                    original.DatumPocetka = kopija.DatumPocetka;
+                    original.DatumZavrsetka = kopija.DatumZavrsetka;
+                    original.Popust = kopija.Popust;
+                    original.Obrisan = kopija.Obrisan;
+
+                    var lista = AkcijaDAL.GetList();
+                    lista[original.Id] = kopija;
+                    AkcijaDAL.UpdateList(lista);
+                    /*
                     //IZMENA
                     akcija.DatumPocetka = (DateTime) dpDatumPocetka.SelectedDate.Value;
                     akcija.DatumZavrsetka = (DateTime) dpDatumZavrsetka.SelectedDate.Value;
                     akcija.Popust = popust;
                     AkcijaDAL.Update(akcija);
+                    */
                 }
                 this.Close();
-            } 
+            }
+            else if (MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)
+                   == MessageBoxResult.No)
+            {
+                if (!jesteDodavanje)
+                {
+                    var lista = AkcijaDAL.GetList();
+                    lista[original.Id] = kopija;
+                }
+                
+            }
         }
 
         private void btOtkazi_Click(object sender, RoutedEventArgs e)
@@ -115,7 +141,7 @@ namespace POP_SF07_16_GUI.GUI
             //Funkcija proverava dva slucaja:
             //  1.) ako je u pitanju dodavanje, proverava da li je ista upisano u polja, ako nije vraca false
             //  2.) ako je u pitanju izmena, proverava da li je ista menjano, ako nije vraca false
-
+            /*
             //Dodavanje
             if (akcija == null && dpDatumPocetka.SelectedDate == DateTime.Today
                 && dpDatumZavrsetka.SelectedDate == DateTime.Today && tbPopust.Text.Trim() == "")
@@ -124,7 +150,7 @@ namespace POP_SF07_16_GUI.GUI
             else if (akcija != null && dpDatumPocetka.SelectedDate == akcija.DatumPocetka
                 && dpDatumZavrsetka.SelectedDate == akcija.DatumZavrsetka && akcija.Popust.ToString() == tbPopust.Text.Trim())
                     return false;
-            
+            */
             //Ako nije palo ni na jednom 'testu', vracamo true sto znaci da je promena izvrsena
             return true;
         }

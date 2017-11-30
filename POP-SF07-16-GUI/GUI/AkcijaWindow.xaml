@@ -26,7 +26,8 @@
         <DatePicker Grid.Column="1" Grid.Row="0" 
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                Name="dpDatumPocetka" 
-               Keyboard.PreviewKeyDown="Handle"/>
+               Keyboard.PreviewKeyDown="Handle"
+               SelectedDate="{Binding Path=DatumPocetka}" />
         
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
@@ -34,19 +35,20 @@
         <DatePicker Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom" 
                Name="dpDatumZavrsetka" 
-               Keyboard.PreviewKeyDown="Handle"/>
+               Keyboard.PreviewKeyDown="Handle"
+               SelectedDate="{Binding Path=DatumZavrsetka}"/>
         
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbPopust" Content="Popust: "/>
         <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom"
-               Name="tbPopust" HorizontalAlignment="Stretch" />
+               Name="tbPopust" HorizontalAlignment="Stretch" 
+               Text="{Binding Path=Popust}" />
         
         <Button Grid.Column="1" Grid.Row="3"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btPotvrdi" Content="Potvrdi"
-               Click="btPotvrdi_Click" Height="28"  Width="165" 
-               IsDefault="True" />
+               Click="btPotvrdi_Click" Height="28"  Width="165" />
         <Button Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"

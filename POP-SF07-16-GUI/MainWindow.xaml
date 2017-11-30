@@ -8,56 +8,64 @@
         Title="GlavniProzor" Height="420" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         
-        <TabControl Grid.Row="0" TabStripPlacement="Top">
-            <TabItem Header="Akcije">
-                <DataGrid Name="dgAkcija" 
+        <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,0,0,15" >
+            <TabItem Name="tiAkcija" Header="Akcije" TabIndex="0">
+                <DataGrid Name="dgAkcija" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabranaAkcija}" 
+                  IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
-            
-            <TabItem Header="Dodatne Usluge">
+
+            <TabItem Name="tiDodatnaUsluga" Header="Dodatne Usluge" TabIndex="1">
                 <DataGrid Name="dgDodatnaUsluga" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabranaDodatnaUsluga}"
+                    IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
-            
-            <TabItem Header="Korisnici">
+
+            <TabItem Name="tiKorisnik" Header="Korisnici" TabIndex="2">
                 <DataGrid Name="dgKorisnik" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabraniKorisnik}"
+                          IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
-            
-            <TabItem Header="Namestaj">
+
+            <TabItem Name="tiNamestaj" Header="Namestaj" TabIndex="3">
                 <DataGrid Name="dgNamestaj" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabraniNamestaj}" 
+                          IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
-            
-            <TabItem Header="Salon">
+
+            <TabItem Name="tiSalon" Header="Salon" TabIndex="4">
                 <DataGrid Name="dgSalon" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabraniSalon}"
+                          IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
 
-            <TabItem Header="Tipovi Namestaja">
+            <TabItem Name="tiTipNamestaja" Header="Tipovi Namestaja" TabIndex="5">
                 <DataGrid Name="dgTipNamestaja" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniNamestaj}" />
+                  SelectedItem="{Binding Path=IzabraniTipNamestaja}"
+                    IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
         </TabControl>
         
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Left" Name="btnDodajNamestaj" Click="btnDodajTipNamestaja_Click">Dodaj Namestaj</Button>
-        <Button Grid.Row="1" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >/tEXIT/t</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnDodaj" Click="btnDodaj_Click">Dodaj</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnIzmeni" Click="btnIzmeni_Click" Margin="43,0,0,0">Izmeni</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnObrisi" Click="btnObrisi_Click" Margin="89,0,0,0">Obrisi</Button>
+        <Button Grid.Row="0" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >EXIT</Button>
     </Grid>
 
 </Window>

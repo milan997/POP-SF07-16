@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POP_SF07_16.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace POP_SF07_16_GUI.GUI
         public KorisnikWindow()
         {
             InitializeComponent();
+
+            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
+            cbTipKorisnika.SelectedItem = TipKorisnika.Prodavac;
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
