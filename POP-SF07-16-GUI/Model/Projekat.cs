@@ -124,7 +124,7 @@ namespace POP_SF07_16.Model
             get
             {
                 prodajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
-                return ProdajaLista;
+                return prodajaLista;
             }
             set
             {

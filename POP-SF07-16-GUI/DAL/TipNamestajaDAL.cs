@@ -12,8 +12,17 @@ namespace POP_SF07_16_GUI.DAL
     { 
         public static void Add(TipNamestaja tipNamestaja)
         {
+            tipNamestaja.Id = GetList().Count;
+            tipNamestaja.Obrisan = false;
             ObservableCollection<TipNamestaja> list = GetList();
             list.Add(tipNamestaja);
+            UpdateList(list);
+        }
+
+        public static void Update(TipNamestaja tipNamestaja)
+        {
+            ObservableCollection<TipNamestaja> list = GetList();
+            list[tipNamestaja.Id] = tipNamestaja;
             UpdateList(list);
         }
 

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
+    <Id>0</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>Jedan Krevet</Naziv>
+    <Sifra>ker12</Sifra>
+    <Cena>80000</Cena>
+    <KolicinaUMagacinu>12</KolicinaUMagacinu>
+    <TipNamestajaID>1</TipNamestajaID>
+    <AkcijaID>3</AkcijaID>
+  </Namestaj>
+  <Namestaj>
     <Id>1</Id>
     <Obrisan>false</Obrisan>
     <Naziv>Super Udobna Fotelja</Naziv>
     <Sifra>SF123123</Sifra>
-    <Cena>12000</Cena>
+    <Cena>16000</Cena>
     <KolicinaUMagacinu>20</KolicinaUMagacinu>
-    <TipNamestajaID>1</TipNamestajaID>
-    <AkcijaID>0</AkcijaID>
-  </Namestaj>
-  <Namestaj>
-    <Id>2</Id>
-    <Obrisan>false</Obrisan>
-    <Naziv>Neudoban krevet</Naziv>
-    <Sifra>Krevet123</Sifra>
-    <Cena>24000</Cena>
-    <KolicinaUMagacinu>30</KolicinaUMagacinu>
-    <TipNamestajaID>1</TipNamestajaID>
-    <AkcijaID>0</AkcijaID>
+    <TipNamestajaID>3</TipNamestajaID>
+    <AkcijaID>1</AkcijaID>
   </Namestaj>
 </ArrayOfNamestaj>

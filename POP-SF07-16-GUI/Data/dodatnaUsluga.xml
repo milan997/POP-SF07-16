@@ -2,26 +2,38 @@
 <ArrayOfDodatnaUsluga xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DodatnaUsluga>
     <Id>0</Id>
-    <Obrisana>false</Obrisana>
+    <Obrisan>false</Obrisan>
     <Naziv>Nema</Naziv>
     <Cena>0</Cena>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>1</Id>
-    <Obrisana>false</Obrisana>
+    <Obrisan>false</Obrisan>
     <Naziv>Prevoz</Naziv>
     <Cena>420</Cena>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>2</Id>
-    <Obrisana>false</Obrisana>
+    <Obrisan>false</Obrisan>
     <Naziv>Unos</Naziv>
     <Cena>69.2</Cena>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>3</Id>
-    <Obrisana>false</Obrisana>
+    <Obrisan>true</Obrisan>
     <Naziv>Mile Usluzuje</Naziv>
     <Cena>900</Cena>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>4</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>Prevoz</Naziv>
+    <Cena>420666</Cena>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>5</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>Prevozzzz</Naziv>
+    <Cena>420</Cena>
   </DodatnaUsluga>
 </ArrayOfDodatnaUsluga>

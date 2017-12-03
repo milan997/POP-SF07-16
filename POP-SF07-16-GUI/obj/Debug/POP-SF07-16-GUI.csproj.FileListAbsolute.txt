@@ -29,3 +29,7 @@ C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\Sa
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\SalonWindow.baml
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\TipNamestajaWindow.g.cs
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\TipNamestajaWindow.baml
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\IzaberiAkcija.g.cs
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\IzaberiTipNamestaja.g.cs
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\IzaberiAkcija.baml
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\IzaberiTipNamestaja.baml

@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Korisnik>
+    <Id>0</Id>
+    <Obrisan>false</Obrisan>
+    <Ime>Marko</Ime>
+    <Prezime>Jovancic</Prezime>
+    <KorIme>mareCar</KorIme>
+    <Lozinka>123</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+  </Korisnik>
+  <Korisnik>
     <Id>1</Id>
     <Obrisan>false</Obrisan>
     <Ime>Milan</Ime>
     <Prezime>Miljus</Prezime>
     <KorIme>milan997</KorIme>
     <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
+    <TipKorisnika>Prodavac</TipKorisnika>
+  </Korisnik>
+  <Korisnik>
+    <Id>2</Id>
+    <Obrisan>false</Obrisan>
+    <Ime>Jovan</Ime>
+    <Prezime>Jovanes</Prezime>
+    <KorIme>jovo12</KorIme>
+    <Lozinka>123</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+  </Korisnik>
+  <Korisnik>
+    <Id>3</Id>
+    <Obrisan>false</Obrisan>
+    <Ime>Marija</Ime>
+    <Prezime>Blentos</Prezime>
+    <KorIme>mara12</KorIme>
+    <Lozinka>123</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
   </Korisnik>
 </ArrayOfKorisnik>

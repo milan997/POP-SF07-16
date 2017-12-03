@@ -24,14 +24,16 @@
                Name="lbNaziv" Content="Naziv: " />
         <TextBox Grid.Column="1" Grid.Row="0"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbNaziv" Height="29"   />
+               Name="tbNaziv" Height="29" 
+               Text="{Binding Path=Naziv}"/>
         
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbCena" Content="Cena: " />
         <TextBox Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbCena" Height="29"  />
+               Name="tbCena" Height="29"
+               Text="{Binding Path=Cena}"/>
         
         <Button Grid.Column="1" Grid.Row="2"
                 HorizontalAlignment="Stretch" VerticalAlignment="Center"

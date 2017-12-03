@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProdaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Prodaja>
+    <Id>0</Id>
+    <KupljeniNamestajID>
+      <int>1</int>
+      <int>2</int>
+    </KupljeniNamestajID>
+    <DatumProdaje>2017-12-03T00:00:00+01:00</DatumProdaje>
+    <BrRacuna>123123</BrRacuna>
+    <Kupac>Kupilo Kupicic</Kupac>
+    <DodatnaUslugaID>
+      <int>1</int>
+      <int>2</int>
+    </DodatnaUslugaID>
+  </Prodaja>
 </ArrayOfProdaja>

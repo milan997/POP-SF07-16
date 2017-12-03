@@ -26,49 +26,57 @@
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbNaziv" Content="Naziv: "/>
         <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom"
-               Name="tbNaziv" HorizontalAlignment="Stretch" />
+               Name="tbNaziv" HorizontalAlignment="Stretch" 
+                 Text="{Binding Path=Naziv}"/>
 
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbAdresa" Content="Adresa: "/>
         <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
-               Name="tbAdresa" HorizontalAlignment="Stretch" />
+               Name="tbAdresa" HorizontalAlignment="Stretch"
+                 Text="{Binding Path=Adresa}"/>
 
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbTelefon" Content="Telefon: "/>
         <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom"
-               Name="tbTelefon" HorizontalAlignment="Stretch" />
+               Name="tbTelefon" HorizontalAlignment="Stretch" 
+                 Text="{Binding Path=Telefon}"/>
 
         <Label Grid.Column="0" Grid.Row="3"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbEmail" Content="Email: "/>
         <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom"
-               Name="tbEmail" HorizontalAlignment="Stretch" />
+               Name="tbEmail" HorizontalAlignment="Stretch" 
+                 Text="{Binding Path=Email}"/>
 
         <Label Grid.Column="2" Grid.Row="0"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbWebAdresa" Content="Web Adresa: "/>
         <TextBox Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom"
-               Name="tbWebAdresa" HorizontalAlignment="Stretch" />
+               Name="tbWebAdresa" HorizontalAlignment="Stretch"
+                 Text="{Binding Path=WebAdresa}"/>
 
         <Label Grid.Column="2" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbPIB" Content="PIB: "/>
         <TextBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"
-               Name="tbPIB" HorizontalAlignment="Stretch" />
+               Name="tbPIB" HorizontalAlignment="Stretch"
+                 Text="{Binding Path=Pib}"/>
 
         <Label Grid.Column="2" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbMaticniBroj" Content="Maticni broj: "/>
         <TextBox Grid.Column="3" Grid.Row="2" VerticalAlignment="Bottom"
-               Name="tbMaticniBroj" HorizontalAlignment="Stretch" />
+               Name="tbMaticniBroj" HorizontalAlignment="Stretch"
+                 Text="{Binding Path=MaticniBroj}"/>
 
         <Label Grid.Column="2" Grid.Row="3"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbBrojRacuna" Content="Broj racuna: "/>
         <TextBox Grid.Column="3" Grid.Row="3" VerticalAlignment="Bottom"
-               Name="tbBrojRacuna" HorizontalAlignment="Stretch" />
+               Name="tbBrojRacuna" HorizontalAlignment="Stretch" 
+                 Text="{Binding Path=BrRacuna}"/>
 
         <Button Grid.Column="3" Grid.Row="4"
                HorizontalAlignment="Center" VerticalAlignment="Center"

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="NamestajWindow" Height="480" Width="300" FontSize="14"
+        Title="NamestajWindow" Height="480" Width="400" FontSize="14"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,43 +27,55 @@
                Name="lbNaziv" Content="Naziv: " />
         <TextBox Grid.Column="1" Grid.Row="0"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbNaziv"  Height="29" />
+               Name="tbNaziv"  Height="29"
+                 Text="{Binding Path=Naziv}" />
         
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbSifra" Content="Sifra: " />
         <TextBox Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbSifra" Height="29" />
+               Name="tbSifra" Height="29" 
+                 Text="{Binding Path=Sifra}" />
         
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbCena" Content="Cena: " />
         <TextBox Grid.Column="1" Grid.Row="2"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbCena" Height="29" />
+               Name="tbCena" Height="29"
+                 Text="{Binding Path=Cena}" />
         
         <Label Grid.Column="0" Grid.Row="3"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbKolicinaUMagacinu" Content="Kolicina: " />
         <TextBox Grid.Column="1" Grid.Row="3"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbKolicinaUMagacinu"  Height="29" />
+               Name="tbKolicinaUMagacinu"  Height="29"
+                 Text="{Binding Path=KolicinaUMagacinu}" />
         
         <Label Grid.Column="0" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbTipNamestaja" Content="Tip: " />
-        <ComboBox Grid.Column="1" Grid.Row="4"
-               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-            Name="cbTipNamestaja" Height="29" />
-        
+        <TextBox Grid.Column="1" Grid.Row="4" Name="tbTipNamestaja" Margin="0,0,50,0"
+                HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="29"
+                Text="{Binding Path=TipNamestaja, Mode=OneWay}" IsReadOnly="True" />
+        <Button Grid.Column="1" Grid.Row="4"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Name="izaberiTipNamestaj" Content="..."
+                Click="izaberiTipNamestaj_Click" Width="45" Height="29"/>
+
         <Label Grid.Column="0" Grid.Row="5"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbAkcija" Content="Akcija: " />
-        <ComboBox Grid.Column="1" Grid.Row="5"
-               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-            Name="cbAkcija" Height="29" />
-        
+        <TextBox Grid.Column="1" Grid.Row="5" Name="tbAkcija" Margin="0,0,50,0"
+                HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="29"
+                Text="{Binding Path=Akcija, Mode=OneWay}" IsReadOnly="True" />
+        <Button Grid.Column="1" Grid.Row="5"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Name="izaberiAkcija" Content="..."
+                Click="izaberiAkcija_Click" Width="45" Height="29"/>
+
         <Button Grid.Column="1" Grid.Row="6"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btPotvrdi" Content="Potvrdi"

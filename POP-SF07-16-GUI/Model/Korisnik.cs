@@ -22,8 +22,20 @@ namespace POP_SF07_16.Model
         private string prezime;
         private string korIme;
         private string lozinka;
+
         private TipKorisnika tipKorisnika;
         
+        public Korisnik()
+        {
+            Id = 0;
+            Ime = "";
+            Prezime = "";
+            KorIme = "";
+            Lozinka = "";
+            Obrisan = false;
+            TipKorisnika = TipKorisnika.Prodavac;
+        }
+
         public int Id
         {
             get { return id; }

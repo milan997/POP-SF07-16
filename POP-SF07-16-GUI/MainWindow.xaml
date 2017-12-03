@@ -13,6 +13,7 @@
         </Grid.RowDefinitions>
         
         <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,0,0,15" >
+            
             <TabItem Name="tiAkcija" Header="Akcije" TabIndex="0">
                 <DataGrid Name="dgAkcija" 
                   AutoGenerateColumns="True" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn"
@@ -46,7 +47,15 @@
                           IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
 
-            <TabItem Name="tiSalon" Header="Salon" TabIndex="4">
+            <TabItem Name="tiProdaja" Header="Prodaja" TabIndex="4">
+                <DataGrid Name="dgProdaja" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="5, 5, 5, 5"
+                  SelectedItem="{Binding Path=IzabranaProdaja}" 
+                          IsReadOnly="True" CanUserAddRows="False"/>
+            </TabItem>
+
+            <TabItem Name="tiSalon" Header="Salon" TabIndex="5">
                 <DataGrid Name="dgSalon" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
@@ -54,7 +63,7 @@
                           IsReadOnly="True" CanUserAddRows="False"/>
             </TabItem>
 
-            <TabItem Name="tiTipNamestaja" Header="Tipovi Namestaja" TabIndex="5">
+            <TabItem Name="tiTipNamestaja" Header="Tipovi Namestaja" TabIndex="6">
                 <DataGrid Name="dgTipNamestaja" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"

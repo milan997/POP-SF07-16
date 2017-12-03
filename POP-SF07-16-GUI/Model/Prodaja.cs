@@ -24,6 +24,18 @@ namespace POP_SF07_16.Model
 
         public const double PDV = 0.02;
 
+        public Prodaja()
+        {
+            BrRacuna = "";
+            DatumProdaje = DateTime.Today;
+            DodatnaUslugaID = new List<int>();
+            Id = 0;
+            Kupac = "";
+            KupljeniNamestajID = new List<int>();
+            DodatnaUslugaLista = new List<DodatnaUsluga>();
+            KupljeniNamestajLista = new List<KupljeniNamestaj>();
+        }
+
         public int Id
         {
             get { return id; }
@@ -74,7 +86,7 @@ namespace POP_SF07_16.Model
             }
         }
         
-        public List<int> DodatneUslugeID
+        public List<int> DodatnaUslugaID
         {
             get { return dodatnaUslugaID; }
             set
@@ -139,7 +151,9 @@ namespace POP_SF07_16.Model
                 dodatnaUslugaID = this.dodatnaUslugaID,
                 id = this.Id,
                 kupac = this.Kupac,
-                kupljeniNamestajID = this.KupljeniNamestajID
+                kupljeniNamestajID = this.KupljeniNamestajID,
+                dodatnaUslugaLista = this.DodatnaUslugaLista,
+                kupljeniNamestajLista = this.KupljeniNamestajLista
             };
         }
     }

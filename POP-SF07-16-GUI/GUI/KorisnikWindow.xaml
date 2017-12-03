@@ -25,35 +25,40 @@
                Name="lbIme" Content="Ime: " />
         <TextBox Grid.Column="1" Grid.Row="0"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbIme"  Height="29" />
+               Name="tbIme"  Height="29"
+               Text="{Binding Path=Ime}"/>
         
         <Label Grid.Column="0" Grid.Row="1"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbPrezime" Content="Prezime: " />
         <TextBox Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbPrezime" Height="29" />
+               Name="tbPrezime" Height="29" 
+                 Text="{Binding Path=Prezime}"/>
         
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbKorisnickoIme" Content="Kor. ime: " />
         <TextBox Grid.Column="1" Grid.Row="2"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbKorisnickoIme" Height="29" />
+               Name="tbKorisnickoIme" Height="29" 
+                 Text="{Binding Path=KorIme}"/>
         
         <Label Grid.Column="0" Grid.Row="3"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbLozinka" Content="Lozinka: " />
         <TextBox Grid.Column="1" Grid.Row="3"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbLozinka" Height="29" />
+               Name="tbLozinka" Height="29" 
+                 Text="{Binding Path=Lozinka}"/>
         
         <Label Grid.Column="0" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbTipKorisnika" Content="Tip Korisnika: " />
         <ComboBox Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-            Name="cbTipKorisnika" Height="29" />
+            Name="cbTipKorisnika" Height="29" 
+                  SelectedItem="{Binding Path=TipKorisnika}"/>
         
         <Button Grid.Column="1" Grid.Row="5"
                HorizontalAlignment="Center" VerticalAlignment="Center"

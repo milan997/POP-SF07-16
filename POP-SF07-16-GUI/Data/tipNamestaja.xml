@@ -18,11 +18,16 @@
   <TipNamestaja>
     <Id>3</Id>
     <Obrisan>false</Obrisan>
-    <Naziv>Treci Namestaj</Naziv>
+    <Naziv>Fotelja</Naziv>
   </TipNamestaja>
   <TipNamestaja>
     <Id>4</Id>
     <Obrisan>false</Obrisan>
-    <Naziv>Treci Namestaj</Naziv>
+    <Naziv>Nazglavak</Naziv>
+  </TipNamestaja>
+  <TipNamestaja>
+    <Id>5</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>Sobna Lampa</Naziv>
   </TipNamestaja>
 </ArrayOfTipNamestaja>

@@ -18,6 +18,14 @@ namespace POP_SF07_16.Model
 
         private Namestaj namestaj;
 
+        public KupljeniNamestaj()
+        {
+            Id = 0;
+            NamestajID = 0;
+            Kolicina = 0;
+            Namestaj = null;
+        }
+
         public int Id
         {
             get { return id; }
@@ -61,7 +69,7 @@ namespace POP_SF07_16.Model
             set
             {
                 namestaj = value;
-                NamestajID = namestaj.Id;
+                NamestajID = namestaj != null ? namestaj.Id : 0;
             }
         }
 

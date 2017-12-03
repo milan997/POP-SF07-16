@@ -1,4 +1,5 @@
 ﻿using POP_SF07_16.Model;
+using POP_SF07_16_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static POP_SF07_16_GUI.Utils.Enum;
 
 namespace POP_SF07_16_GUI.GUI
 {
@@ -20,24 +22,57 @@ namespace POP_SF07_16_GUI.GUI
     /// </summary>
     public partial class KorisnikWindow : Window
     {
-        public enum Operacija { DODAVANJE , IZMENA}
-
         Korisnik original;
         Korisnik kopija;
 
-        public KorisnikWindow()
+        Operacija operacija;
+
+        public KorisnikWindow(Korisnik k, Operacija operacija = Operacija.DODAVANJE)
         {
             InitializeComponent();
 
+            original = k;
+            kopija = k.Clone() as Korisnik;
+            this.DataContext = kopija;
+            this.operacija = operacija;
+
             cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
-            cbTipKorisnika.SelectedItem = TipKorisnika.Prodavac;
-
-
+            //cbTipKorisnika.SelectedItem = TipKorisnika.Prodavac;
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult mbr = MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
+            if (mbr == MessageBoxResult.Yes)
+            {
+                if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
+                {
+                    KorisnikDAL.Add(kopija);
+                }
+                else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
+                {
+                    original.Id = kopija.Id;
+                    original.Obrisan = kopija.Obrisan;
+                    original.Ime = kopija.Ime;
+                    original.Prezime = kopija.Prezime;
+                    original.KorIme = kopija.KorIme;
+                    original.Lozinka = kopija.Lozinka;
+                    original.TipKorisnika = kopija.TipKorisnika;
+
+                    KorisnikDAL.Update(kopija);
+                }
+                this.Close();
+            }
+            else if (mbr == MessageBoxResult.No)
+            {
+                if (operacija == Operacija.IZMENA)
+                {
+                    var lista = KorisnikDAL.GetList();
+                    lista[original.Id] = kopija;
+                }
+
+            }
         }
 
         private void btOtkazi_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,24 @@
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.IzaberiTipNamestaja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
+        mc:Ignorable="d"
+        Title="IzaberiTipNamestaja" Height="320" Width="400" FontSize="14">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="dgTipNamestaja" AutoGenerateColumns="True" 
+                  Grid.Row="0" Margin="5,5,5,5" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  SelectedItem="{Binding Path=IzabranTipNamestaja}" 
+                  IsReadOnly="True" CanUserAddRows="False"/>
+
+        <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnPotvrdi" Click="btnPotvrdi_Click" Width="85">Potvrdi</Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnOtkazi" Click="btnOtkazi_Click" Margin="0,0,90,0" Width="85">Otkazi</Button>
+    </Grid>
+</Window>

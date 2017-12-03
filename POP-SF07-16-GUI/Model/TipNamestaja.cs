@@ -14,6 +14,13 @@ namespace POP_SF07_16.Model
 
         private string naziv;
         
+        public TipNamestaja()
+        {
+            Id = 0;
+            Obrisan = false;
+            Naziv = "";
+        }
+
         public int Id
         {
             get { return id; }
@@ -57,7 +64,7 @@ namespace POP_SF07_16.Model
 
         public override string ToString()
         {
-            return $"{Id}, {Naziv}, {Obrisan}";
+            return $"{Naziv}";
         }
 
         public object Clone()

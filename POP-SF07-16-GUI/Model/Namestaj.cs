@@ -25,6 +25,20 @@ namespace POP_SF07_16.Model
         private TipNamestaja tipNamestaja;
         private Akcija akcija;
 
+        public Namestaj()
+        {
+            Akcija = null;
+            AkcijaID = 0;
+            Cena = 0;
+            Id = 0;
+            KolicinaUMagacinu = 0;
+            Naziv = "";
+            Obrisan = false;
+            Sifra = "";
+            TipNamestaja = null;
+            TipNamestajaID = 0;
+        }
+
         public int Id
         {
             get { return id; }
@@ -121,7 +135,7 @@ namespace POP_SF07_16.Model
             set
             {
                 tipNamestaja = value;
-                TipNamestajaID = tipNamestaja.Id;
+                TipNamestajaID = tipNamestaja != null ? tipNamestaja.Id : 0;
             }
         }
 
@@ -138,7 +152,7 @@ namespace POP_SF07_16.Model
             set
             {
                 akcija = value;
-                AkcijaID = akcija.Id;
+                AkcijaID = akcija != null ? akcija.Id : 0;
             }
         }
 

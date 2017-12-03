@@ -5,11 +5,11 @@
     <Obrisan>false</Obrisan>
     <Naziv>Milove Stolice</Naziv>
     <Adresa>Zelenog Venca 420</Adresa>
-    <Telefon>069-420-666</Telefon>
-    <Email>milan.997@hotmail.com</Email>
-    <WebAdresa>sedite-na-mila.com</WebAdresa>
-    <PIB>123333</PIB>
-    <MaticniBroj>1230-23</MaticniBroj>
-    <BrojZiroRacuna>123-22223312314512-420</BrojZiroRacuna>
+    <Telefon>021/23-321-11</Telefon>
+    <Email>email@em.ail</Email>
+    <WebAdresa>www.salon123.rs</WebAdresa>
+    <Pib>12312312</Pib>
+    <MaticniBroj>1234567</MaticniBroj>
+    <BrRacuna>420</BrRacuna>
   </Salon>
 </ArrayOfSalon>

@@ -21,6 +21,20 @@ namespace POP_SF07_16.Model
         private string maticniBroj;
         private string brRacuna;
 
+        public Salon()
+        {
+            Adresa = "";
+            BrRacuna = "";
+            Email = "";
+            Id = 0;
+            MaticniBroj = "";
+            Naziv = "";
+            Obrisan = false;
+            Pib = "";
+            Telefon = "";
+            WebAdresa = "";
+        }
+
         public int Id
         {
             get { return id; }

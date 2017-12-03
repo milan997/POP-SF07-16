@@ -71,6 +71,12 @@
     <Compile Include="GUI\DodatnaUslugaWindow.xaml.cs">
       <DependentUpon>DodatnaUslugaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\IzaberiAkcija.xaml.cs">
+      <DependentUpon>IzaberiAkcija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IzaberiTipNamestaja.xaml.cs">
+      <DependentUpon>IzaberiTipNamestaja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\KorisnikWindow.xaml.cs">
       <DependentUpon>KorisnikWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +95,7 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Enum.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
     <Compile Include="Utils\Call.cs" />
     <Compile Include="Utils\Handlers.cs" />
@@ -97,6 +104,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\DodatnaUslugaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IzaberiAkcija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IzaberiTipNamestaja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static POP_SF07_16_GUI.Utils.Enum;
 
 namespace POP_SF07_16_GUI.GUI
 {
@@ -22,95 +23,66 @@ namespace POP_SF07_16_GUI.GUI
     /// </summary>
     public partial class DodatnaUslugaWindow : Window
     {
-        DodatnaUsluga dodatnaUsluga;
+        DodatnaUsluga original;
+        DodatnaUsluga kopija;
 
-        public DodatnaUslugaWindow()
+        Operacija operacija;
+        
+        public DodatnaUslugaWindow(DodatnaUsluga du, Operacija operacija = Operacija.DODAVANJE)
         {
             InitializeComponent();
-        }
 
-        public DodatnaUslugaWindow(DodatnaUsluga du)
-        {
-            InitializeComponent();
-            tbNaziv.Text = du.Naziv;
-            tbCena.Text = du.Cena.ToString();
+            original = du;
+            kopija = du.Clone() as DodatnaUsluga;
+            this.DataContext = kopija;
+            this.operacija = operacija;
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if (tbNaziv.Text == "" || tbCena.Text == "")
-            {
-                MessageBox.Show("Niste uneli sve podatke!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (!Double.TryParse(tbCena.Text.Trim(), out double cena))
-            {
-                MessageBox.Show("Napravili ste gresku prilikom unosa cene!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (cena <= 0)
-            {
-                MessageBox.Show("Cena mora biti veca od nule!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (!NapravljeneIzmene())
-            {
-                MessageBox.Show("Niste izvrsili nijednu izmenu", "!!!", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            MessageBoxResult mbr = MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
-            else if (MessageBox.Show("Da li zelite da sacuvate izmene?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)
-                == MessageBoxResult.Yes)
+            if (mbr == MessageBoxResult.Yes)
             {
-                if (dodatnaUsluga == null)
+                if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    //DODAVANJE 
-                    dodatnaUsluga = new DodatnaUsluga()
-                    {
-                        Naziv = tbNaziv.Text,
-                        Cena = cena
-                    };
-                    DodatnaUslugaDAL.Add(dodatnaUsluga);
+                    DodatnaUslugaDAL.Add(kopija);
+
                 }
-                else if (dodatnaUsluga != null)
+                else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
                 {
-                    //IZMENA
-                    dodatnaUsluga.Cena = cena;
-                    dodatnaUsluga.Naziv = tbNaziv.Text.Trim();
+                    original.Id = kopija.Id;
+                    original.Cena = kopija.Cena;
+                    original.Obrisan = kopija.Obrisan;
+                    original.Naziv = kopija.Naziv;
 
-                    DodatnaUslugaDAL.Update(dodatnaUsluga);
+                    DodatnaUslugaDAL.Update(kopija);
                 }
                 this.Close();
+            }
+            else if (mbr == MessageBoxResult.No)
+            {
+                if (operacija == Operacija.IZMENA)
+                {
+                    var lista = DodatnaUslugaDAL.GetList();
+                    lista[original.Id] = kopija;
+                }
+
             }
         }
 
         private void btOtkazi_Click(object sender, RoutedEventArgs e)
         {
-            if (NapravljeneIzmene())
-                Call.CheckOnClose(this);
-            else
-                Close();
+           Close();
         }
 
-        private Boolean NapravljeneIzmene()
-        {
-            //Funkcija proverava dva slucaja:
-            //  1.) ako je u pitanju dodavanje, proverava da li je ista upisano u polja, ako nije vraca false
-            //  2.) ako je u pitanju izmena, proverava da li je ista menjano, ako nije vraca false
-
-            //Dodavanje
-            if (dodatnaUsluga == null && tbNaziv.Text.Trim() == "" && tbNaziv.Text.Trim() == "")
-                return false;
-            //Izmena
-            else if (dodatnaUsluga != null && tbNaziv.Text.Trim() == dodatnaUsluga.Naziv 
-                && tbCena.Text.Trim() == dodatnaUsluga.Cena.ToString())
-                return false;
-
-            //Ako nije palo ni na jednom 'testu', vracamo true sto znaci da je promena izvrsena
-            return true;
-        }
-
+        
         private void Handle(object sender, KeyEventArgs e)
         {
             //Funkcija za 'hendlanje evenata', poziva se za sve 'hendlove'
             if (e.Key == Key.Escape)
-                Handlers.HandleEsc(sender, e, NapravljeneIzmene());
+                Handlers.HandleEsc(sender, e);
         }
+        
     }
 }

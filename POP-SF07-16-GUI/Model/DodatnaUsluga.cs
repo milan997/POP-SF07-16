@@ -15,6 +15,14 @@ namespace POP_SF07_16.Model
         private string naziv;
         private double cena;
 
+        public DodatnaUsluga()
+        {
+            Id = 0;
+            Obrisan = false;
+            Naziv = "";
+            Cena = 0;
+        }
+
         public int Id
         {
             get { return id; }

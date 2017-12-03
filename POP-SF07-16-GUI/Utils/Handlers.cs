@@ -11,7 +11,7 @@ namespace POP_SF07_16_GUI.Utils
 {
     public static class Handlers
     {
-        public static void HandleEsc(object sender, KeyEventArgs e, Boolean napravljeneIzmene)
+        public static void HandleEsc(object sender, KeyEventArgs e)
         {
             //Funkcija reaguje na pritisak ESC tastera, ako je ista uneseno u prozor pitace da li 
             // zelimo da sacuvamo izmene, ako nije - prosto ce zatvoriti dijalog
@@ -20,11 +20,8 @@ namespace POP_SF07_16_GUI.Utils
                 Window w;
                 try { w = sender as Window; }
                 catch (InvalidCastException ex) { return; }
-                
-                if (napravljeneIzmene == false)
-                    w.Close();
-                else
-                    Call.CheckOnClose(w);
+
+                w.Close();
             }
         }
 
