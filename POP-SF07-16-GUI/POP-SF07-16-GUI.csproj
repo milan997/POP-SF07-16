@@ -68,6 +68,9 @@
     <Compile Include="GUI\AkcijaWindow.xaml.cs">
       <DependentUpon>AkcijaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DodajNamestajWindow.xaml.cs">
+      <DependentUpon>DodajNamestajWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DodatnaUslugaWindow.xaml.cs">
       <DependentUpon>DodatnaUslugaWindow.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
     <Compile Include="Utils\Call.cs" />
     <Compile Include="Utils\Handlers.cs" />
     <Page Include="GUI\AkcijaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DodajNamestajWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

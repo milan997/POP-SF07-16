@@ -98,6 +98,16 @@ namespace POP_SF07_16_GUI.GUI
         private void DodajNamestaj_Click(object sender, RoutedEventArgs e)
         {
 
+            DodajNamestajWindow dnw = new DodajNamestajWindow();
+            if (dnw.ShowDialog() == true)
+            {
+                List<KupljeniNamestaj> lista = kopija.KupljeniNamestajLista;
+                lista.Add(dnw.KupljeniNamestaj);
+                kopija.KupljeniNamestajLista = lista;
+            }
+            viewKupljeniNamestaj = CollectionViewSource.GetDefaultView(kopija.KupljeniNamestajLista);
+            dgKupljeniNamestaj.ItemsSource = viewKupljeniNamestaj;
+
         }
 
         private void DodajUsluge_Click(object sender, RoutedEventArgs e)
