@@ -14,7 +14,7 @@
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>2</Id>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
     <Naziv>Unos</Naziv>
     <Cena>69.2</Cena>
   </DodatnaUsluga>
@@ -32,7 +32,7 @@
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>5</Id>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
     <Naziv>Prevozzzz</Naziv>
     <Cena>420</Cena>
   </DodatnaUsluga>

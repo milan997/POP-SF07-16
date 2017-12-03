@@ -111,6 +111,7 @@ namespace POP_SF07_16.Model
             {
                 kupljeniNamestajLista = value;
                 KupljeniNamestajID = KupljeniNamestajBLL.ListNamestajToListInt(kupljeniNamestajLista);
+                OnPropertyChanged("KupljeniNamestajLista");
             }
         }
 
@@ -128,6 +129,7 @@ namespace POP_SF07_16.Model
             {
                 dodatnaUslugaLista = value;
                 dodatnaUslugaID = DodatnaUslugaBLL.ListDodatnaUslugaToListInt(dodatnaUslugaLista);
+                OnPropertyChanged("DodatnaUslugaLista");
             }
         }
 

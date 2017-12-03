@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace POP_SF07_16.Model
         private ObservableCollection<TipNamestaja> tipNamestajaLista;
         private ObservableCollection<Salon> salonLista;
         private Salon salon;
+
 
         private Projekat()
         {
@@ -163,7 +165,6 @@ namespace POP_SF07_16.Model
             }
         }
         
-
         public ObservableCollection<TipNamestaja> TipNamestajaLista
         {
             get

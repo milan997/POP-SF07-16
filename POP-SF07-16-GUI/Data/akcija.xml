@@ -12,7 +12,7 @@
     <Obrisan>false</Obrisan>
     <DatumPocetka>2017-11-20T00:00:00</DatumPocetka>
     <DatumZavrsetka>2019-11-19T00:00:00</DatumZavrsetka>
-    <Popust>10</Popust>
+    <Popust>9</Popust>
   </Akcija>
   <Akcija>
     <Id>2</Id>
@@ -41,5 +41,19 @@
     <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
     <DatumZavrsetka>2017-12-30T00:00:00</DatumZavrsetka>
     <Popust>420</Popust>
+  </Akcija>
+  <Akcija>
+    <Id>6</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-04T00:00:00</DatumZavrsetka>
+    <Popust>50</Popust>
+  </Akcija>
+  <Akcija>
+    <Id>7</Id>
+    <Obrisan>false</Obrisan>
+    <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-03T00:00:00+01:00</DatumZavrsetka>
+    <Popust>9000</Popust>
   </Akcija>
 </ArrayOfAkcija>

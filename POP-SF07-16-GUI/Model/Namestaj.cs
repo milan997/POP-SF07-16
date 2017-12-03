@@ -136,6 +136,7 @@ namespace POP_SF07_16.Model
             {
                 tipNamestaja = value;
                 TipNamestajaID = tipNamestaja != null ? tipNamestaja.Id : 0;
+                OnPropertyChanged("TipNamestaja");
             }
         }
 
@@ -153,6 +154,7 @@ namespace POP_SF07_16.Model
             {
                 akcija = value;
                 AkcijaID = akcija != null ? akcija.Id : 0;
+                OnPropertyChanged("Akcija");
             }
         }
 

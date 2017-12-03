@@ -28,9 +28,9 @@
                HorizontalAlignment="Right" VerticalAlignment="Center"
                 Content="Dodaj" Width="90"
                 Name="DodajNamestaj" Click="DodajNamestaj_Click"/>
-        <ListBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        <DataGrid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="lbxKupljeniNamestaj" Height="88"  />
+               Name="dgKupljeniNamestaj" Height="88"  />
 
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
@@ -60,9 +60,9 @@
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Content="Dodaj" Width="90"
                Name="DodajUsluge" Click="DodajUsluge_Click"/>
-        <ListBox Grid.Column="1" Grid.Row="5"
+        <DataGrid Grid.Column="1" Grid.Row="5"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="lbxDodatneUsluge" Height="44"  />
+               Name="dgDodatneUsluge" Height="44"  />
 
         <Button Grid.Column="1" Grid.Row="6"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"

@@ -7,7 +7,7 @@
     <Sifra>ker12</Sifra>
     <Cena>80000</Cena>
     <KolicinaUMagacinu>12</KolicinaUMagacinu>
-    <TipNamestajaID>1</TipNamestajaID>
+    <TipNamestajaID>5</TipNamestajaID>
     <AkcijaID>3</AkcijaID>
   </Namestaj>
   <Namestaj>
@@ -17,7 +17,7 @@
     <Sifra>SF123123</Sifra>
     <Cena>16000</Cena>
     <KolicinaUMagacinu>20</KolicinaUMagacinu>
-    <TipNamestajaID>3</TipNamestajaID>
-    <AkcijaID>1</AkcijaID>
+    <TipNamestajaID>4</TipNamestajaID>
+    <AkcijaID>0</AkcijaID>
   </Namestaj>
 </ArrayOfNamestaj>
