@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POP_SF07_16.Model
 {
-    public class DodatnaUsluga : INotifyPropertyChanged
+    public class DodatnaUsluga : INotifyPropertyChanged, ICloneable
     {
         private int id;
         private bool obrisan;
@@ -64,5 +64,17 @@ namespace POP_SF07_16.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public object Clone()
+        {
+            return new DodatnaUsluga()
+            {
+                cena = this.Cena,
+                id = this.Id,
+                naziv = this.Naziv,
+                obrisan = this.Obrisan
+            };
+        }
+
     }
 }

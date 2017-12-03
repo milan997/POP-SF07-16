@@ -26,45 +26,57 @@ namespace POP_SF07_16_GUI
     public partial class MainWindow : Window
     {
         string tab;
+
         ICollectionView viewAkcija;
+        ICollectionView viewDodatnaUsluga;
+        ICollectionView viewKorisnik;
+        ICollectionView viewNamestaj;
+        ICollectionView viewSalon;
+        ICollectionView viewTipNamestaja;
+
         public Akcija IzabranaAkcija { get; set; }
+        public DodatnaUsluga IzabranaDodatnaUsluga { get; set; }
+        public Korisnik IzabranKorisnik { get; set; }
+        public Namestaj IzabranNamestaj { get; set; }
+        public Salon IzabranSalon { get; set; }
+        public TipNamestaja IzabranTipNamestaja { get; set; }
 
         public MainWindow()
         {
-            /*
-            var pw = new KorisnikWindow();
-            pw.ShowDialog();
-            */
             InitializeComponent();
                         
             viewAkcija = CollectionViewSource.GetDefaultView(Projekat.Instance.AkcijaLista);
-            viewAkcija.Filter = FilteredAkcija;
             dgAkcija.ItemsSource = viewAkcija;
             dgAkcija.DataContext = this;
             dgAkcija.IsSynchronizedWithCurrentItem = true;
             dgAkcija.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgDodatnaUsluga.ItemsSource = DodatnaUslugaDAL.GetList();
+            viewDodatnaUsluga = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatnaUslugaLista);
+            dgDodatnaUsluga.ItemsSource = viewDodatnaUsluga;
             dgDodatnaUsluga.DataContext = this;
             dgDodatnaUsluga.IsSynchronizedWithCurrentItem = true;
             dgDodatnaUsluga.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgKorisnik.ItemsSource = KorisnikDAL.GetList();
+            viewKorisnik = CollectionViewSource.GetDefaultView(Projekat.Instance.KorisnikLista);
+            dgKorisnik.ItemsSource = viewKorisnik;
             dgKorisnik.DataContext = this;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNamestaj.ItemsSource = NamestajDAL.GetList();
+            viewNamestaj = CollectionViewSource.GetDefaultView(Projekat.Instance.NamestajLista);
+            dgNamestaj.ItemsSource = viewNamestaj;
             dgNamestaj.DataContext = this;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgSalon.ItemsSource = Projekat.Instance.SalonLista; //IZMENI OVO
+            viewSalon = CollectionViewSource.GetDefaultView(Projekat.Instance.SalonLista);
+            dgSalon.ItemsSource = viewSalon;
             dgSalon.DataContext = this;
             dgSalon.IsSynchronizedWithCurrentItem = true;
             dgSalon.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgTipNamestaja.ItemsSource = TipNamestajaDAL.GetList();
+            viewTipNamestaja = CollectionViewSource.GetDefaultView(Projekat.Instance.TipNamestajaLista);
+            dgTipNamestaja.ItemsSource = viewSalon;
             dgTipNamestaja.DataContext = this;
             dgTipNamestaja.IsSynchronizedWithCurrentItem = true;
             dgTipNamestaja.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -85,12 +97,6 @@ namespace POP_SF07_16_GUI
             // return !((Akcija)obj).Obrisan;
         }
 
-        private void btnDodajTipNamestaja_Click(object sender, RoutedEventArgs e)
-        {
-            //var window = new TipNamestajaWindow();
-            //window.ShowDialog();
-        }
-
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -101,12 +107,16 @@ namespace POP_SF07_16_GUI
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
             if(tab == "Akcije")
             {
-                AkcijaWindow w = new AkcijaWindow();
+                Akcija novaAkcija = new Akcija();
+                AkcijaWindow w = new AkcijaWindow(novaAkcija);
                 w.ShowDialog();
+                viewAkcija = CollectionViewSource.GetDefaultView(Projekat.Instance.AkcijaLista);
+                //dgAkcija.Items.Refresh();
             }
             else if (tab == "Dodatne Usluge")
             {
-                DodatnaUslugaWindow w = new DodatnaUslugaWindow();
+                DodatnaUsluga novaDodatnaUsluga = new DodatnaUsluga();
+                DodatnaUslugaWindow w = new DodatnaUslugaWindow(novaDodatnaUsluga);
                 w.ShowDialog();
             }
             else if (tab == "Korisnici")
@@ -136,7 +146,7 @@ namespace POP_SF07_16_GUI
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
             if (tab == "Akcije")
             {
-                AkcijaWindow w = new AkcijaWindow(dgAkcija.SelectedItem as Akcija);
+                AkcijaWindow w = new AkcijaWindow(IzabranaAkcija);
                 w.ShowDialog();
             }
             else if (tab == "Dodatne Usluge")
@@ -146,7 +156,7 @@ namespace POP_SF07_16_GUI
             }
             else if (tab == "Korisnici")
             {
-                KorisnikWindow w = new KorisnikWindow(/*dgKorisnik.SelectedItem as Korisnik*/);
+                KorisnikWindow w = new KorisnikWindow(dgKorisnik.SelectedItem as Korisnik);
                 w.ShowDialog();
             }
             else if (tab == "Namestaj")
@@ -168,7 +178,34 @@ namespace POP_SF07_16_GUI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-
+            tab = (tbc.SelectedItem as TabItem).Header.ToString();
+            if (tab == "Akcije")
+            {
+                Akcija selektovanaAkcija = IzabranaAkcija;
+                selektovanaAkcija.Obrisan = true;
+                AkcijaDAL.Update(selektovanaAkcija);
+                //Projekat.Instance.AkcijaLista.Remove(selektovanaAkcija);
+            }
+            else if (tab == "Dodatne Usluge")
+            {
+                
+            }
+            else if (tab == "Korisnici")
+            {
+                
+            }
+            else if (tab == "Namestaj")
+            {
+                
+            }
+            else if (tab == "Salon")
+            {
+                
+            }
+            else if (tab == "Tipovi Namestaja")
+            {
+                
+            }
         }
 
         private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

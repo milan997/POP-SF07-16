@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace POP_SF07_16.Model
 {
-    public class KupljeniNamestaj : INotifyPropertyChanged
+    public class KupljeniNamestaj : INotifyPropertyChanged, ICloneable
     {
         private int id;
 
@@ -74,5 +74,17 @@ namespace POP_SF07_16.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public object Clone()
+        {
+            return new KupljeniNamestaj()
+            {
+                id = this.Id,
+                kolicina = this.Kolicina,
+                namestaj = this.Namestaj,
+                namestajID = this.NamestajID
+            };
+        }
+
     }
 }

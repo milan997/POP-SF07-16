@@ -14,7 +14,8 @@
         
         <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,0,0,15" >
             <TabItem Name="tiAkcija" Header="Akcije" TabIndex="0">
-                <DataGrid Name="dgAkcija" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn"
+                <DataGrid Name="dgAkcija" 
+                  AutoGenerateColumns="True" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabranaAkcija}" 

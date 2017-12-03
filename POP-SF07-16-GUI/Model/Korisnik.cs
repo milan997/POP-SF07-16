@@ -13,7 +13,7 @@ namespace POP_SF07_16.Model
         Prodavac
     }
 
-    public class Korisnik : INotifyPropertyChanged
+    public class Korisnik : INotifyPropertyChanged, ICloneable
     {
         private int id;
         private bool obrisan;
@@ -103,5 +103,20 @@ namespace POP_SF07_16.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        
+        public object Clone()
+        {
+            return new Korisnik()
+            {
+                id = this.Id,
+                ime = this.Ime,
+                prezime = this.Prezime,
+                korIme = this.KorIme,
+                lozinka = this.Lozinka,
+                obrisan = this.Obrisan,
+                tipKorisnika = this.TipKorisnika
+            };
+        }
+
     }
 }

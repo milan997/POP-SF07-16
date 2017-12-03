@@ -16,6 +16,15 @@ namespace POP_SF07_16.Model
         private DateTime datumZavrsetka;
         private decimal popust;
 
+        public Akcija()
+        {
+            Id = 0;
+            Obrisan = false;
+            DatumPocetka = DateTime.Today;
+            DatumZavrsetka = DateTime.Today;
+            Popust = 0;
+        }
+
         public int Id
         {
             get { return id; }
@@ -75,22 +84,6 @@ namespace POP_SF07_16.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        /*
-        public Akcija Clone(Akcija a)
-        {
-            Akcija newAkcija = new Akcija()
-            {
-                Id = this.Id,
-                Obrisan = this.Obrisan,
-                DatumPocetka = this.DatumPocetka,
-                DatumZavrsetka = this.DatumZavrsetka,
-                Popust = this.Popust
-            };
-
-            return newAkcija;
-        }
-        */
 
         public object Clone()
         {

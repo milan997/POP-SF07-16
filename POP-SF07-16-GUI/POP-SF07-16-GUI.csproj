@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BLL\DodatnaUslugaBLL.cs" />
+    <Compile Include="BLL\KupljeniNamestajBLL.cs" />
+    <Compile Include="BLL\NamestajBLL.cs" />
     <Compile Include="DAL\AkcijaDAL.cs" />
     <Compile Include="DAL\DodatnaUslugaDAL.cs" />
     <Compile Include="DAL\KorisnikDAL.cs" />
@@ -195,8 +198,6 @@
   <ItemGroup>
     <Resource Include="Data\salon.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

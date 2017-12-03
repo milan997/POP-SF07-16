@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace POP_SF07_16.Model
 {
-    public class Namestaj : INotifyPropertyChanged
+    public class Namestaj : INotifyPropertyChanged, ICloneable
     {
         private int id;
         private bool obrisan;
@@ -23,6 +23,7 @@ namespace POP_SF07_16.Model
         private int akcijaID;
 
         private TipNamestaja tipNamestaja;
+        private Akcija akcija;
 
         public int Id
         {
@@ -124,8 +125,27 @@ namespace POP_SF07_16.Model
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        [XmlIgnore]
+        public Akcija Akcija
+        {
+            get
+            {
+                if (akcija == null)
+                    return AkcijaDAL.GetById(akcijaID);
+                else
+                    return akcija;
+            }
+            set
+            {
+                akcija = value;
+                AkcijaID = akcija.Id;
+            }
+        }
 
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         protected void OnPropertyChanged(string propertyName)
         {
             if(PropertyChanged != null)
@@ -133,6 +153,24 @@ namespace POP_SF07_16.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public object Clone()
+        {
+            return new Namestaj()
+            {
+                akcija = this.Akcija,
+                akcijaID = this.AkcijaID,
+                cena = this.Cena,
+                id = this.Id,
+                kolicinaUMagacinu = this.KolicinaUMagacinu,
+                naziv = this.Naziv,
+                obrisan = this.Obrisan,
+                sifra = this.Sifra,
+                tipNamestaja = this.TipNamestaja,
+                tipNamestajaID = this.TipNamestajaID,
+            };
+        }
+
     }
 
 }

@@ -20,12 +20,19 @@ namespace POP_SF07_16_GUI.GUI
     /// </summary>
     public partial class KorisnikWindow : Window
     {
+        public enum Operacija { DODAVANJE , IZMENA}
+
+        Korisnik original;
+        Korisnik kopija;
+
         public KorisnikWindow()
         {
             InitializeComponent();
 
             cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
             cbTipKorisnika.SelectedItem = TipKorisnika.Prodavac;
+
+
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
