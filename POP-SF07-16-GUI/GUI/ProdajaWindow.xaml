@@ -5,74 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="ProdajaWindow" Height="420" Width="300" FontSize="14">
+        Title="ProdajaWindow" Height="600" Width="420" FontSize="14" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right" VerticalAlignment="Top"
+               Name="lbKupljeniNamestaj" Content="Kupljeni: " Height="29" />
+        <Button Grid.Column="0" Grid.Row="0"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Name="lbKupljeniNamestaj" Content="Kupljeni: " />
-        <Button Grid.Column="0" Grid.Row="1"
-               HorizontalAlignment="Right" VerticalAlignment="Center"
                 Content="Dodaj" Width="90"
-                Name="DodajNamestaj" Click="DodajNamestaj_Click"/>
-        <DataGrid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
-               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="dgKupljeniNamestaj" Height="88"  />
+                Name="DodajNamestaj" Click="DodajNamestaj_Click" Height="25"  />
+        <DataGrid Grid.Column="1" Grid.Row="0"  AutoGenerateColumns="True"
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 5, 5, 5"
+               Name="dgKupljeniNamestaj" 
+                  ItemsSource="{Binding Path=KupljeniNamestajLista}" IsReadOnly="True" CanUserAddRows="False"/>
+
+        <Label Grid.Column="0" Grid.Row="1"
+               HorizontalAlignment="Right" VerticalAlignment="Top"
+               Name="lbDodatneUsluga" Content="Dodatne usluge: " Height="29" />
+        <Button Grid.Column="0" Grid.Row="1"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Content="Dodaj" Width="90"
+               Name="DodajUsluge" Click="DodajUsluge_Click" Height="25"/>
+        <DataGrid Grid.Column="1" Grid.Row="1" AutoGenerateColumns="True"
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               Name="dgDodatneUsluge" Margin="0, 5, 5, 5" 
+                  ItemsSource="{Binding Path=DodatnaUslugaLista}" IsReadOnly="True" CanUserAddRows="False"/>
 
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Name="lbDatumProdaje" Content="DatumProdaje: " />
+               Name="lbDatumProdaje" Content="DatumProdaje: " Height="29" Width="106" />
         <DatePicker Grid.Column="1" Grid.Row="2"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbSifra"  Height="29" />
+               Name="tbSifra"  Height="29"
+                    SelectedDate="{Binding Path=DatumProdaje}"/>
 
         <Label Grid.Column="0" Grid.Row="3"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Name="lbBrojRacuna" Content="Broj racuna: " />
+               Name="lbBrojRacuna" Content="Broj racuna: " Height="29" Width="87" />
         <TextBox Grid.Column="1" Grid.Row="3"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbBrojRacuna"  Height="29" />
+               Name="tbBrojRacuna"  Height="29" 
+                 Text="{Binding Path=BrRacuna}"/>
 
         <Label Grid.Column="0" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Name="lbKupac" Content="Kupac: " />
+               Name="lbKupac" Content="Kupac: " Height="29" Width="55" />
         <TextBox Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="tbKupac" Height="29" />
+               Name="tbKupac" Height="29"
+                 Text="{Binding Path=Kupac}"/>
 
-        <Label Grid.Column="0" Grid.Row="5"
-               HorizontalAlignment="Right" VerticalAlignment="Top"
-               Name="lbDodatneUsluga" Content="Dodatne usluge: " />
-        <Button Grid.Column="0" Grid.Row="5"
-               HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Content="Dodaj" Width="90"
-               Name="DodajUsluge" Click="DodajUsluge_Click"/>
-        <DataGrid Grid.Column="1" Grid.Row="5"
-               HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
-               Name="dgDodatneUsluge" Height="44"  />
 
-        <Button Grid.Column="1" Grid.Row="6"
+
+        <Button Grid.Column="1" Grid.Row="5"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                Name="btPotvrdi" Content="Potvrdi"
-               Click="btPotvrdi_Click" Height="28"  Width="165" 
-                IsDefault="True" />
-        <Button Grid.Column="1" Grid.Row="7"
+               Click="btPotvrdi_Click" Height="28" 
+                />
+        <Button Grid.Column="1" Grid.Row="6"
                HorizontalAlignment="Stretch" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"
-               Click="btOtkazi_Click" Height="28"  Width="165" Margin="0,10"/>
+               Click="btOtkazi_Click" Height="28" />
     </Grid>
 
 </Window>

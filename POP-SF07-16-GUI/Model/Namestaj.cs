@@ -187,6 +187,11 @@ namespace POP_SF07_16.Model
             };
         }
 
+        public override string ToString()
+        {
+            return $"{Naziv}";
+        }
+
     }
 
 }

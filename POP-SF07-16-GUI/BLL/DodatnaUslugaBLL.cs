@@ -14,10 +14,12 @@ namespace POP_SF07_16_GUI.BLL
         {
             //Funkcija za prosledjenu listu integera vraca listu Dodatnih Usluga
             List<DodatnaUsluga> dodatnaUslugaObjekti = new List<DodatnaUsluga>();
-            foreach (int id in dodatnaUslugaInt)
+            if(dodatnaUslugaInt != null)
             {
-                dodatnaUslugaObjekti.Add(GetById(id));
+                foreach (int id in dodatnaUslugaInt)
+                    dodatnaUslugaObjekti.Add(GetById(id));
             }
+            
             //Izbacujemo nullove iz liste
             dodatnaUslugaObjekti.RemoveAll(item => item == null);
             return dodatnaUslugaObjekti;
@@ -27,10 +29,11 @@ namespace POP_SF07_16_GUI.BLL
         {
             //Funkcija za prosledjenu listu kupljenog namestaja vraca listu njihovih id-ova
             List<int> dodatnaUslugaInt = new List<int>();
-
-            foreach (DodatnaUsluga du in dodatnaUslugaLista)
-                dodatnaUslugaInt.Add(du.Id);
-
+            if (dodatnaUslugaLista != null)
+            {
+                foreach (DodatnaUsluga du in dodatnaUslugaLista)
+                    dodatnaUslugaInt.Add(du.Id);
+            }
             return dodatnaUslugaInt;
         }
 

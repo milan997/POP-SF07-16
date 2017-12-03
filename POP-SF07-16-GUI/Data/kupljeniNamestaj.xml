@@ -3,6 +3,21 @@
   <KupljeniNamestaj>
     <Id>0</Id>
     <NamestajID>1</NamestajID>
-    <Kolicina>4</Kolicina>
+    <Kolicina>1</Kolicina>
+  </KupljeniNamestaj>
+  <KupljeniNamestaj>
+    <Id>1</Id>
+    <NamestajID>1</NamestajID>
+    <Kolicina>3</Kolicina>
+  </KupljeniNamestaj>
+  <KupljeniNamestaj>
+    <Id>2</Id>
+    <NamestajID>0</NamestajID>
+    <Kolicina>12</Kolicina>
+  </KupljeniNamestaj>
+  <KupljeniNamestaj>
+    <Id>3</Id>
+    <NamestajID>1</NamestajID>
+    <Kolicina>1</Kolicina>
   </KupljeniNamestaj>
 </ArrayOfKupljeniNamestaj>

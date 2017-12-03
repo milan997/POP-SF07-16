@@ -12,9 +12,17 @@ namespace POP_SF07_16_GUI.DAL
     {
         public static void Add(Prodaja prodaja)
         {
+            prodaja.Id = GetList().Count;
             ObservableCollection<Prodaja> lista = GetList();
             lista.Add(prodaja);
             UpdateList(lista);
+        }
+
+        public static void Update(Prodaja prodaja)
+        {
+            ObservableCollection<Prodaja> list = GetList();
+            list[prodaja.Id] = prodaja;
+            UpdateList(list);
         }
 
         public static ObservableCollection<Prodaja> GetList()

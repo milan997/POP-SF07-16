@@ -32,8 +32,8 @@ namespace POP_SF07_16.Model
             Id = 0;
             Kupac = "";
             KupljeniNamestajID = new List<int>();
-            DodatnaUslugaLista = new List<DodatnaUsluga>();
-            KupljeniNamestajLista = new List<KupljeniNamestaj>();
+            DodatnaUslugaLista = null;
+            KupljeniNamestajLista = null;
         }
 
         public int Id

@@ -15,8 +15,11 @@ namespace POP_SF07_16_GUI.BLL
             //Funkcija za prosledjenu listu integera vraca listu KupljenihNamestaja
             List<KupljeniNamestaj> kupljeniNamestajObjekti = new List<KupljeniNamestaj>();
 
-            foreach (int id in kupljeniNamestajInt)
-                kupljeniNamestajObjekti.Add(GetById(id));
+            if(kupljeniNamestajInt != null)
+            {
+                foreach (int id in kupljeniNamestajInt)
+                    kupljeniNamestajObjekti.Add(GetById(id));
+            }
 
             //Izbacujemo nullove iz liste
             kupljeniNamestajObjekti.RemoveAll(item => item == null);
@@ -28,8 +31,11 @@ namespace POP_SF07_16_GUI.BLL
             //Funkcija za prosledjenu listu kupljenog namestaja vraca listu njihovih idova
             List<int> kupljeniNamestajInt = new List<int>();
 
-            foreach (KupljeniNamestaj kn in kupljeniNamestajLista)
-                kupljeniNamestajInt.Add(kn.Id);
+            if(kupljeniNamestajLista != null)
+            {
+                foreach (KupljeniNamestaj kn in kupljeniNamestajLista)
+                    kupljeniNamestajInt.Add(kn.Id);
+            }
 
             return kupljeniNamestajInt;
         }

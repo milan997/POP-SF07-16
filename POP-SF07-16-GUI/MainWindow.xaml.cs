@@ -154,8 +154,8 @@ namespace POP_SF07_16_GUI
             else if (tab == "Prodaja")
             {
                 Prodaja novaProdaja= new Prodaja();
-                //ProdajaWindow w = new ProdajaWindow(novaProdaja);
-                //w.ShowDialog();
+                ProdajaWindow w = new ProdajaWindow(novaProdaja);
+                w.ShowDialog();
                 viewProdaja = CollectionViewSource.GetDefaultView(Projekat.Instance.ProdajaLista);
                 dgProdaja.ItemsSource = viewProdaja;
             }
@@ -202,8 +202,8 @@ namespace POP_SF07_16_GUI
             }
             else if (tab == "Prodaja")
             {
-                //ProdajaWindow w = new ProdajaWindow(IzabranaProdaja, Operacija.IZMENA);
-                //w.ShowDialog();
+                ProdajaWindow w = new ProdajaWindow(IzabranaProdaja, Operacija.IZMENA);
+                w.ShowDialog();
             }
             else if (tab == "Salon")
             {
