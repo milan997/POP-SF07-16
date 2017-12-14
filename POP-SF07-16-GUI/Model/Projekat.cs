@@ -34,9 +34,12 @@ namespace POP_SF07_16.Model
             korisnikLista = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             kupljeniNamestajLista = GenericSerializer.Deserialize<KupljeniNamestaj>("kupljeniNamestaj.xml");
             prodajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
-            tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
+            //tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
             namestajLista = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
             salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
+
+            //Novi nacin
+            tipNamestajaLista = TipNamestaja.GetAll();
         }
 
         public Korisnik LogovaniKorisnik

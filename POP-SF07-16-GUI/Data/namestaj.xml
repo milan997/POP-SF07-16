@@ -2,7 +2,7 @@
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <Id>0</Id>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
     <Naziv>Jedan Krevet</Naziv>
     <Sifra>ker12</Sifra>
     <Cena>80000</Cena>
@@ -19,5 +19,15 @@
     <KolicinaUMagacinu>20</KolicinaUMagacinu>
     <TipNamestajaID>1</TipNamestajaID>
     <AkcijaID>0</AkcijaID>
+  </Namestaj>
+  <Namestaj>
+    <Id>2</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>DrvoJugo</Naziv>
+    <Sifra>12312</Sifra>
+    <Cena>1</Cena>
+    <KolicinaUMagacinu>123123</KolicinaUMagacinu>
+    <TipNamestajaID>6</TipNamestajaID>
+    <AkcijaID>8</AkcijaID>
   </Namestaj>
 </ArrayOfNamestaj>

@@ -36,4 +36,13 @@
     <Lozinka>123</Lozinka>
     <TipKorisnika>Prodavac</TipKorisnika>
   </Korisnik>
+  <Korisnik>
+    <Id>4</Id>
+    <Obrisan>false</Obrisan>
+    <Ime>Predrag</Ime>
+    <Prezime>Levic</Prezime>
+    <KorIme>pele123</KorIme>
+    <Lozinka>123</Lozinka>
+    <TipKorisnika>Administrator</TipKorisnika>
+  </Korisnik>
 </ArrayOfKorisnik>

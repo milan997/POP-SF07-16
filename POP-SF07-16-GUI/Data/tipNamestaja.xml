@@ -30,4 +30,9 @@
     <Obrisan>false</Obrisan>
     <Naziv>Sobna Lampa</Naziv>
   </TipNamestaja>
+  <TipNamestaja>
+    <Id>6</Id>
+    <Obrisan>false</Obrisan>
+    <Naziv>StolicaDrvena1</Naziv>
+  </TipNamestaja>
 </ArrayOfTipNamestaja>
