@@ -16,7 +16,7 @@
     <Prezime>Miljus</Prezime>
     <KorIme>milan997</KorIme>
     <Lozinka>123</Lozinka>
-    <TipKorisnika>Prodavac</TipKorisnika>
+    <TipKorisnika>Administrator</TipKorisnika>
   </Korisnik>
   <Korisnik>
     <Id>2</Id>
@@ -43,6 +43,6 @@
     <Prezime>Levic</Prezime>
     <KorIme>pele123</KorIme>
     <Lozinka>123</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
+    <TipKorisnika>Prodavac</TipKorisnika>
   </Korisnik>
 </ArrayOfKorisnik>

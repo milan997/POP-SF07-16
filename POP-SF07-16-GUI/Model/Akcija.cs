@@ -12,6 +12,7 @@ namespace POP_SF07_16.Model
         private int id;
         private bool obrisan;
 
+        private String naziv;
         private DateTime datumPocetka;
         private DateTime datumZavrsetka;
         private decimal popust;
@@ -19,6 +20,7 @@ namespace POP_SF07_16.Model
         public Akcija()
         {
             Id = 0;
+            naziv = "noName";
             Obrisan = false;
             DatumPocetka = DateTime.Today;
             DatumZavrsetka = DateTime.Today;
@@ -44,23 +46,33 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("Obrisan");
             }
         }
+
+        public String Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Naziv");
+            }
+        }
         
         public DateTime DatumPocetka
         {
-            get { return datumPocetka; }
+            get { return datumPocetka.Date; }
             set
             {
-                datumPocetka = value;
+                datumPocetka = value.Date;
                 OnPropertyChanged("DatumPocetka");
             }
         }
         
         public DateTime DatumZavrsetka
         {
-            get { return datumZavrsetka; }
+            get { return datumZavrsetka.Date; }
             set
             {
-                datumZavrsetka = value;
+                datumZavrsetka = value.Date;
                 OnPropertyChanged("DatumZavrsetka");
             }
         }
@@ -87,7 +99,7 @@ namespace POP_SF07_16.Model
 
         public override string ToString()
         {
-            return $"Popust {Popust}%";
+            return $"{Naziv} Popust {Popust}%";
         }
 
         public object Clone()
@@ -95,6 +107,7 @@ namespace POP_SF07_16.Model
             return new Akcija()
             {
                 id = this.Id,
+                naziv = this.Naziv,
                 datumPocetka = this.DatumPocetka,
                 datumZavrsetka = this.DatumZavrsetka,
                 popust = this.Popust,

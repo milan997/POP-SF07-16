@@ -18,17 +18,17 @@ namespace POP_SF07_16.Model
         private string sifra;
         private double cena;
         private int kolicinaUMagacinu;
-
+        /*
         private int tipNamestajaID;
         private int akcijaID;
-
+        */
         private TipNamestaja tipNamestaja;
         private Akcija akcija;
 
         public Namestaj()
         {
             Akcija = null;
-            AkcijaID = 0;
+            //AkcijaID = 0;
             Cena = 0;
             Id = 0;
             KolicinaUMagacinu = 0;
@@ -36,7 +36,7 @@ namespace POP_SF07_16.Model
             Obrisan = false;
             Sifra = "";
             TipNamestaja = null;
-            TipNamestajaID = 0;
+            //TipNamestajaID = 0;
         }
 
         public int Id
@@ -98,7 +98,7 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("KolicinaUMagacinu");
             }
         }
-
+        /*
         public int TipNamestajaID
         {
             get { return tipNamestajaID; }
@@ -108,7 +108,7 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("TipNamestajaID");
             }
         }
-
+        
         public int AkcijaID
         {
             get { return akcijaID; }
@@ -118,42 +118,30 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("AkcijaID");
             }
         }
-
-        // Pomocu XmlIgnore ne zapisujemo objekat TipNamestaja u fajl, ali ga imamo u objektu Namestaj
-        //  i mozemo se sluziti istim.
-
-        [XmlIgnore]
+        */
+        
         public TipNamestaja TipNamestaja
         {
             get
             {
-                if (tipNamestaja == null)
-                    return TipNamestajaDAL.GetById(tipNamestajaID);
-                else
-                    return tipNamestaja;
+               return tipNamestaja;
             }
             set
             {
                 tipNamestaja = value;
-                TipNamestajaID = tipNamestaja != null ? tipNamestaja.Id : 0;
                 OnPropertyChanged("TipNamestaja");
             }
         }
 
-        [XmlIgnore]
         public Akcija Akcija
         {
             get
             {
-                if (akcija == null)
-                    return AkcijaDAL.GetById(akcijaID);
-                else
-                    return akcija;
+                return akcija;
             }
             set
             {
                 akcija = value;
-                AkcijaID = akcija != null ? akcija.Id : 0;
                 OnPropertyChanged("Akcija");
             }
         }
@@ -175,7 +163,7 @@ namespace POP_SF07_16.Model
             return new Namestaj()
             {
                 akcija = this.Akcija,
-                akcijaID = this.AkcijaID,
+                //akcijaID = this.AkcijaID,
                 cena = this.Cena,
                 id = this.Id,
                 kolicinaUMagacinu = this.KolicinaUMagacinu,
@@ -183,7 +171,7 @@ namespace POP_SF07_16.Model
                 obrisan = this.Obrisan,
                 sifra = this.Sifra,
                 tipNamestaja = this.TipNamestaja,
-                tipNamestajaID = this.TipNamestajaID,
+                //tipNamestajaID = this.TipNamestajaID,
             };
         }
 

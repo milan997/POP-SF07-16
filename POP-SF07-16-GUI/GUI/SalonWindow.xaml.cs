@@ -45,7 +45,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    SalonDAL.Add(kopija);
+                    SalonDAO.Add(kopija);
 
                 }
                 else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
@@ -61,7 +61,7 @@ namespace POP_SF07_16_GUI.GUI
                     original.Telefon = kopija.Telefon;
                     original.WebAdresa = kopija.WebAdresa;
 
-                    SalonDAL.Update(kopija);
+                    SalonDAO.Update(kopija);
                 }
                 this.Close();
             }
@@ -69,7 +69,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.IZMENA)
                 {
-                    var lista = SalonDAL.GetList();
+                    var lista = SalonDAO.GetList();
                     lista[original.Id] = kopija;
                 }
 

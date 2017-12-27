@@ -53,7 +53,7 @@ namespace POP_SF07_16_GUI
         public bool LoginValidan(string username, string password)
         {
             bool login = false;
-            foreach (Korisnik k in KorisnikDAL.GetList())
+            foreach (Korisnik k in KorisnikDAO.GetList())
             {
                 if (k.KorIme == username.Trim() && k.Lozinka == password.Trim())
                 {

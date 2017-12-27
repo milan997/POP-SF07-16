@@ -1,4 +1,5 @@
 ﻿using POP_SF07_16.Utils;
+using POP_SF07_16_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,17 +30,21 @@ namespace POP_SF07_16.Model
 
         private Projekat()
         {
-            akcijaLista = GenericSerializer.Deserialize<Akcija>("akcija.xml");
-            dodatnaUslugaLista = GenericSerializer.Deserialize<DodatnaUsluga>("dodatnaUsluga.xml");
-            korisnikLista = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
+            //akcijaLista = GenericSerializer.Deserialize<Akcija>("akcija.xml");
+            //dodatnaUslugaLista = GenericSerializer.Deserialize<DodatnaUsluga>("dodatnaUsluga.xml");
+            //korisnikLista = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
             kupljeniNamestajLista = GenericSerializer.Deserialize<KupljeniNamestaj>("kupljeniNamestaj.xml");
             prodajaLista = GenericSerializer.Deserialize<Prodaja>("prodaja.xml");
             //tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
-            namestajLista = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
-            salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
+            //namestajLista = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+            //salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
 
-            //Novi nacin
-            tipNamestajaLista = TipNamestaja.GetAll();
+            akcijaLista = AkcijaDAO.GetList();
+            dodatnaUslugaLista = DodatnaUslugaDAO.GetList();
+            korisnikLista = KorisnikDAO.GetList();
+            tipNamestajaLista = TipNamestajaDAO.GetList();
+            salonLista = SalonDAO.GetList();
+            namestajLista = NamestajDAO.GetList();
         }
 
         public Korisnik LogovaniKorisnik
@@ -58,13 +63,13 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                akcijaLista = GenericSerializer.Deserialize<Akcija>("akcija.xml");
+                akcijaLista = AkcijaDAO.GetList();
                 return akcijaLista;
             }
             set
             {
-                akcijaLista = value;
-                GenericSerializer.Serialize<Akcija>("akcija.xml", akcijaLista);
+                //akcijaLista = value;
+                //GenericSerializer.Serialize<Akcija>("akcija.xml", akcijaLista);
             }
         }
 
@@ -72,13 +77,13 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                dodatnaUslugaLista = GenericSerializer.Deserialize<DodatnaUsluga>("dodatnaUsluga.xml");
+                dodatnaUslugaLista = DodatnaUslugaDAO.GetList();
                 return dodatnaUslugaLista;
             }
             set
             {
-                dodatnaUslugaLista = value;
-                GenericSerializer.Serialize<DodatnaUsluga>("dodatnaUsluga.xml", dodatnaUslugaLista);
+                //dodatnaUslugaLista = value;
+                //GenericSerializer.Serialize<DodatnaUsluga>("dodatnaUsluga.xml", dodatnaUslugaLista);
             }
         }
 
@@ -86,13 +91,13 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                korisnikLista = GenericSerializer.Deserialize<Korisnik>("korisnik.xml");
+                korisnikLista = KorisnikDAO.GetList();
                 return korisnikLista;
             }
             set
             {
-                korisnikLista = value;
-                GenericSerializer.Serialize<Korisnik>("korisnik.xml", korisnikLista);
+                //korisnikLista = value;
+                //GenericSerializer.Serialize<Korisnik>("korisnik.xml", korisnikLista);
             }
         }
 
@@ -114,13 +119,13 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                namestajLista = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+                namestajLista = NamestajDAO.GetList();
                 return namestajLista;
             }
             set
             {
-                namestajLista = value;
-                GenericSerializer.Serialize<Namestaj>("namestaj.xml", namestajLista);
+                //namestajLista = value;
+                //GenericSerializer.Serialize<Namestaj>("namestaj.xml", namestajLista);
             }
         }
         
@@ -142,16 +147,16 @@ namespace POP_SF07_16.Model
         {
             get
             {
-                salonLista = GenericSerializer.Deserialize<Salon>("salon.xml");
+                salonLista = SalonDAO.GetList();
                 return salonLista;
             }
             set
             {
-                salonLista = value;
-                GenericSerializer.Serialize<Salon>("salon.xml", salonLista);
+                //salonLista = value;
+                //GenericSerializer.Serialize<Salon>("salon.xml", salonLista);
             }
         }
-        
+        /*
         public Salon Salon
         {
             get
@@ -167,18 +172,18 @@ namespace POP_SF07_16.Model
                 SalonLista = lista;
             }
         }
-        
+        */
         public ObservableCollection<TipNamestaja> TipNamestajaLista
         {
             get
             {
-                tipNamestajaLista = GenericSerializer.Deserialize<TipNamestaja>("tipNamestaja.xml");
+                tipNamestajaLista = TipNamestajaDAO.GetList();
                 return tipNamestajaLista;
             }
             set
             {
-                tipNamestajaLista = value;
-                GenericSerializer.Serialize<TipNamestaja>("tipNamestaja.xml", tipNamestajaLista);
+                //tipNamestajaLista = value;
+                //GenericSerializer.Serialize<TipNamestaja>("tipNamestaja.xml", tipNamestajaLista);
             }
         }
     }

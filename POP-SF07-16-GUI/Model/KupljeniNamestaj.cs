@@ -62,7 +62,7 @@ namespace POP_SF07_16.Model
             get
             {
                 if (namestaj == null)
-                    return NamestajDAL.GetById(namestajID);
+                    return NamestajDAO.GetById(namestajID);
                 else
                     return namestaj;
             }

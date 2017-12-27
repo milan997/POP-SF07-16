@@ -15,7 +15,7 @@
         <DataGrid Name="dgTipNamestaja" AutoGenerateColumns="True" 
                   Grid.Row="0" Margin="5,5,5,5" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  SelectedItem="{Binding Path=IzabranTipNamestaja}" 
+                  SelectedItem="{Binding Path = IzabranTipNamestaja}" 
                   IsReadOnly="True" CanUserAddRows="False"/>
 
         <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnPotvrdi" Click="btnPotvrdi_Click" Width="85">Potvrdi</Button>

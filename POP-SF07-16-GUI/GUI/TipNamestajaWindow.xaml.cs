@@ -45,7 +45,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    TipNamestajaDAL.Add(kopija);
+                    TipNamestajaDAO.Add(kopija);
 
                 }
                 else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
@@ -54,7 +54,7 @@ namespace POP_SF07_16_GUI.GUI
                     original.Naziv = kopija.Naziv;
                     original.Obrisan = kopija.Obrisan;
 
-                    TipNamestajaDAL.Update(kopija);
+                    TipNamestajaDAO.Update(kopija);
                 }
                 this.Close();
             }
@@ -62,7 +62,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.IZMENA)
                 {
-                    var lista = TipNamestajaDAL.GetList();
+                    var lista = TipNamestajaDAO.GetList();
                     lista[original.Id] = kopija;
                 }
 

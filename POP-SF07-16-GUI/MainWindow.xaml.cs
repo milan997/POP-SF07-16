@@ -121,25 +121,25 @@ namespace POP_SF07_16_GUI
                 Akcija novaAkcija = new Akcija();
                 AkcijaWindow w = new AkcijaWindow(novaAkcija);
                 w.ShowDialog();
+
                 viewAkcija = CollectionViewSource.GetDefaultView(Projekat.Instance.AkcijaLista);
                 dgAkcija.ItemsSource = viewAkcija;
-                //dgAkcija.Items.Refresh();
             }
             else if (tab == "Dodatne Usluge")
             {
                 DodatnaUsluga novaDodatnaUsluga = new DodatnaUsluga();
                 DodatnaUslugaWindow w = new DodatnaUslugaWindow(novaDodatnaUsluga);
                 w.ShowDialog();
+
                 viewDodatnaUsluga = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatnaUslugaLista);
                 dgDodatnaUsluga.ItemsSource = viewDodatnaUsluga;
-
             }
             else if (tab == "Korisnici")
             {
-
                 Korisnik noviKorisnik = new Korisnik();
                 KorisnikWindow w = new KorisnikWindow(noviKorisnik);
                 w.ShowDialog();
+
                 viewKorisnik = CollectionViewSource.GetDefaultView(Projekat.Instance.KorisnikLista);
                 dgKorisnik.ItemsSource = viewKorisnik;
             }
@@ -148,6 +148,7 @@ namespace POP_SF07_16_GUI
                 Namestaj noviNamestaj = new Namestaj();
                 NamestajWindow w = new NamestajWindow(noviNamestaj);
                 w.ShowDialog();
+
                 viewNamestaj = CollectionViewSource.GetDefaultView(Projekat.Instance.NamestajLista);
                 dgNamestaj.ItemsSource = viewNamestaj;
             }
@@ -156,6 +157,7 @@ namespace POP_SF07_16_GUI
                 Prodaja novaProdaja= new Prodaja();
                 ProdajaWindow w = new ProdajaWindow(novaProdaja);
                 w.ShowDialog();
+
                 viewProdaja = CollectionViewSource.GetDefaultView(Projekat.Instance.ProdajaLista);
                 dgProdaja.ItemsSource = viewProdaja;
             }
@@ -164,6 +166,7 @@ namespace POP_SF07_16_GUI
                 Salon noviSalon = new Salon();
                 SalonWindow w = new SalonWindow(noviSalon);
                 w.ShowDialog();
+
                 viewSalon = CollectionViewSource.GetDefaultView(Projekat.Instance.SalonLista);
                 dgSalon.ItemsSource = viewSalon;
             }
@@ -172,6 +175,7 @@ namespace POP_SF07_16_GUI
                 TipNamestaja noviTipNamestaja = new TipNamestaja();
                 TipNamestajaWindow w = new TipNamestajaWindow(noviTipNamestaja);
                 w.ShowDialog();
+
                 viewTipNamestaja = CollectionViewSource.GetDefaultView(Projekat.Instance.TipNamestajaLista);
                 dgTipNamestaja.ItemsSource = viewTipNamestaja;
             }
@@ -224,20 +228,23 @@ namespace POP_SF07_16_GUI
             {
                 Akcija izabranaAkcija = IzabranaAkcija;
                 izabranaAkcija.Obrisan = true;
-                AkcijaDAL.Update(izabranaAkcija);
+
+                AkcijaDAO.Update(izabranaAkcija);
+
+
                 //Projekat.Instance.AkcijaLista.Remove(selektovanaAkcija);
             }
             else if (tab == "Dodatne Usluge")
             {
                 DodatnaUsluga izabranaDodatnaUsluga = IzabranaDodatnaUsluga;
                 izabranaDodatnaUsluga.Obrisan = true;
-                DodatnaUslugaDAL.Update(izabranaDodatnaUsluga);
+                DodatnaUslugaDAO.Update(izabranaDodatnaUsluga);
             }
             else if (tab == "Korisnici")
             {
                 Korisnik izabraniKorisnik = IzabraniKorisnik;
                 izabraniKorisnik.Obrisan = true;
-                KorisnikDAL.Update(izabraniKorisnik);
+                KorisnikDAO.Update(izabraniKorisnik);
             }
             else if (tab == "Prodaja")
             {
@@ -247,28 +254,28 @@ namespace POP_SF07_16_GUI
             {
                 Namestaj izabraniNamestaj = IzabraniNamestaj;
                 izabraniNamestaj.Obrisan = true;
-                NamestajDAL.Update(izabraniNamestaj);
+                NamestajDAO.Update(izabraniNamestaj);
             }
             else if (tab == "Salon")
             {
                 Salon izabraniSalon = IzabraniSalon;
                 izabraniSalon.Obrisan = true;
-                SalonDAL.Update(izabraniSalon);
+                SalonDAO.Update(izabraniSalon);
             }
             else if (tab == "Tipovi Namestaja")
             {
                 TipNamestaja izabraniTipNamestaja = IzabraniTipNamestaja;
                 izabraniTipNamestaja.Obrisan = true;
-                TipNamestajaDAL.Update(izabraniTipNamestaja);
+                TipNamestajaDAO.Update(izabraniTipNamestaja);
             }
         }
 
+
+        //Ovu metodu prepravi da bude genericka za sve data gridove, neka je sad ovako
         private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if(e.Column.Header.ToString() == "Id") //Navodimo ime kolone koju ne zelimo da prikazemo
-            {
                 e.Cancel = true;
-            }
         }
     }
 }

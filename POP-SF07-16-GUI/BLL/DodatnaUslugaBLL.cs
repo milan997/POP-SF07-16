@@ -40,7 +40,7 @@ namespace POP_SF07_16_GUI.BLL
         public static DodatnaUsluga GetById(int id)
         {
             DodatnaUsluga dodatnaUsluga = null;
-            foreach (DodatnaUsluga du in DodatnaUslugaDAL.GetList())
+            foreach (DodatnaUsluga du in DodatnaUslugaDAO.GetList())
             {
                 if (du.Id == id)
                 {

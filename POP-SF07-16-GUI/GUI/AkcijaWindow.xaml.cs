@@ -47,17 +47,18 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if(operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    AkcijaDAL.Add(kopija);
+                    AkcijaDAO.Add(kopija);
                 }
                 else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
                 {
                     original.Id = kopija.Id;
                     original.DatumPocetka = kopija.DatumPocetka;
                     original.DatumZavrsetka = kopija.DatumZavrsetka;
+                    original.Naziv = kopija.Naziv;
                     original.Popust = kopija.Popust;
                     original.Obrisan = kopija.Obrisan;
 
-                    AkcijaDAL.Update(kopija);
+                    AkcijaDAO.Update(kopija);
                 }
                 this.Close();
             }
@@ -65,7 +66,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.IZMENA)
                 {
-                    var lista = AkcijaDAL.GetList();
+                    var lista = AkcijaDAO.GetList();
                     lista[original.Id] = kopija;
                 }
                 
@@ -74,10 +75,9 @@ namespace POP_SF07_16_GUI.GUI
 
         private void btOtkazi_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
        
-        
         private void Handle(object sender, KeyEventArgs e)
         {
             //Funkcija za 'hendlanje evenata', poziva se za sve 'hendlove'

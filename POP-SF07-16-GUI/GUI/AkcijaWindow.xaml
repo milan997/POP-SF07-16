@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="AkcijaWindow" Height="300" Width="300"
+        Title="AkcijaWindow" Height="360" Width="300"
         WindowStartupLocation="CenterScreen" FontSize="14"
         Keyboard.PreviewKeyDown="Handle">
     <Grid>
@@ -14,6 +14,7 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -37,19 +38,26 @@
                Name="dpDatumZavrsetka" 
                Keyboard.PreviewKeyDown="Handle"
                SelectedDate="{Binding Path=DatumZavrsetka}"/>
-        
+
         <Label Grid.Column="0" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Name="lbPopust" Content="Popust: "/>
+               Name="lbNaziv" Content="Naziv: " />
         <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom"
+               Name="tbNaziv" HorizontalAlignment="Stretch" 
+               Text="{Binding Path=Naziv}" />
+        
+        <Label Grid.Column="0" Grid.Row="3"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Name="lbPopust" Content="Popust: "/>
+        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom"
                Name="tbPopust" HorizontalAlignment="Stretch" 
                Text="{Binding Path=Popust}" />
         
-        <Button Grid.Column="1" Grid.Row="3"
+        <Button Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btPotvrdi" Content="Potvrdi"
                Click="btPotvrdi_Click" Height="28"  Width="165" />
-        <Button Grid.Column="1" Grid.Row="4"
+        <Button Grid.Column="1" Grid.Row="5"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                Name="btOtkazi" Content="Otkazi"
                Click="btOtkazi_Click" Height="28"  Width="165" />

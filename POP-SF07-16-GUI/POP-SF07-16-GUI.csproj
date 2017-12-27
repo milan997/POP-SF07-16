@@ -58,14 +58,14 @@
     <Compile Include="BLL\DodatnaUslugaBLL.cs" />
     <Compile Include="BLL\KupljeniNamestajBLL.cs" />
     <Compile Include="BLL\NamestajBLL.cs" />
-    <Compile Include="DAL\AkcijaDAL.cs" />
-    <Compile Include="DAL\DodatnaUslugaDAL.cs" />
-    <Compile Include="DAL\KorisnikDAL.cs" />
+    <Compile Include="DAL\AkcijaDAO.cs" />
+    <Compile Include="DAL\DodatnaUslugaDAO.cs" />
+    <Compile Include="DAL\KorisnikDAO.cs" />
     <Compile Include="DAL\KupljeniNamestajDAL.cs" />
-    <Compile Include="DAL\NamestajDAL.cs" />
+    <Compile Include="DAL\NamestajDAO.cs" />
     <Compile Include="DAL\ProdajaDAL.cs" />
-    <Compile Include="DAL\SalonDAL.cs" />
-    <Compile Include="DAL\TipNamestajaDAL.cs" />
+    <Compile Include="DAL\SalonDAO.cs" />
+    <Compile Include="DAL\TipNamestajaDAO.cs" />
     <Compile Include="GUI\AkcijaWindow.xaml.cs">
       <DependentUpon>AkcijaWindow.xaml</DependentUpon>
     </Compile>

@@ -48,7 +48,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    KorisnikDAL.Add(kopija);
+                    KorisnikDAO.Add(kopija);
                 }
                 else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
                 {
@@ -60,7 +60,7 @@ namespace POP_SF07_16_GUI.GUI
                     original.Lozinka = kopija.Lozinka;
                     original.TipKorisnika = kopija.TipKorisnika;
 
-                    KorisnikDAL.Update(kopija);
+                    KorisnikDAO.Update(kopija);
                 }
                 this.Close();
             }
@@ -68,7 +68,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.IZMENA)
                 {
-                    var lista = KorisnikDAL.GetList();
+                    var lista = KorisnikDAO.GetList();
                     lista[original.Id] = kopija;
                 }
 

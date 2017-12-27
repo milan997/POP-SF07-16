@@ -3,6 +3,7 @@
   <Akcija>
     <Id>0</Id>
     <Obrisan>false</Obrisan>
+    <Naziv>Nema</Naziv>
     <DatumPocetka>2017-12-02T00:00:00+01:00</DatumPocetka>
     <DatumZavrsetka>2017-12-02T00:00:00+01:00</DatumZavrsetka>
     <Popust>0</Popust>
@@ -10,6 +11,7 @@
   <Akcija>
     <Id>1</Id>
     <Obrisan>false</Obrisan>
+    <Naziv>Novogodisnji popust</Naziv>
     <DatumPocetka>2017-11-20T00:00:00</DatumPocetka>
     <DatumZavrsetka>2019-11-19T00:00:00</DatumZavrsetka>
     <Popust>9</Popust>
@@ -17,6 +19,7 @@
   <Akcija>
     <Id>2</Id>
     <Obrisan>false</Obrisan>
+    <Naziv>Uskrnsji</Naziv>
     <DatumPocetka>2017-11-27T00:00:00</DatumPocetka>
     <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
     <Popust>69</Popust>
@@ -24,6 +27,7 @@
   <Akcija>
     <Id>3</Id>
     <Obrisan>true</Obrisan>
+    <Naziv>Delimo patike</Naziv>
     <DatumPocetka>2017-11-27T00:00:00</DatumPocetka>
     <DatumZavrsetka>2017-12-01T00:00:00</DatumZavrsetka>
     <Popust>20</Popust>
@@ -31,36 +35,9 @@
   <Akcija>
     <Id>4</Id>
     <Obrisan>false</Obrisan>
+    <Naziv>20 posto dole</Naziv>
     <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
     <DatumZavrsetka>2017-12-04T00:00:00</DatumZavrsetka>
-    <Popust>21</Popust>
-  </Akcija>
-  <Akcija>
-    <Id>5</Id>
-    <Obrisan>false</Obrisan>
-    <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-30T00:00:00</DatumZavrsetka>
-    <Popust>42</Popust>
-  </Akcija>
-  <Akcija>
-    <Id>6</Id>
-    <Obrisan>false</Obrisan>
-    <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-04T00:00:00</DatumZavrsetka>
-    <Popust>50</Popust>
-  </Akcija>
-  <Akcija>
-    <Id>7</Id>
-    <Obrisan>false</Obrisan>
-    <DatumPocetka>2017-12-03T00:00:00+01:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-03T00:00:00+01:00</DatumZavrsetka>
-    <Popust>9000</Popust>
-  </Akcija>
-  <Akcija>
-    <Id>8</Id>
-    <Obrisan>false</Obrisan>
-    <DatumPocetka>2017-12-07T00:00:00+01:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-15T00:00:00</DatumZavrsetka>
-    <Popust>85</Popust>
+    <Popust>20</Popust>
   </Akcija>
 </ArrayOfAkcija>

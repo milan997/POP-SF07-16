@@ -46,7 +46,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.DODAVANJE) // Ako dodajemo objekat
                 {
-                    NamestajDAL.Add(kopija);
+                    NamestajDAO.Add(kopija);
 
                 }
                 else if (operacija == Operacija.IZMENA) // Ako menjamo objekat, akciju
@@ -57,12 +57,12 @@ namespace POP_SF07_16_GUI.GUI
                     original.Naziv = kopija.Naziv;
                     original.Sifra = kopija.Sifra;
                     original.Akcija = kopija.Akcija;
-                    original.AkcijaID = kopija.AkcijaID;
+                    //original.AkcijaID = kopija.AkcijaID;
                     original.KolicinaUMagacinu = kopija.KolicinaUMagacinu;
                     original.TipNamestaja = kopija.TipNamestaja;
-                    original.TipNamestajaID = kopija.TipNamestajaID;
+                    //original.TipNamestajaID = kopija.TipNamestajaID;
                     
-                    NamestajDAL.Update(kopija);
+                    NamestajDAO.Update(kopija);
                 }
                 this.Close();
             }
@@ -70,7 +70,7 @@ namespace POP_SF07_16_GUI.GUI
             {
                 if (operacija == Operacija.IZMENA)
                 {
-                    var lista = NamestajDAL.GetList();
+                    var lista = NamestajDAO.GetList();
                     lista[original.Id] = kopija;
                 }
 

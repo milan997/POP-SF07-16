@@ -9,8 +9,8 @@ namespace POP_SF07_16.Model
 {
     public enum TipKorisnika
     {
-        Administrator,
-        Prodavac
+        Administrator = 1,
+        Prodavac = 0
     }
 
     public class Korisnik : INotifyPropertyChanged, ICloneable

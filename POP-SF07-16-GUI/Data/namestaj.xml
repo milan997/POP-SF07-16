@@ -17,8 +17,8 @@
     <Sifra>SF123123</Sifra>
     <Cena>16000</Cena>
     <KolicinaUMagacinu>20</KolicinaUMagacinu>
-    <TipNamestajaID>1</TipNamestajaID>
-    <AkcijaID>0</AkcijaID>
+    <TipNamestajaID>4</TipNamestajaID>
+    <AkcijaID>5</AkcijaID>
   </Namestaj>
   <Namestaj>
     <Id>2</Id>
