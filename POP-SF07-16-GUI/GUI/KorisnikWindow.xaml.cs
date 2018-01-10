@@ -38,6 +38,19 @@ namespace POP_SF07_16_GUI.GUI
 
             cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
             //cbTipKorisnika.SelectedItem = TipKorisnika.Prodavac;
+
+            if (operacija == Operacija.POGLED)
+            {
+                tbIme.IsReadOnly = true;
+                tbPrezime.IsReadOnly = true;
+                tbKorisnickoIme.IsReadOnly = true;
+                tbLozinka.IsReadOnly = true;
+
+                cbTipKorisnika.IsReadOnly = true;
+
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)

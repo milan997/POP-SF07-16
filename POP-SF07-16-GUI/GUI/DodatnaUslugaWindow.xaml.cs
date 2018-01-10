@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,15 @@ namespace POP_SF07_16_GUI.GUI
             kopija = du.Clone() as DodatnaUsluga;
             this.DataContext = kopija;
             this.operacija = operacija;
+
+            if (operacija == Operacija.POGLED)
+            {
+                tbNaziv.IsReadOnly = true;
+                tbCena.IsReadOnly = true;
+
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -71,12 +81,22 @@ namespace POP_SF07_16_GUI.GUI
             }
         }
 
+
+
         private void btOtkazi_Click(object sender, RoutedEventArgs e)
         {
            Close();
         }
 
-        
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+
+
         private void Handle(object sender, KeyEventArgs e)
         {
             //Funkcija za 'hendlanje evenata', poziva se za sve 'hendlove'

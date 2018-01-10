@@ -24,7 +24,8 @@
         <TextBox Name="tbKolicina" Grid.Row="1"
                  HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                  Margin="55, 0, 0, 0" 
-                 Text="{Binding Path=Kolicina}" />
+                 Text="{Binding Path=Kolicina}"
+                 PreviewTextInput="NumberValidationTextBox"/>
 
         <Button Grid.Row="2" HorizontalAlignment="Right" Name="btnPotvrdi" Click="btnPotvrdi_Click" Width="45" Height="35">Potvrdi</Button>
         <Button Grid.Row="2" HorizontalAlignment="Right" Name="btnOtkazi" Click="btnOtkazi_Click" Margin="0,0,50,0" Height="35" >Otkazi</Button>

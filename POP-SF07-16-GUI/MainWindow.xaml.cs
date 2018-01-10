@@ -275,6 +275,45 @@ namespace POP_SF07_16_GUI
             }
         }
 
+        private void btnPogled_Click(object sender, RoutedEventArgs e)
+        {
+            tab = (tbc.SelectedItem as TabItem).Header.ToString();
+            if (tab == "Akcije")
+            {
+                AkcijaWindow w = new AkcijaWindow(IzabranaAkcija, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Dodatne Usluge")
+            {
+                DodatnaUslugaWindow w = new DodatnaUslugaWindow(IzabranaDodatnaUsluga, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Korisnici")
+            {
+                KorisnikWindow w = new KorisnikWindow(IzabraniKorisnik, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Namestaj")
+            {
+                NamestajWindow w = new NamestajWindow(IzabraniNamestaj, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Prodaja")
+            {
+                ProdajaWindow w = new ProdajaWindow(IzabranaProdaja, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Salon")
+            {
+                SalonWindow w = new SalonWindow(IzabraniSalon, Operacija.POGLED);
+                w.ShowDialog();
+            }
+            else if (tab == "Tipovi Namestaja")
+            {
+                TipNamestajaWindow w = new TipNamestajaWindow(IzabraniTipNamestaja, Operacija.POGLED);
+                w.ShowDialog();
+            }
+        }
 
         //Ovu metodu prepravi da bude genericka za sve data gridove, neka je sad ovako
         private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -282,5 +321,7 @@ namespace POP_SF07_16_GUI
             if(e.Column.Header.ToString() == "Id") //Navodimo ime kolone koju ne zelimo da prikazemo
                 e.Cancel = true;
         }
+
+        
     }
 }

@@ -33,7 +33,8 @@
         <TextBox Grid.Column="1" Grid.Row="1"
                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                Name="tbCena" Height="29"
-               Text="{Binding Path=Cena}"/>
+               Text="{Binding Path=Cena}"
+                 PreviewTextInput="NumberValidationTextBox"/>
         
         <Button Grid.Column="1" Grid.Row="2"
                 HorizontalAlignment="Stretch" VerticalAlignment="Center"

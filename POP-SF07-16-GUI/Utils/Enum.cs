@@ -8,6 +8,6 @@ namespace POP_SF07_16_GUI.Utils
 {
     public class Enum
     {
-        public enum Operacija { DODAVANJE, IZMENA }
+        public enum Operacija { DODAVANJE, IZMENA, POGLED }
     }
 }

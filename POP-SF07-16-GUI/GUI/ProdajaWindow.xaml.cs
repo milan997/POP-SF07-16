@@ -56,6 +56,24 @@ namespace POP_SF07_16_GUI.GUI
             dgDodatneUsluge.DataContext = this;
             dgDodatneUsluge.IsSynchronizedWithCurrentItem = true;
             dgDodatneUsluge.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (operacija == Operacija.POGLED)
+            {
+                dpDatumProdaje.IsEnabled = false;
+                tbBrojRacuna.IsReadOnly = true;
+                tbKupac.IsReadOnly = true;
+
+                ObrisiNamestaj.Visibility = Visibility.Collapsed;
+                IzmeniNamestaj.Visibility = Visibility.Collapsed;
+                DodajNamestaj.Visibility = Visibility.Collapsed;
+
+                ObrisiUsluge.Visibility = Visibility.Collapsed;
+                IzmeniUsluge.Visibility = Visibility.Collapsed;
+                DodajUsluge.Visibility = Visibility.Collapsed;
+
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)

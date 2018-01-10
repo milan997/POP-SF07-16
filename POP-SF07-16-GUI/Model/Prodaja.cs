@@ -22,6 +22,8 @@ namespace POP_SF07_16.Model
         private ObservableCollection<KupljeniNamestaj> kupljeniNamestajLista;
         private ObservableCollection<KupljenaDodatnaUsluga> kupljenaDodatnaUslugaLista;
 
+        private double ukupnaCena;
+
         public const double PDV = 0.02;
 
         public Prodaja()
@@ -101,6 +103,49 @@ namespace POP_SF07_16.Model
                 kupljenaDodatnaUslugaLista = value;
                 OnPropertyChanged("KupljenaDodatnaUslugaLista");
             }
+        }
+
+        public double UkupnaCena
+        {
+            get
+            {
+                ukupnaCena = IzracunajCenu();
+                return ukupnaCena;
+            }
+            private set
+            {
+
+            }
+        }
+
+
+        public double IzracunajCenu()
+        {
+            double cena = 0;
+            double jedinicnaCena = 0;
+            foreach (KupljeniNamestaj kn in this.KupljeniNamestajLista)
+            {
+                if (kn.Obrisan == true)
+                    continue;
+
+                jedinicnaCena = kn.Namestaj.Cena;
+                if (kn.Namestaj.Akcija != null)
+                    jedinicnaCena -= jedinicnaCena * Convert.ToDouble(kn.Namestaj.Akcija.Popust);
+                cena += jedinicnaCena * kn.Kolicina;
+            }
+
+            foreach (KupljenaDodatnaUsluga kdu in this.KupljenaDodatnaUslugaLista)
+            {
+                if (kdu.Obrisan == true)
+                    continue;
+
+                cena += kdu.DodatnaUsluga.Cena * kdu.Kolicina;
+            }
+
+            // Dodajemo PDV !
+            cena += cena * PDV;
+
+            return cena;
         }
 
 

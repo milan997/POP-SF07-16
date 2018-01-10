@@ -35,6 +35,21 @@ namespace POP_SF07_16_GUI.GUI
             kopija = s.Clone() as Salon;
             this.DataContext = kopija;
             this.operacija = operacija;
+
+            if (operacija == Operacija.POGLED)
+            {
+                tbNaziv.IsReadOnly = true;
+                tbAdresa.IsReadOnly = true;
+                tbBrojRacuna.IsReadOnly = true;
+                tbEmail.IsReadOnly = true;
+                tbMaticniBroj.IsReadOnly = true;
+                tbPIB.IsReadOnly = true;
+                tbTelefon.IsReadOnly = true;
+                tbWebAdresa.IsReadOnly = true;
+
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)

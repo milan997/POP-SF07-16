@@ -35,6 +35,13 @@ namespace POP_SF07_16_GUI.GUI
             kopija = tn.Clone() as TipNamestaja;
             this.DataContext = kopija;
             this.operacija = operacija;
+
+            if (operacija == Operacija.POGLED)
+            {
+                tbNaziv.IsReadOnly = true;
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)

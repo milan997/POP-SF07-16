@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +37,20 @@ namespace POP_SF07_16_GUI.GUI
             kopija = n.Clone() as Namestaj;
             this.DataContext = kopija;
             this.operacija = operacija;
+
+            if (operacija == Operacija.POGLED)
+            {
+                tbNaziv.IsReadOnly = true;
+                tbSifra.IsReadOnly = true;
+                tbCena.IsReadOnly = true;
+                tbKolicinaUMagacinu.IsReadOnly = true;
+
+                izaberiTipNamestaj.Visibility = Visibility.Collapsed;
+                izaberiAkcija.Visibility = Visibility.Collapsed;
+
+                btPotvrdi.Visibility = Visibility.Collapsed;
+                btOtkazi.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -98,6 +113,12 @@ namespace POP_SF07_16_GUI.GUI
             {
                 kopija.Akcija = ia.IzabranaAkcija;
             }
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -76,7 +76,7 @@
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnDodaj" Click="btnDodaj_Click">Dodaj</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnIzmeni" Click="btnIzmeni_Click" Margin="43,0,0,0">Izmeni</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnObrisi" Click="btnObrisi_Click" Margin="89,0,0,0">Obrisi</Button>
-        <Button Grid.Row="0" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" >EXIT</Button>
+        <Button Grid.Row="0" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnPogled" Click="btnPogled_Click" >Pogled</Button>
     </Grid>
 
 </Window>
