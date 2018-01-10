@@ -2,7 +2,7 @@
 INSERT INTO tipNamestaja (naziv) 
 	VALUES ('Krevet');
 INSERT INTO tipNamestaja (naziv) 
-	VALUES ('Ugaona garnitura',);
+	VALUES ('Ugaona garnitura');
 INSERT INTO tipNamestaja (naziv) 
 	VALUES ('Sofa');
 
@@ -12,7 +12,7 @@ INSERT INTO namestaj (tipNamestajaId, naziv, cena, kolicina)
 INSERT INTO namestaj (tipNamestajaId, naziv, cena, kolicina)
 	VALUES (2, 'Sofija ugaona', 223.9, 12);
 INSERT INTO namestaj (tipNamestajaId, naziv, cena, kolicina)
-	VALUES (3, 'Ivan kauc', 723.5, 2,);
+	VALUES (3, 'Ivan kauc', 723.5, 2);
 
 --akcija
 INSERT INTO akcija (naziv, datumPocetka, datumZavrsetka, popust)
@@ -49,6 +49,34 @@ INSERT INTO namestaj (naziv, sifra, cena, kolicina, tipNamestaja_id, akcija_id)
 	VALUES ('Kauc', 'SF333', 8000, 60, 3, 2);
 INSERT INTO namestaj (naziv, sifra, cena, kolicina, tipNamestaja_id, akcija_id)
 	VALUES ('Ugaono oko stola', 'SF676', 44000, 2, 2, 3);
+
+--prodaja
+INSERT INTO prodaja (datumProdaje, brRacuna, kupac)
+	VALUES ('2017-12-31', '123', 'Kupilo Kupicic');
+INSERT INTO prodaja (datumProdaje, brRacuna, kupac)
+	VALUES ('2018-01-05', '345', 'Kupac Markovic');
+INSERT INTO prodaja (datumProdaje, brRacuna, kupac)
+	VALUES ('2018-01-07', '567', 'Kupuelo Kupovatz');
+
+--kolekcija kupljeniNamestaj
+INSERT INTO collection_kupljeniNamestaj (prodaja_id, namestaj_id, kolicina)
+	VALUES (1, 5, 1);
+INSERT INTO collection_kupljeniNamestaj (prodaja_id, namestaj_id, kolicina)
+	VALUES (2, 6, 2);
+INSERT INTO collection_kupljeniNamestaj (prodaja_id, namestaj_id, kolicina)
+	VALUES (2, 7, 1);
+INSERT INTO collection_kupljeniNamestaj (prodaja_id, namestaj_id, kolicina)
+	VALUES (3, 5, 1);
+INSERT INTO collection_kupljeniNamestaj (prodaja_id, namestaj_id, kolicina)
+	VALUES (3, 7, 2);
+
+--kolekcija dodatnaUsluga
+INSERT INTO collection_kupljenaDodatnaUsluga (prodaja_id, dodatnaUsluga_id, kolicina)
+	VALUES (2, 1, 1);
+INSERT INTO collection_kupljenaDodatnaUsluga (prodaja_id, dodatnaUsluga_id, kolicina)
+	VALUES (2, 3, 2);
+INSERT INTO collection_kupljenaDodatnaUsluga (prodaja_id, dodatnaUsluga_id, kolicina)
+	VALUES (1, 2, 1);
 
 
 /* 

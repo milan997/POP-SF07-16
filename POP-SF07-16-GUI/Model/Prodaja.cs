@@ -1,6 +1,8 @@
 ﻿using POP_SF07_16_GUI.BLL;
+using POP_SF07_16_GUI.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -13,14 +15,12 @@ namespace POP_SF07_16.Model
     {
         private int id;
 
-        private List<int> kupljeniNamestajID;
         private DateTime datumProdaje;
         private string brRacuna;
         private string kupac;
-        private List<int> dodatnaUslugaID;
 
-        private List<KupljeniNamestaj> kupljeniNamestajLista;
-        private List<DodatnaUsluga> dodatnaUslugaLista;
+        private ObservableCollection<KupljeniNamestaj> kupljeniNamestajLista;
+        private ObservableCollection<KupljenaDodatnaUsluga> kupljenaDodatnaUslugaLista;
 
         public const double PDV = 0.02;
 
@@ -28,12 +28,11 @@ namespace POP_SF07_16.Model
         {
             BrRacuna = "";
             DatumProdaje = DateTime.Today;
-            DodatnaUslugaID = new List<int>();
             Id = 0;
             Kupac = "";
-            KupljeniNamestajID = new List<int>();
-            DodatnaUslugaLista = null;
-            KupljeniNamestajLista = null;
+
+            KupljenaDodatnaUslugaLista = new ObservableCollection<KupljenaDodatnaUsluga>();
+            KupljeniNamestajLista = new ObservableCollection<KupljeniNamestaj>();
         }
 
         public int Id
@@ -43,16 +42,6 @@ namespace POP_SF07_16.Model
             {
                 id = value;
                 OnPropertyChanged("Id");
-            }
-        }
-        
-        public List<int> KupljeniNamestajID
-        {
-            get { return kupljeniNamestajID; }
-            set
-            {
-                kupljeniNamestajID = value;
-                OnPropertyChanged("KupljeniNamestajID");
             }
         }
         
@@ -86,50 +75,31 @@ namespace POP_SF07_16.Model
             }
         }
         
-        public List<int> DodatnaUslugaID
-        {
-            get { return dodatnaUslugaID; }
-            set
-            {
-                dodatnaUslugaID = value;
-                OnPropertyChanged("DodatneUslugeID");
-            }
-        }
-
-        [XmlIgnore]
-        public List<KupljeniNamestaj> KupljeniNamestajLista
+        public ObservableCollection<KupljeniNamestaj> KupljeniNamestajLista
         {
             get
             {
-                if (kupljeniNamestajLista == null)
-                    return KupljeniNamestajBLL.ListIntToListNamestaj(kupljeniNamestajID);
-                else
-                    return kupljeniNamestajLista;
+                return kupljeniNamestajLista;
 
             }
             set
             {
                 kupljeniNamestajLista = value;
-                KupljeniNamestajID = KupljeniNamestajBLL.ListNamestajToListInt(kupljeniNamestajLista);
                 OnPropertyChanged("KupljeniNamestajLista");
             }
         }
 
-        [XmlIgnore]
-        public List<DodatnaUsluga> DodatnaUslugaLista
+        
+        public ObservableCollection<KupljenaDodatnaUsluga> KupljenaDodatnaUslugaLista
         {
             get
             {
-                if (dodatnaUslugaLista == null)
-                    return DodatnaUslugaBLL.ListIntToListDodatnaUsluga(kupljeniNamestajID);
-                else
-                    return dodatnaUslugaLista;
+                return kupljenaDodatnaUslugaLista;
             }
             set
             {
-                dodatnaUslugaLista = value;
-                dodatnaUslugaID = DodatnaUslugaBLL.ListDodatnaUslugaToListInt(dodatnaUslugaLista);
-                OnPropertyChanged("DodatnaUslugaLista");
+                kupljenaDodatnaUslugaLista = value;
+                OnPropertyChanged("KupljenaDodatnaUslugaLista");
             }
         }
 
@@ -146,16 +116,26 @@ namespace POP_SF07_16.Model
 
         public object Clone()
         {
+            ObservableCollection<KupljenaDodatnaUsluga> retvalKupljenaDodatnaUslugaLista = new ObservableCollection<KupljenaDodatnaUsluga>();
+            foreach(KupljenaDodatnaUsluga kdu in this.KupljenaDodatnaUslugaLista)
+            {
+                retvalKupljenaDodatnaUslugaLista.Add(kdu.Clone() as KupljenaDodatnaUsluga);
+            }
+            ObservableCollection<KupljeniNamestaj> retvalKupljeniNamestaj = new ObservableCollection<KupljeniNamestaj>();
+            foreach (KupljeniNamestaj kn in this.KupljeniNamestajLista)
+            {
+                retvalKupljeniNamestaj.Add(kn.Clone() as KupljeniNamestaj);
+            }
+
             return new Prodaja()
             {
-                brRacuna = this.BrRacuna,
-                datumProdaje = this.DatumProdaje,
-                dodatnaUslugaID = this.dodatnaUslugaID,
-                id = this.Id,
-                kupac = this.Kupac,
-                kupljeniNamestajID = this.KupljeniNamestajID,
-                dodatnaUslugaLista = this.DodatnaUslugaLista,
-                kupljeniNamestajLista = this.KupljeniNamestajLista
+                BrRacuna = this.BrRacuna,
+                DatumProdaje = this.DatumProdaje,
+                Id = this.Id,
+                Kupac = this.Kupac,
+
+                KupljenaDodatnaUslugaLista = retvalKupljenaDodatnaUslugaLista,
+                KupljeniNamestajLista = retvalKupljeniNamestaj
             };
         }
     }

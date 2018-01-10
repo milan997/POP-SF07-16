@@ -149,16 +149,16 @@ namespace POP_SF07_16.Model
         {
             return new Salon()
             {
-                adresa = this.Adresa,
-                brRacuna = this.BrRacuna,
-                email = this.Email,
-                id = this.Id,
-                maticniBroj = this.MaticniBroj,
-                naziv = this.Naziv,
-                obrisan = this.Obrisan,
-                pib = this.Pib,
-                telefon = this.Telefon,
-                webAdresa = this.WebAdresa
+                Adresa = this.Adresa,
+                BrRacuna = this.BrRacuna,
+                Email = this.Email,
+                Id = this.Id,
+                MaticniBroj = this.MaticniBroj,
+                Naziv = this.Naziv,
+                Obrisan = this.Obrisan,
+                Pib = this.Pib,
+                Telefon = this.Telefon,
+                WebAdresa = this.WebAdresa
             };
         }
 

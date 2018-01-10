@@ -56,18 +56,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BLL\DodatnaUslugaBLL.cs" />
-    <Compile Include="BLL\KupljeniNamestajBLL.cs" />
     <Compile Include="BLL\NamestajBLL.cs" />
     <Compile Include="DAL\AkcijaDAO.cs" />
+    <Compile Include="DAL\CollectionKupljenaDodatnaUslugaDAO.cs" />
     <Compile Include="DAL\DodatnaUslugaDAO.cs" />
     <Compile Include="DAL\KorisnikDAO.cs" />
-    <Compile Include="DAL\KupljeniNamestajDAL.cs" />
+    <Compile Include="DAL\CollectionKupljeniNamestajDAO.cs" />
     <Compile Include="DAL\NamestajDAO.cs" />
-    <Compile Include="DAL\ProdajaDAL.cs" />
+    <Compile Include="DAL\ProdajaDAO.cs" />
     <Compile Include="DAL\SalonDAO.cs" />
     <Compile Include="DAL\TipNamestajaDAO.cs" />
     <Compile Include="GUI\AkcijaWindow.xaml.cs">
       <DependentUpon>AkcijaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DodajDodatnaUslugaWindow.xaml.cs">
+      <DependentUpon>DodajDodatnaUslugaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\DodajNamestajWindow.xaml.cs">
       <DependentUpon>DodajNamestajWindow.xaml</DependentUpon>
@@ -99,11 +102,16 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\KupljenaDodatnaUsluga.cs" />
     <Compile Include="Utils\Enum.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
     <Compile Include="Utils\Call.cs" />
     <Compile Include="Utils\Handlers.cs" />
     <Page Include="GUI\AkcijaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DodajDodatnaUslugaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

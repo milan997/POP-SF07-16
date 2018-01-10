@@ -120,13 +120,13 @@ namespace POP_SF07_16.Model
         {
             return new Korisnik()
             {
-                id = this.Id,
-                ime = this.Ime,
-                prezime = this.Prezime,
-                korIme = this.KorIme,
-                lozinka = this.Lozinka,
-                obrisan = this.Obrisan,
-                tipKorisnika = this.TipKorisnika
+                Id = this.Id,
+                Ime = this.Ime,
+                Prezime = this.Prezime,
+                KorIme = this.KorIme,
+                Lozinka = this.Lozinka,
+                Obrisan = this.Obrisan,
+                TipKorisnika = this.TipKorisnika
             };
         }
 

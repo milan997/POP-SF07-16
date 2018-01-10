@@ -75,9 +75,9 @@ namespace POP_SF07_16.Model
         {
             return new TipNamestaja()
             {
-                id = this.Id,
-                naziv = this.Naziv,
-                obrisan = this.Obrisan
+                Id = this.Id,
+                Naziv = this.Naziv,
+                Obrisan = this.Obrisan
             };
         }
     }

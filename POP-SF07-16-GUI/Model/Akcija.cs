@@ -106,12 +106,12 @@ namespace POP_SF07_16.Model
         {
             return new Akcija()
             {
-                id = this.Id,
-                naziv = this.Naziv,
-                datumPocetka = this.DatumPocetka,
-                datumZavrsetka = this.DatumZavrsetka,
-                popust = this.Popust,
-                obrisan = this.Obrisan
+                Id = this.Id,
+                Naziv = this.Naziv,
+                DatumPocetka = this.DatumPocetka,
+                DatumZavrsetka = this.DatumZavrsetka,
+                Popust = this.Popust,
+                Obrisan = this.Obrisan
             };
         }
     }

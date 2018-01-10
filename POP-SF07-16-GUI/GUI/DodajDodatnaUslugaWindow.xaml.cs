@@ -1,5 +1,5 @@
 ﻿using POP_SF07_16.Model;
-using POP_SF07_16_GUI.DAL;
+using POP_SF07_16_GUI.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,38 +19,37 @@ using static POP_SF07_16_GUI.Utils.Enum;
 namespace POP_SF07_16_GUI.GUI
 {
     /// <summary>
-    /// Interaction logic for DodajNamestajWindow.xaml
+    /// Interaction logic for DodajDodatnaUslugaWindow.xaml
     /// </summary>
-    public partial class DodajNamestajWindow : Window
+    public partial class DodajDodatnaUslugaWindow : Window
     {
-        public KupljeniNamestaj original;
-        public KupljeniNamestaj kopija;
+        public KupljenaDodatnaUsluga original;
+        public KupljenaDodatnaUsluga kopija;
 
         ICollectionView view;
 
         Operacija operacija;
 
-        Namestaj Namestaj;
+        DodatnaUsluga DodatnaUsluga;
         Prodaja p;
 
-
-        public DodajNamestajWindow(Prodaja p, KupljeniNamestaj kn, Operacija operacija = Operacija.DODAVANJE)
+        public DodajDodatnaUslugaWindow(Prodaja p, KupljenaDodatnaUsluga kdu, Operacija operacija = Operacija.DODAVANJE)
         {
             InitializeComponent();
 
-            original = kn;
+            original = kdu;
             this.p = p;
-            kopija = kn.Clone() as KupljeniNamestaj;
+            kopija = kdu.Clone() as KupljenaDodatnaUsluga;
             this.DataContext = kopija;
             this.operacija = operacija;
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.NamestajLista);
-            dgNamestaj.ItemsSource = view;
-            dgNamestaj.DataContext = Namestaj;
-            dgNamestaj.IsSynchronizedWithCurrentItem = true;
-            dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatnaUslugaLista);
+            dgDodatnaUsluga.ItemsSource = view;
+            dgDodatnaUsluga.DataContext = DodatnaUsluga;
+            dgDodatnaUsluga.IsSynchronizedWithCurrentItem = true;
+            dgDodatnaUsluga.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNamestaj.SelectedItem = kopija.Namestaj;
+            dgDodatnaUsluga.SelectedItem = kopija.DodatnaUsluga;
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -61,7 +60,7 @@ namespace POP_SF07_16_GUI.GUI
             {
 
                 kopija.Prodaja = p;
-                kopija.Namestaj = dgNamestaj.SelectedItem as Namestaj;
+                kopija.DodatnaUsluga = dgDodatnaUsluga.SelectedItem as DodatnaUsluga;
                 this.DialogResult = true;
             }
             else if (mbr == MessageBoxResult.No)

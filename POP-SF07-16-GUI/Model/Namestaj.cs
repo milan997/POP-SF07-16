@@ -18,25 +18,22 @@ namespace POP_SF07_16.Model
         private string sifra;
         private double cena;
         private int kolicinaUMagacinu;
-        /*
-        private int tipNamestajaID;
-        private int akcijaID;
-        */
+      
         private TipNamestaja tipNamestaja;
         private Akcija akcija;
 
         public Namestaj()
         {
-            Akcija = null;
-            //AkcijaID = 0;
-            Cena = 0;
             Id = 0;
-            KolicinaUMagacinu = 0;
-            Naziv = "";
             Obrisan = false;
+
+            Naziv = "";
             Sifra = "";
+            Cena = 999999.99999;
+            KolicinaUMagacinu = 0;
+
             TipNamestaja = null;
-            //TipNamestajaID = 0;
+            Akcija = null;
         }
 
         public int Id
@@ -98,28 +95,8 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("KolicinaUMagacinu");
             }
         }
-        /*
-        public int TipNamestajaID
-        {
-            get { return tipNamestajaID; }
-            set
-            {
-                tipNamestajaID = value;
-                OnPropertyChanged("TipNamestajaID");
-            }
-        }
         
-        public int AkcijaID
-        {
-            get { return akcijaID; }
-            set
-            {
-                akcijaID = value;
-                OnPropertyChanged("AkcijaID");
-            }
-        }
-        */
-        
+
         public TipNamestaja TipNamestaja
         {
             get
@@ -162,16 +139,16 @@ namespace POP_SF07_16.Model
         {
             return new Namestaj()
             {
-                akcija = this.Akcija,
-                //akcijaID = this.AkcijaID,
-                cena = this.Cena,
-                id = this.Id,
-                kolicinaUMagacinu = this.KolicinaUMagacinu,
-                naziv = this.Naziv,
-                obrisan = this.Obrisan,
-                sifra = this.Sifra,
-                tipNamestaja = this.TipNamestaja,
-                //tipNamestajaID = this.TipNamestajaID,
+                Id = this.Id,
+                Obrisan = this.Obrisan,
+
+                Naziv = this.Naziv,
+                Sifra = this.Sifra,
+                Cena = this.Cena,
+                KolicinaUMagacinu = this.KolicinaUMagacinu,
+
+                TipNamestaja = this.TipNamestaja,
+                Akcija = this.Akcija
             };
         }
 

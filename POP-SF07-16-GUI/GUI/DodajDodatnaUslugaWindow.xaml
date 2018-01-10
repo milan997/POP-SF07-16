@@ -1,21 +1,21 @@
-﻿<Window x:Class="POP_SF07_16_GUI.GUI.DodajNamestajWindow"
+﻿<Window x:Class="POP_SF07_16_GUI.GUI.DodajDodatnaUslugaWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="DodajNamestajWindow" Height="420" Width="420" WindowStartupLocation="CenterScreen">
+        Title="DodajDodatnaUslugaWindow" Height="420" Width="420" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="dgNamestaj" Grid.Row="0"
+        <DataGrid Name="dgDodatnaUsluga" Grid.Row="0"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=Namestaj}" 
+                  SelectedItem="{Binding Path=DodatnaUsluga}" 
                           IsReadOnly="True" CanUserAddRows="False"/>
 
         <Label Name="lbKolicina" Content="Kolicina" Grid.Row="1"
@@ -29,5 +29,4 @@
         <Button Grid.Row="2" HorizontalAlignment="Right" Name="btnPotvrdi" Click="btnPotvrdi_Click" Width="45" Height="35">Potvrdi</Button>
         <Button Grid.Row="2" HorizontalAlignment="Right" Name="btnOtkazi" Click="btnOtkazi_Click" Margin="0,0,50,0" Height="35" >Otkazi</Button>
     </Grid>
-    
 </Window>

@@ -36,3 +36,5 @@ C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\POP-SF
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\POP-SF07-16-GUI.csproj.CoreCompileInputs.cache
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\POP-SF07-16-GUI.exe
 C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\POP-SF07-16-GUI.pdb
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\DodajDodatnaUslugaWindow.g.cs
+C:\Skola P\Platforme za Objektno Or\POP-SF07-16\POP-SF07-16-GUI\obj\Debug\GUI\DodajDodatnaUslugaWindow.baml

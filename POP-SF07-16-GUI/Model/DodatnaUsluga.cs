@@ -77,11 +77,16 @@ namespace POP_SF07_16.Model
         {
             return new DodatnaUsluga()
             {
-                cena = this.Cena,
-                id = this.Id,
-                naziv = this.Naziv,
-                obrisan = this.Obrisan
+                Cena = this.Cena,
+                Id = this.Id,
+                Naziv = this.Naziv,
+                Obrisan = this.Obrisan
             };
+        }
+
+        public override string ToString()
+        {
+            return Naziv;
         }
 
     }

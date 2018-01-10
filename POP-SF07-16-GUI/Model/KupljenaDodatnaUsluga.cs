@@ -1,28 +1,29 @@
-﻿using POP_SF07_16_GUI.DAL;
+﻿using POP_SF07_16.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
-namespace POP_SF07_16.Model
+namespace POP_SF07_16_GUI.Model
 {
-    public class KupljeniNamestaj : INotifyPropertyChanged, ICloneable
+    public class KupljenaDodatnaUsluga : INotifyPropertyChanged, ICloneable
     {
         private Prodaja prodaja;
-        private Namestaj namestaj;
+        private DodatnaUsluga dodatnaUsluga;
         private int kolicina;
         private bool obrisan;
 
-        public KupljeniNamestaj()
+
+        public KupljenaDodatnaUsluga()
         {
             Prodaja = null;
-            Namestaj = null;
+            DodatnaUsluga = null;
             Kolicina = 0;
             Obrisan = false;
         }
+
 
         public Prodaja Prodaja
         {
@@ -33,14 +34,17 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("Prodaja");
             }
         }
-        
-        public Namestaj Namestaj
+
+        public DodatnaUsluga DodatnaUsluga
         {
-            get { return namestaj; }
+            get
+            {
+                return dodatnaUsluga;
+            }
             set
             {
-                namestaj = value;
-                OnPropertyChanged("Namestaj");
+                dodatnaUsluga = value;
+                OnPropertyChanged("DodatnaUsluga");
             }
         }
 
@@ -54,7 +58,6 @@ namespace POP_SF07_16.Model
             }
         }
 
-
         public bool Obrisan
         {
             get { return obrisan; }
@@ -64,9 +67,6 @@ namespace POP_SF07_16.Model
                 OnPropertyChanged("Obrisan");
             }
         }
-
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -80,11 +80,11 @@ namespace POP_SF07_16.Model
 
         public object Clone()
         {
-            return new KupljeniNamestaj()
+            return new KupljenaDodatnaUsluga()
             {
                 Prodaja = this.Prodaja,
                 Kolicina = this.Kolicina,
-                Namestaj = this.Namestaj,
+                DodatnaUsluga = this.DodatnaUsluga,
                 Obrisan = this.Obrisan
             };
         }

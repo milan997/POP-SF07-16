@@ -47,6 +47,11 @@ namespace POP_SF07_16_GUI
 
         public MainWindow()
         {
+            foreach(Prodaja p in ProdajaDAO.GetList())
+            {
+                Console.WriteLine("\n\nProdaja: ", p);
+            }
+
             InitializeComponent();
 
             viewAkcija = CollectionViewSource.GetDefaultView(Projekat.Instance.AkcijaLista);
