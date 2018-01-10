@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI"
         mc:Ignorable="d"
-        Title="GlavniProzor" Height="420" Width="800">
+        Title="GlavniProzor" Height="580" Width="960" WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

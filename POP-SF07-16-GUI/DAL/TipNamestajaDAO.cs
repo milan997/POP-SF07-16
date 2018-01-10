@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace POP_SF07_16_GUI.DAL
 {
@@ -126,8 +127,38 @@ namespace POP_SF07_16_GUI.DAL
         public static void Delete(TipNamestaja tn)
         {
             tn.Obrisan = true;
-            // Dodati metodu koja ce kad obrisemo Tip Namestaja obrisati i sve Namestaje tog tipa
-            Update(tn);
+
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+                SqlTransaction transaction = con.BeginTransaction();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE tipNamestaja SET obrisan = 1 WHERE id = @id", con, transaction);
+                    cmd.Parameters.AddWithValue("id", tn.Id);
+                    cmd.ExecuteNonQuery();
+
+                    // Brisemo i sve namestaje tog tipa!!!
+                    cmd = new SqlCommand("UPDATE namestaj SET obrisan = 1 WHERE tipNamestaja_id = @id", con, transaction);
+                    cmd.Parameters.AddWithValue("id", tn.Id);
+                    cmd.ExecuteNonQuery();
+
+                    transaction.Commit();
+                }
+                catch 
+                {
+                    transaction.Rollback();
+                    MessageBoxResult mbr = MessageBox.Show("Nije uspeo upis u bazu! Transakcija ponistena!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+            // I model isto!!!
+
+            foreach(Namestaj n in Projekat.Instance.NamestajLista)
+            {
+                if (n.TipNamestaja.Id == tn.Id)
+                    n.Obrisan = true;
+            }
         }
 
 

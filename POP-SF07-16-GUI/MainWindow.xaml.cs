@@ -59,36 +59,42 @@ namespace POP_SF07_16_GUI
             dgAkcija.DataContext = this;
             dgAkcija.IsSynchronizedWithCurrentItem = true;
             dgAkcija.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewAkcija.Filter = Filter<Akcija>;
 
             viewDodatnaUsluga = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatnaUslugaLista);
             dgDodatnaUsluga.ItemsSource = viewDodatnaUsluga;
             dgDodatnaUsluga.DataContext = this;
             dgDodatnaUsluga.IsSynchronizedWithCurrentItem = true;
             dgDodatnaUsluga.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewDodatnaUsluga.Filter = Filter<DodatnaUsluga>;
 
             viewKorisnik = CollectionViewSource.GetDefaultView(Projekat.Instance.KorisnikLista);
             dgKorisnik.ItemsSource = viewKorisnik;
             dgKorisnik.DataContext = this;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewKorisnik.Filter = Filter<Korisnik>;
 
             viewNamestaj = CollectionViewSource.GetDefaultView(Projekat.Instance.NamestajLista);
             dgNamestaj.ItemsSource = viewNamestaj;
             dgNamestaj.DataContext = this;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewNamestaj.Filter = Filter<Namestaj>;
 
             viewSalon = CollectionViewSource.GetDefaultView(Projekat.Instance.SalonLista);
             dgSalon.ItemsSource = viewSalon;
             dgSalon.DataContext = this;
             dgSalon.IsSynchronizedWithCurrentItem = true;
             dgSalon.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewSalon.Filter = Filter<Salon>;
 
             viewTipNamestaja = CollectionViewSource.GetDefaultView(Projekat.Instance.TipNamestajaLista);
             dgTipNamestaja.ItemsSource = viewTipNamestaja;
             dgTipNamestaja.DataContext = this;
             dgTipNamestaja.IsSynchronizedWithCurrentItem = true;
             dgTipNamestaja.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            viewTipNamestaja.Filter = Filter<TipNamestaja>;
             
             viewProdaja = CollectionViewSource.GetDefaultView(Projekat.Instance.ProdajaLista);
             dgProdaja.ItemsSource = viewProdaja;
@@ -98,17 +104,14 @@ namespace POP_SF07_16_GUI
             
         }
 
-        private bool FilteredAkcija(object obj)
+        private bool Filter<T>(object obj) where T : class
         {
-            Akcija akcijaZaFilter = (Akcija)obj;
-            if (akcijaZaFilter.Obrisan == true)
-            {
+            T t = obj as T;
+            bool? obrisan = t.GetType().GetProperty("Obrisan").GetValue(obj) as bool?;
+            if (obrisan == true)
                 return false;
-            }
             else
-            {
                 return true;
-            }
             // return ((Akcija)obj).Obrisan == false;     JEDNA LINIJA!!!!
             // return !((Akcija)obj).Obrisan;
         }
@@ -229,27 +232,37 @@ namespace POP_SF07_16_GUI
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
+
+            MessageBoxResult mbr = MessageBox.Show("Da li ste sigurni da zelite da brisete?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (mbr != MessageBoxResult.Yes)
+                return;
+
             if (tab == "Akcije")
             {
                 Akcija izabranaAkcija = IzabranaAkcija;
                 izabranaAkcija.Obrisan = true;
-
                 AkcijaDAO.Update(izabranaAkcija);
 
-
-                //Projekat.Instance.AkcijaLista.Remove(selektovanaAkcija);
+                viewAkcija.Filter = Filter<Akcija>;
+                dgAkcija.ItemsSource = viewAkcija;
             }
             else if (tab == "Dodatne Usluge")
             {
                 DodatnaUsluga izabranaDodatnaUsluga = IzabranaDodatnaUsluga;
                 izabranaDodatnaUsluga.Obrisan = true;
                 DodatnaUslugaDAO.Update(izabranaDodatnaUsluga);
+
+                viewDodatnaUsluga.Filter = Filter<DodatnaUsluga>;
+                dgDodatnaUsluga.ItemsSource = viewDodatnaUsluga;
             }
             else if (tab == "Korisnici")
             {
                 Korisnik izabraniKorisnik = IzabraniKorisnik;
                 izabraniKorisnik.Obrisan = true;
                 KorisnikDAO.Update(izabraniKorisnik);
+
+                viewKorisnik.Filter = Filter<Korisnik>;
+                dgKorisnik.ItemsSource = viewKorisnik;
             }
             else if (tab == "Prodaja")
             {
@@ -260,18 +273,31 @@ namespace POP_SF07_16_GUI
                 Namestaj izabraniNamestaj = IzabraniNamestaj;
                 izabraniNamestaj.Obrisan = true;
                 NamestajDAO.Update(izabraniNamestaj);
+
+                viewNamestaj.Filter = Filter<Namestaj>;
+                dgNamestaj.ItemsSource = viewNamestaj;
             }
             else if (tab == "Salon")
             {
                 Salon izabraniSalon = IzabraniSalon;
                 izabraniSalon.Obrisan = true;
                 SalonDAO.Update(izabraniSalon);
+
+                viewSalon.Filter = Filter<Salon>;
+                dgSalon.ItemsSource = viewSalon;
             }
             else if (tab == "Tipovi Namestaja")
             {
                 TipNamestaja izabraniTipNamestaja = IzabraniTipNamestaja;
-                izabraniTipNamestaja.Obrisan = true;
-                TipNamestajaDAO.Update(izabraniTipNamestaja);
+                TipNamestajaDAO.Delete(izabraniTipNamestaja);
+
+                viewTipNamestaja.Filter = Filter<TipNamestaja>;
+                dgTipNamestaja.ItemsSource = viewTipNamestaja;
+
+
+                viewNamestaj = CollectionViewSource.GetDefaultView(Projekat.Instance.NamestajLista);
+                viewNamestaj.Filter = Filter<Namestaj>;
+                dgNamestaj.ItemsSource = viewNamestaj;
             }
         }
 
