@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="NamestajWindow" Height="480" Width="400" FontSize="14"
+        Title="NamestajWindow" Height="480" Width="480" FontSize="14"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -59,24 +59,32 @@
         <Label Grid.Column="0" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbTipNamestaja" Content="Tip: " />
-        <TextBox Grid.Column="1" Grid.Row="4" Name="tbTipNamestaja" Margin="0,0,50,0"
+        <TextBox Grid.Column="1" Grid.Row="4" Name="tbTipNamestaja" Margin="0,0,65,0"
                 HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="29"
                 Text="{Binding Path=TipNamestaja, Mode=OneWay}" IsReadOnly="True" />
         <Button Grid.Column="1" Grid.Row="4"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 Name="izaberiTipNamestaj" Content="..."
-                Click="izaberiTipNamestaj_Click" Width="45" Height="29"/>
+                Click="izaberiTipNamestaj_Click" Width="30" Height="29" />
+        <Button Grid.Column="1" Grid.Row="4"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Name="ocistiTipNamestaja" Content="X"
+                Click="ocistiTipNamestaja_Click" Width="30" Height="29" Margin="0, 0, 32, 0"/>
 
         <Label Grid.Column="0" Grid.Row="5"
                HorizontalAlignment="Right" VerticalAlignment="Bottom"
                Name="lbAkcija" Content="Akcija: " />
-        <TextBox Grid.Column="1" Grid.Row="5" Name="tbAkcija" Margin="0,0,50,0"
+        <TextBox Grid.Column="1" Grid.Row="5" Name="tbAkcija" Margin="0,0,65,0"
                 HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="29"
                 Text="{Binding Path=Akcija, Mode=OneWay}" IsReadOnly="True" />
         <Button Grid.Column="1" Grid.Row="5"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 Name="izaberiAkcija" Content="..."
-                Click="izaberiAkcija_Click" Width="45" Height="29"/>
+                Click="izaberiAkcija_Click" Width="30" Height="29"/>
+        <Button Grid.Column="1" Grid.Row="5"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Name="ocistiAkcija" Content="X"
+                Click="ocistiAkcija_Click" Width="30" Height="29" Margin="0, 0, 32, 0"/>
 
         <Button Grid.Column="1" Grid.Row="6"
                HorizontalAlignment="Center" VerticalAlignment="Center"

@@ -120,5 +120,21 @@ namespace POP_SF07_16_GUI.GUI
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void ocistiTipNamestaja_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Da li ste sigurni?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+            if (mbr == MessageBoxResult.Yes)
+                kopija.TipNamestaja = null;
+        }
+
+        private void ocistiAkcija_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Da li ste sigurni?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+            if (mbr == MessageBoxResult.Yes)
+                kopija.Akcija = null;
+        }
     }
 }

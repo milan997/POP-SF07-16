@@ -11,12 +11,12 @@
             <RowDefinition Height="30"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,0,0,15" >
-            
+
             <TabItem Name="tiAkcija" Header="Akcije" TabIndex="0">
                 <DataGrid Name="dgAkcija" 
-                  AutoGenerateColumns="True" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn"
+                  AutoGenerateColumns="True" AutoGeneratingColumn="AutoGeneratingColumn"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabranaAkcija}" 
@@ -28,7 +28,8 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabranaDodatnaUsluga}"
-                    IsReadOnly="True" CanUserAddRows="False"/>
+                    IsReadOnly="True" CanUserAddRows="False" 
+                          AutoGeneratingColumn="AutoGeneratingColumn"/>
             </TabItem>
 
             <TabItem Name="tiKorisnik" Header="Korisnici" TabIndex="2">
@@ -36,23 +37,98 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabraniKorisnik}"
-                          IsReadOnly="True" CanUserAddRows="False"/>
+                          IsReadOnly="True" CanUserAddRows="False"
+                          AutoGeneratingColumn="AutoGeneratingColumn"/>
             </TabItem>
 
             <TabItem Name="tiNamestaj" Header="Namestaj" TabIndex="3">
-                <DataGrid Name="dgNamestaj" 
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgNamestaj" Grid.Row="0"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabraniNamestaj}" 
-                          IsReadOnly="True" CanUserAddRows="False"/>
+                          IsReadOnly="True" CanUserAddRows="False"
+                              AutoGeneratingColumn="AutoGeneratingColumn"/>
+                    <Label Name="lbNaziv" Content="Naziv: " 
+                           Grid.Row="1" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="tbNaziv" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55, 0, 0, 0" 
+                             LostFocus="namestaj_LostFocus"/>
+                    
+                    <Label Name="lbSifra" Content="Sifra: " 
+                           Grid.Row="1" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270, 0, 0, 0"/>
+                    <TextBox Name="tbSifra" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="315, 0, 0, 0" 
+                             LostFocus="namestaj_LostFocus"/>
+
+                    <Label  Grid.Row="1"
+                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Name="lbTipNamestaja" Content="Tip: " Margin="0,0,295,0" />
+                    <TextBox Grid.Row="1" Name="tbTipNamestaja" Margin="0,0,165,0"
+                             HorizontalAlignment="Right" Width="120"
+                                VerticalAlignment="Center" Height="29"
+                                Text="{Binding Path=TipNamestaja, Mode=OneWay}" IsReadOnly="True" />
+                    <Button Grid.Row="1"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="ocistiTipNamestaja" Content="X"
+                            Click="ocistiTipNamestaja_Click" Width="30" Height="29" Margin="0, 0, 132, 0"/>
+                    <Button  Grid.Row="1"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="izaberiTipNamestaj" Content="..."
+                                Click="izaberiTipNamestaj_Click" Width="30" Height="29" Margin="0, 0, 100, 0"/>
+                    
+                    <Button Grid.Row="1"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="Pretraga" Content="Pretraga"
+                            Click="namestaj_LostFocus" Width="60" Height="29" Margin="0, 0, 0, 0"/>
+                </Grid>
+
+
+
             </TabItem>
 
             <TabItem Name="tiProdaja" Header="Prodaja" TabIndex="4">
-                <DataGrid Name="dgProdaja" 
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                  Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabranaProdaja}" 
-                          IsReadOnly="True" CanUserAddRows="False"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                       <RowDefinition />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgProdaja" Grid.Row="0"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Margin="5, 5, 5, 5"
+                        SelectedItem="{Binding Path=IzabranaProdaja}" 
+                        IsReadOnly="True" CanUserAddRows="False"
+                              AutoGeneratingColumn="AutoGeneratingColumn"/>
+
+                    <Label Name="lbKupac" Content="Kupac: " 
+                           Grid.Row="1" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="tbKupac" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55, 0, 0, 0" 
+                             LostFocus="kupac_LostFocus"/>
+
+                    <Label Name="lbBrojRacuna" Content="Sifra: " 
+                           Grid.Row="1" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270, 0, 0, 0"/>
+                    <TextBox Name="tbBrojRacuna" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="315, 0, 0, 0" 
+                             LostFocus="namestaj_LostFocus"/>
+                    
+                    <Button Grid.Row="1"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="pretrazi" Content="Pretraga"
+                            Click="namestaj_LostFocus" Width="60" Height="29" Margin="0, 0, 0, 0"/>
+                </Grid>
             </TabItem>
 
             <TabItem Name="tiSalon" Header="Salon" TabIndex="5">
@@ -60,7 +136,8 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabraniSalon}"
-                          IsReadOnly="True" CanUserAddRows="False"/>
+                          IsReadOnly="True" CanUserAddRows="False"
+                          AutoGeneratingColumn="AutoGeneratingColumn"/>
             </TabItem>
 
             <TabItem Name="tiTipNamestaja" Header="Tipovi Namestaja" TabIndex="6">
@@ -69,10 +146,11 @@
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=IzabraniTipNamestaja}"
                     IsReadOnly="True" CanUserAddRows="False"
+                          AutoGeneratingColumn="AutoGeneratingColumn"
                    />
             </TabItem>
         </TabControl>
-        
+
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnDodaj" Click="btnDodaj_Click">Dodaj</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnIzmeni" Click="btnIzmeni_Click" Margin="43,0,0,0">Izmeni</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnObrisi" Click="btnObrisi_Click" Margin="89,0,0,0">Obrisi</Button>

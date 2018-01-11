@@ -55,10 +55,7 @@ namespace POP_SF07_16.Model
             get { return logovaniKorisnik; }
             set
             {
-                if (logovaniKorisnik != null)
-                    logovaniKorisnik = value;
-                else;
-                    //Ovde smisliti sta se desava ako neko pokusa da se loguje preko vec ulogovanog, neam pojm
+                logovaniKorisnik = value;
             }
         }
         

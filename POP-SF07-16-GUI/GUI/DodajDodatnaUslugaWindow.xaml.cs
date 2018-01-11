@@ -80,6 +80,13 @@ namespace POP_SF07_16_GUI.GUI
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string header = e.Column.Header.ToString();
+            if (header == "Id" || header == "Obrisan" || header == "KupljeniNamestajLista" || header == "KupljenaDodatnaUslugaLista") //Navodimo ime kolone koju ne zelimo da prikazemo
+                e.Cancel = true;
+        }
+
         private void btnOtkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

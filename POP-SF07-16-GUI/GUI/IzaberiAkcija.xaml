@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="IzaberiAkcija" Height="320" Width="400" FontSize="14">
+        Title="IzaberiAkcija" Height="320" Width="540" WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
@@ -16,7 +16,8 @@
                   Grid.Row="0" Margin="5,5,5,5" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                   SelectedItem="{Binding Path=IzabranaAkcija}" 
-                  IsReadOnly="True" CanUserAddRows="False"/>
+                  IsReadOnly="True" CanUserAddRows="False"
+                  AutoGeneratingColumn="AutoGeneratingColumn"/>
 
         <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnPotvrdi" Click="btnPotvrdi_Click" Width="85">Potvrdi</Button>
         <Button Grid.Row="1" HorizontalAlignment="Right" Name="btnOtkazi" Click="btnOtkazi_Click" Margin="0,0,90,0" Width="85">Otkazi</Button>

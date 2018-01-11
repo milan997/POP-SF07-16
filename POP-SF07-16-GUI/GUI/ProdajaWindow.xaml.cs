@@ -253,7 +253,15 @@ namespace POP_SF07_16_GUI.GUI
             //kopija.KupljeniNamestajLista.Remove(kn);
         }
 
-
+        ////////////////////
+        ///    Kolone    ///
+        ////////////////////
+        private void AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string header = e.Column.Header.ToString();
+            if (header == "Obrisan" || header == "Prodaja") //Navodimo ime kolone koju ne zelimo da prikazemo
+                e.Cancel = true;
+        }
 
         ////////////////////
         /// Otkazi dugme ///

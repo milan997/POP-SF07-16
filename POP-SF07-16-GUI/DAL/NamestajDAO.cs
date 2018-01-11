@@ -16,6 +16,7 @@ namespace POP_SF07_16_GUI.DAL
         public static ObservableCollection<Namestaj> GetList()
         {
             var namestajLista = new ObservableCollection<Namestaj>();
+            object value;
 
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
@@ -37,8 +38,13 @@ namespace POP_SF07_16_GUI.DAL
                     n.Sifra = row["sifra"].ToString();
                     n.Cena = double.Parse(row["cena"].ToString());
                     n.KolicinaUMagacinu = int.Parse(row["kolicina"].ToString());
-                    n.TipNamestaja = TipNamestajaDAO.GetById(int.Parse(row["tipNamestaja_id"].ToString()));
-                    n.Akcija = AkcijaDAO.GetById(int.Parse(row["akcija_id"].ToString()));
+
+                    value = row["tipNamestaja_id"];
+                    n.TipNamestaja = value != DBNull.Value ? TipNamestajaDAO.GetById(int.Parse(value.ToString())) : null;
+
+                    value = row["akcija_id"];
+                    n.Akcija = value != DBNull.Value ? AkcijaDAO.GetById(int.Parse(value.ToString())) : null;
+
                     namestajLista.Add(n);
                 }
             }
@@ -49,6 +55,7 @@ namespace POP_SF07_16_GUI.DAL
         public static Namestaj GetById(int id)
         {
             Namestaj namestaj = null;
+            object value;
 
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
@@ -73,8 +80,12 @@ namespace POP_SF07_16_GUI.DAL
                     namestaj.Sifra = row["sifra"].ToString();
                     namestaj.Cena = double.Parse(row["cena"].ToString());
                     namestaj.KolicinaUMagacinu = int.Parse(row["kolicina"].ToString());
-                    namestaj.TipNamestaja = TipNamestajaDAO.GetById(int.Parse(row["tipNamestaja_id"].ToString()));
-                    namestaj.Akcija = AkcijaDAO.GetById(int.Parse(row["akcija_id"].ToString()));
+
+                    value = row["tipNamestaja_id"];
+                    namestaj.TipNamestaja = value != DBNull.Value ? TipNamestajaDAO.GetById(int.Parse(value.ToString())) : null;
+
+                    value = row["akcija_id"];
+                    namestaj.Akcija = value != DBNull.Value ? AkcijaDAO.GetById(int.Parse(value.ToString())) : null;
                 }
             }
 
@@ -96,9 +107,17 @@ namespace POP_SF07_16_GUI.DAL
                 cmd.Parameters.AddWithValue("sifra", n.Sifra);
                 cmd.Parameters.AddWithValue("cena", n.Cena);
                 cmd.Parameters.AddWithValue("kolicina", n.KolicinaUMagacinu);
-                cmd.Parameters.AddWithValue("tipNamestaja_id", n.TipNamestaja.Id);
-                cmd.Parameters.AddWithValue("akcija_id", n.Akcija.Id);
-              
+
+                if (n.TipNamestaja != null)
+                    cmd.Parameters.AddWithValue("tipNamestaja_id", n.TipNamestaja.Id);
+                else
+                    cmd.Parameters.AddWithValue("tipNamestaja_id", DBNull.Value);
+
+                if (n.Akcija != null)
+                    cmd.Parameters.AddWithValue("akcija_id", n.Akcija.Id);
+                else
+                    cmd.Parameters.AddWithValue("akcija_id", DBNull.Value);
+
 
                 int newId = int.Parse(cmd.ExecuteScalar().ToString()); // ExecuteScalar izvrsava query nad bazom
                 n.Id = newId;
@@ -125,8 +144,16 @@ namespace POP_SF07_16_GUI.DAL
                 cmd.Parameters.AddWithValue("sifra", n.Sifra);
                 cmd.Parameters.AddWithValue("cena", n.Cena);
                 cmd.Parameters.AddWithValue("kolicina", n.KolicinaUMagacinu);
-                cmd.Parameters.AddWithValue("tipNamestaja_id", n.TipNamestaja.Id);
-                cmd.Parameters.AddWithValue("akcija_id", n.Akcija.Id);
+
+                if (n.TipNamestaja != null)
+                    cmd.Parameters.AddWithValue("tipNamestaja_id", n.TipNamestaja.Id);
+                else
+                    cmd.Parameters.AddWithValue("tipNamestaja_id", DBNull.Value);
+
+                if (n.Akcija != null)
+                    cmd.Parameters.AddWithValue("akcija_id", n.Akcija.Id);
+                else
+                    cmd.Parameters.AddWithValue("akcija_id", DBNull.Value);
 
                 cmd.ExecuteNonQuery();
 

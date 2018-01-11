@@ -33,16 +33,19 @@ namespace POP_SF07_16_GUI
             string username = KorisnickoIme.Text;
             string password = Lozinka.Text;
             bool login = LoginValidan(username, password);
+
             if (login)
             {
                 var window = new MainWindow();
                 this.Close();
                 window.Show();
-            } else if (loginAttempts >= 2)
+            }
+            else if (loginAttempts >= 2)
             { 
                MessageBox.Show("Uneli ste pogresne podatke 3 puta, program se gasi!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
                this.Close();
-            } else
+            }
+            else
             {
                 loginAttempts++;
                 MessageBox.Show("Neispravni kreditencijali!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF07_16_GUI.GUI"
         mc:Ignorable="d"
-        Title="DodajNamestajWindow" Height="420" Width="420" WindowStartupLocation="CenterScreen">
+        Title="DodajNamestajWindow" Height="420" Width="600" WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
@@ -16,7 +16,8 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                   Margin="5, 5, 5, 5"
                   SelectedItem="{Binding Path=Namestaj}" 
-                          IsReadOnly="True" CanUserAddRows="False"/>
+                          IsReadOnly="True" CanUserAddRows="False"
+                  AutoGeneratingColumn="AutoGeneratingColumn"/>
 
         <Label Name="lbKolicina" Content="Kolicina" Grid.Row="1"
                HorizontalAlignment="Left" VerticalAlignment="Bottom"

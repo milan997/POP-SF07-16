@@ -45,12 +45,11 @@ namespace POP_SF07_16_GUI
         public TipNamestaja IzabraniTipNamestaja { get; set; }
         public Prodaja IzabranaProdaja { get; set; }
 
+        
+
         public MainWindow()
         {
-            foreach(Prodaja p in ProdajaDAO.GetList())
-            {
-                Console.WriteLine("\n\nProdaja: ", p);
-            }
+            
 
             InitializeComponent();
 
@@ -101,19 +100,30 @@ namespace POP_SF07_16_GUI
             dgProdaja.DataContext = this;
             dgProdaja.IsSynchronizedWithCurrentItem = true;
             dgProdaja.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            
-        }
 
-        private bool Filter<T>(object obj) where T : class
-        {
-            T t = obj as T;
-            bool? obrisan = t.GetType().GetProperty("Obrisan").GetValue(obj) as bool?;
-            if (obrisan == true)
-                return false;
-            else
-                return true;
-            // return ((Akcija)obj).Obrisan == false;     JEDNA LINIJA!!!!
-            // return !((Akcija)obj).Obrisan;
+            // LOG RADI PROVERE
+            foreach(Korisnik k in Projekat.Instance.KorisnikLista)
+            {
+                if (k.KorIme == "milan997")
+                {
+                    Projekat.Instance.LogovaniKorisnik = k;
+                    break;
+                }
+            }
+                
+
+            // Ako ulogovani nije admin
+            if (Projekat.Instance.LogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                tiSalon.Visibility = Visibility.Collapsed;
+                tiTipNamestaja.Visibility = Visibility.Collapsed;
+                tiKorisnik.Visibility = Visibility.Collapsed;
+
+                tbc.SelectedItem = tiProdaja;
+                
+                btnObrisi.Visibility = Visibility.Collapsed;
+            }
+            
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -124,6 +134,13 @@ namespace POP_SF07_16_GUI
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
+
+            if (Projekat.Instance.LogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac && tab != "Prodaja")
+            {
+                MessageBox.Show("Nemate privilegiju!!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if(tab == "Akcije")
             {
                 Akcija novaAkcija = new Akcija();
@@ -192,6 +209,20 @@ namespace POP_SF07_16_GUI
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
+
+            if (Projekat.Instance.LogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac && tab != "Prodaja")
+            {
+                MessageBox.Show("Nemate privilegiju!!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (dgAkcija.SelectedItem == null && dgDodatnaUsluga.SelectedItem == null && dgKorisnik.SelectedItem == null && dgNamestaj.SelectedItem == null
+                && dgProdaja.SelectedItem == null && dgSalon.SelectedItem == null && dgTipNamestaja.SelectedItem == null)
+            {
+                MessageBox.Show("Nista nije selektovano!!!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (tab == "Akcije")
             {
                 AkcijaWindow w = new AkcijaWindow(IzabranaAkcija, Operacija.IZMENA);
@@ -231,6 +262,13 @@ namespace POP_SF07_16_GUI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
+            if (dgAkcija.SelectedItem == null && dgDodatnaUsluga.SelectedItem == null && dgKorisnik.SelectedItem == null && dgNamestaj.SelectedItem == null
+                && dgProdaja.SelectedItem == null && dgSalon.SelectedItem == null && dgTipNamestaja.SelectedItem == null)
+            {
+                MessageBox.Show("Nista nije selektovano!!!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+               
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
 
             MessageBoxResult mbr = MessageBox.Show("Da li ste sigurni da zelite da brisete?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
@@ -303,6 +341,13 @@ namespace POP_SF07_16_GUI
 
         private void btnPogled_Click(object sender, RoutedEventArgs e)
         {
+            if (dgAkcija.SelectedItem == null && dgDodatnaUsluga.SelectedItem == null && dgKorisnik.SelectedItem == null && dgNamestaj.SelectedItem == null
+                && dgProdaja.SelectedItem == null && dgSalon.SelectedItem == null && dgTipNamestaja.SelectedItem == null)
+            {
+                MessageBox.Show("Nista nije selektovano!!!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             tab = (tbc.SelectedItem as TabItem).Header.ToString();
             if (tab == "Akcije")
             {
@@ -342,12 +387,76 @@ namespace POP_SF07_16_GUI
         }
 
         //Ovu metodu prepravi da bude genericka za sve data gridove, neka je sad ovako
-        private void dgAkcija_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if(e.Column.Header.ToString() == "Id") //Navodimo ime kolone koju ne zelimo da prikazemo
+            string header = e.Column.Header.ToString();
+            if (header == "Id" || header == "Obrisan" || header == "KupljeniNamestajLista" || header == "KupljenaDodatnaUslugaLista") //Navodimo ime kolone koju ne zelimo da prikazemo
                 e.Cancel = true;
         }
 
-        
+        // FILTER
+        private bool Filter<T>(object obj) where T : class
+        {
+            T t = obj as T;
+            bool? obrisan = false;
+            try { obrisan = t.GetType().GetProperty("Obrisan").GetValue(obj) as bool?; } catch { }
+            if (obrisan == true)
+                return false;
+            if(t is Namestaj)
+            {
+                Namestaj namestaj = t as Namestaj;
+                // Znam da je odvratno...
+                if (!(namestaj.Naziv.ToLower()).Contains(tbNaziv.Text.ToLower().Trim()))
+                    return false;
+                else if (!(namestaj.Sifra.ToLower()).Contains(tbSifra.Text.ToLower().Trim()))
+                    return false;
+                else if (tn != null && namestaj.TipNamestaja.Id != tn.Id)
+                    return false;     
+            }
+
+            if(t is Prodaja)
+            {
+                Prodaja prodaja = t as Prodaja;
+                if (!(prodaja.Kupac.ToLower()).Contains(tbKupac.Text.ToLower().Trim()))
+                    return false;
+                if (!(prodaja.BrRacuna.ToLower()).Contains(tbBrojRacuna.Text.ToLower().Trim()))
+                    return false;
+            }
+
+            // Ako prodje sve provere!!!
+            return true; 
+        }
+
+        // Pretraga namestaj
+        private TipNamestaja tn = null;
+
+        private void namestaj_LostFocus(object sender, RoutedEventArgs e)
+        {
+            viewNamestaj.Filter = Filter<Namestaj>;
+            dgNamestaj.ItemsSource = viewNamestaj;
+        }
+
+        private void izaberiTipNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            IzaberiTipNamestaja itn = new IzaberiTipNamestaja();
+            if (itn.ShowDialog() == true)
+            {
+                tn = itn.IzabranTipNamestaja;
+                tbTipNamestaja.Text = tn.Naziv;
+            }
+        }
+
+        private void ocistiTipNamestaja_Click(object sender, RoutedEventArgs e)
+        {
+            tn = null;
+            tbTipNamestaja.Text = "";
+        }
+
+        // Pretraga prodaja
+        private void kupac_LostFocus(object sender, RoutedEventArgs e)
+        {
+            viewProdaja.Filter = Filter<Prodaja>;
+            dgProdaja.ItemsSource = viewProdaja;
+        }
     }
 }
