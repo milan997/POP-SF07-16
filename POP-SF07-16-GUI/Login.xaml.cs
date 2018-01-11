@@ -31,7 +31,7 @@ namespace POP_SF07_16_GUI
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             string username = KorisnickoIme.Text;
-            string password = Lozinka.Text;
+            string password = Lozinka.Password.ToString();
             bool login = LoginValidan(username, password);
 
             if (login)

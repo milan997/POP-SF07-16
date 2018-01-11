@@ -23,10 +23,10 @@
                  HorizontalAlignment="Stretch" VerticalAlignment="Center" 
                  Height="40"
                  TextWrapping="Wrap" />
-        <TextBox Name="Lozinka" Grid.Row="1" Grid.Column="1" 
+        <PasswordBox Name="Lozinka" Grid.Row="1" Grid.Column="1" 
                  HorizontalAlignment="Stretch"  VerticalAlignment="Center"
                  Height="40"
-                 TextWrapping="Wrap" />
+                  />
         <Button Name="Potvrdi" Grid.Row="3" Grid.Column="1"
                 HorizontalAlignment="Stretch" VerticalAlignment="Center"
                Height="40"
