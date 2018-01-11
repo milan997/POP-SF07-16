@@ -81,6 +81,9 @@
     <Compile Include="GUI\IzaberiAkcija.xaml.cs">
       <DependentUpon>IzaberiAkcija.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\IzaberiNamestaj.xaml.cs">
+      <DependentUpon>IzaberiNamestaj.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\IzaberiTipNamestaja.xaml.cs">
       <DependentUpon>IzaberiTipNamestaja.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\IzaberiAkcija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IzaberiNamestaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

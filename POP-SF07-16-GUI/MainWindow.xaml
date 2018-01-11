@@ -8,19 +8,40 @@
         Title="GlavniProzor" Height="580" Width="960" WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="45"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,0,0,15" >
+        <Button Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="35"
+                Name="btnDodaj" Click="btnDodaj_Click" Margin="5,0,0,0" >Dodaj</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="35"
+                Name="btnIzmeni" Click="btnIzmeni_Click" Margin="60,0,0,0">Izmeni</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="35"
+                Name="btnObrisi" Click="btnObrisi_Click" Margin="115 ,0,0,0">Obrisi</Button>
+
+        <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="70" Height="35"
+                Name="btnPogled" Click="btnPogled_Click" Margin="0,0,10,0">Pogled</Button>
+
+        <TabControl Name="tbc" Grid.Row="1" TabStripPlacement="Top" Margin="0,5,0,15" >
 
             <TabItem Name="tiAkcija" Header="Akcije" TabIndex="0">
-                <DataGrid Name="dgAkcija" 
-                  AutoGenerateColumns="True" AutoGeneratingColumn="AutoGeneratingColumn"
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                  Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabranaAkcija}" 
-                  IsReadOnly="True" CanUserAddRows="False"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition  Height="45"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgAkcija" Grid.Row="0"
+                        AutoGenerateColumns="True" AutoGeneratingColumn="AutoGeneratingColumn"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                         Margin="5, 5, 5, 5"
+                        SelectedItem="{Binding Path=IzabranaAkcija}" 
+                        IsReadOnly="True" CanUserAddRows="False"/>
+
+                    <CheckBox Checked="aktuleneAkcije_Click" Unchecked="aktuleneAkcije_Click" Name="checkBoxAkcije" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15, 0, 0, 0" 
+                              Content="Prikazi aktuelne akcije">
+                    </CheckBox>
+                </Grid>
+                
             </TabItem>
 
             <TabItem Name="tiDodatnaUsluga" Header="Dodatne Usluge" TabIndex="1">
@@ -33,12 +54,48 @@
             </TabItem>
 
             <TabItem Name="tiKorisnik" Header="Korisnici" TabIndex="2">
-                <DataGrid Name="dgKorisnik" 
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                  Margin="5, 5, 5, 5"
-                  SelectedItem="{Binding Path=IzabraniKorisnik}"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgKorisnik" Grid.Row="0"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Margin="5, 5, 5, 5"
+                         SelectedItem="{Binding Path=IzabraniKorisnik}"
                           IsReadOnly="True" CanUserAddRows="False"
                           AutoGeneratingColumn="AutoGeneratingColumn"/>
+                    <Label Name="lbIme" Content="Ime: " 
+                           Grid.Row="1" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="tbIme" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55, 0, 0, 0" 
+                             LostFocus="korisnik_LostFocus" />
+
+                    <Label Name="lbPrezime" Content="Prezime: " 
+                           Grid.Row="1" Height="25" Width="70"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270, 0, 0, 0"/>
+                    <TextBox Name="tbPrezime" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335, 0, 0, 0" 
+                             LostFocus="korisnik_LostFocus"/>
+
+                    <Label Name="lbKorisnickoIme" Content="Kor. Ime: " 
+                           Grid.Row="1" Height="25" Width="70"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="560, 0, 0, 0"/>
+                    <TextBox Name="tbKorisnickoIme" 
+                             Height="25" Width="200" Grid.Row="1"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="625, 0, 0, 0" 
+                             LostFocus="korisnik_LostFocus"/>
+
+
+
+                    <Button Grid.Row="1"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="Pretraga" Content="Pretraga"
+                            Click="korisnik_LostFocus" Width="60" Height="29" Margin="0, 0, 0, 0"/>
+                </Grid>
             </TabItem>
 
             <TabItem Name="tiNamestaj" Header="Namestaj" TabIndex="3">
@@ -87,7 +144,7 @@
                     
                     <Button Grid.Row="1"
                                 HorizontalAlignment="Right" VerticalAlignment="Center"
-                                Name="Pretraga" Content="Pretraga"
+                                Name="namestajPretraga" Content="Pretraga"
                             Click="namestaj_LostFocus" Width="60" Height="29" Margin="0, 0, 0, 0"/>
                 </Grid>
 
@@ -99,6 +156,7 @@
                 <Grid>
                     <Grid.RowDefinitions>
                        <RowDefinition />
+                        <RowDefinition Height="45" />
                         <RowDefinition Height="45" />
                     </Grid.RowDefinitions>
                     <DataGrid Name="dgProdaja" Grid.Row="0"
@@ -114,20 +172,56 @@
                     <TextBox Name="tbKupac" 
                              Height="25" Width="200" Grid.Row="1"
                              HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55, 0, 0, 0" 
-                             LostFocus="kupac_LostFocus"/>
-
-                    <Label Name="lbBrojRacuna" Content="Sifra: " 
-                           Grid.Row="1" Height="25" Width="50"
+                             LostFocus="prodaja_LostFocus"/>
+                    <Label Name="lbBrojRacuna" Content="Br racuna: " 
+                           Grid.Row="1" Height="25" Width="80"
                            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270, 0, 0, 0"/>
                     <TextBox Name="tbBrojRacuna" 
                              Height="25" Width="200" Grid.Row="1"
-                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="315, 0, 0, 0" 
-                             LostFocus="namestaj_LostFocus"/>
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="345, 0, 0, 0" 
+                             LostFocus="prodaja_LostFocus"/>
+
+                    <Label Name="lbOd" Content="Od: " 
+                           Grid.Row="2" Height="25" Width="50"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0, 0, 0, 0"/>
+                    <DatePicker Name="dpOd" 
+                             Height="25" Width="200" Grid.Row="2"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="55, 0, 0, 0" 
+                             LostFocus="prodaja_LostFocus"/>
+                    
+                    <Label Name="lbDo" Content="Do: " 
+                           Grid.Row="2" Height="25" Width="80"
+                           HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270, 0, 0, 0"/>
+                    <DatePicker Name="dpDo" 
+                             Height="25" Width="200" Grid.Row="2"
+                             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="345, 0, 0, 0" 
+                             LostFocus="prodaja_LostFocus"/>
+
+                    <Label  Grid.Row="2"
+                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Name="lbNamestaj" Content="Namestaj: " Margin="0,0,305,0" />
+                    <TextBox Grid.Row="2" Name="tbNamestaj" Margin="0,0,175,0"
+                             HorizontalAlignment="Right" Width="120"
+                                VerticalAlignment="Center" Height="29"
+                                Text="{Binding Path=TipNamestaja, Mode=OneWay}" IsReadOnly="True" />
+                    <Button Grid.Row="2"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="ocistiNamestaj" Content="X"
+                                Click="ocistiNamestaj_Click" Width="30" Height="29" Margin="0, 0, 142, 0"/>
+                    <Button  Grid.Row="2"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="izaberiNamestaj" Content="..."
+                                Click="izaberiNamestaj_Click" Width="30" Height="29" Margin="0, 0, 110, 0"/>
                     
                     <Button Grid.Row="1"
                                 HorizontalAlignment="Right" VerticalAlignment="Center"
                                 Name="pretrazi" Content="Pretraga"
-                            Click="namestaj_LostFocus" Width="60" Height="29" Margin="0, 0, 0, 0"/>
+                            Click="prodaja_LostFocus" Width="100" Height="29" Margin="0, 0, 0, 0"/>
+                    <Button Grid.Row="2"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Name="ponistiPretraguProdaje" Content="Ponisti"
+                            Click="ponistiPretraguProdaje_Click" Width="100" Height="29" Margin="0, 0, 0, 0"/>
+                    
                 </Grid>
             </TabItem>
 
@@ -151,10 +245,7 @@
             </TabItem>
         </TabControl>
 
-        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnDodaj" Click="btnDodaj_Click">Dodaj</Button>
-        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnIzmeni" Click="btnIzmeni_Click" Margin="43,0,0,0">Izmeni</Button>
-        <Button Grid.Row="0" HorizontalAlignment="Left" Name="btnObrisi" Click="btnObrisi_Click" Margin="89,0,0,0">Obrisi</Button>
-        <Button Grid.Row="0" Width="Auto" Height="30" HorizontalAlignment="Right" Name="btnPogled" Click="btnPogled_Click" >Pogled</Button>
+        
     </Grid>
 
 </Window>

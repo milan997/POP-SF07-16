@@ -45,12 +45,8 @@ namespace POP_SF07_16_GUI
         public TipNamestaja IzabraniTipNamestaja { get; set; }
         public Prodaja IzabranaProdaja { get; set; }
 
-        
-
         public MainWindow()
         {
-            
-
             InitializeComponent();
 
             viewAkcija = CollectionViewSource.GetDefaultView(Projekat.Instance.AkcijaLista);
@@ -100,17 +96,6 @@ namespace POP_SF07_16_GUI
             dgProdaja.DataContext = this;
             dgProdaja.IsSynchronizedWithCurrentItem = true;
             dgProdaja.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-
-            // LOG RADI PROVERE
-            foreach(Korisnik k in Projekat.Instance.KorisnikLista)
-            {
-                if (k.KorIme == "milan997")
-                {
-                    Projekat.Instance.LogovaniKorisnik = k;
-                    break;
-                }
-            }
-                
 
             // Ako ulogovani nije admin
             if (Projekat.Instance.LogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
@@ -262,6 +247,14 @@ namespace POP_SF07_16_GUI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
+            tab = (tbc.SelectedItem as TabItem).Header.ToString();
+
+            if (tab == "Prodaja")
+            {
+                MessageBox.Show("Ne mozete obrisati prodaju!", "!!!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (dgAkcija.SelectedItem == null && dgDodatnaUsluga.SelectedItem == null && dgKorisnik.SelectedItem == null && dgNamestaj.SelectedItem == null
                 && dgProdaja.SelectedItem == null && dgSalon.SelectedItem == null && dgTipNamestaja.SelectedItem == null)
             {
@@ -269,7 +262,6 @@ namespace POP_SF07_16_GUI
                 return;
             }
                
-            tab = (tbc.SelectedItem as TabItem).Header.ToString();
 
             MessageBoxResult mbr = MessageBox.Show("Da li ste sigurni da zelite da brisete?", "???", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (mbr != MessageBoxResult.Yes)
@@ -386,7 +378,6 @@ namespace POP_SF07_16_GUI
             }
         }
 
-        //Ovu metodu prepravi da bude genericka za sve data gridove, neka je sad ovako
         private void AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string header = e.Column.Header.ToString();
@@ -410,17 +401,65 @@ namespace POP_SF07_16_GUI
                     return false;
                 else if (!(namestaj.Sifra.ToLower()).Contains(tbSifra.Text.ToLower().Trim()))
                     return false;
-                else if (tn != null && namestaj.TipNamestaja.Id != tn.Id)
+                else if (tn != null && (namestaj.TipNamestaja == null || namestaj.TipNamestaja.Id != tn.Id))
                     return false;     
             }
 
-            if(t is Prodaja)
+            else if(t is Prodaja)
             {
                 Prodaja prodaja = t as Prodaja;
+
                 if (!(prodaja.Kupac.ToLower()).Contains(tbKupac.Text.ToLower().Trim()))
                     return false;
                 if (!(prodaja.BrRacuna.ToLower()).Contains(tbBrojRacuna.Text.ToLower().Trim()))
                     return false;
+                if (dpOd != null && dpOd.SelectedDate > prodaja.DatumProdaje)
+                    return false;
+                if (dpDo != null && dpDo.SelectedDate < prodaja.DatumProdaje)
+                    return false;
+
+                if (nn != null)
+                {
+                    foreach (KupljeniNamestaj kn in prodaja.KupljeniNamestajLista)
+                    {
+                        if (kn.Namestaj.Id == nn.Id)
+                        {
+                            // Ako pronadje namestaj moze da vrati true jer su sve ostale provere izvrsene
+                            return true;
+                        }
+                    }
+                }
+                // Posto je prosao sve provere, ako je trazeni namestaj null moze vrati true
+                else if (nn == null)
+                    return true;
+
+                // Ako nije vratio true u petlji gore, vratice false ovde
+                return false;
+
+
+            }
+
+            else if(t is Korisnik)
+            {
+                Korisnik korisnik = t as Korisnik;
+                if (!(korisnik.Ime.ToLower()).Contains(tbIme.Text.ToLower().Trim()))
+                    return false;
+                if (!(korisnik.Prezime.ToLower()).Contains(tbPrezime.Text.ToLower().Trim()))
+                    return false;
+                if (!(korisnik.KorIme.ToLower()).Contains(tbKorisnickoIme.Text.ToLower().Trim()))
+                    return false;
+            }
+
+            else if (t is Akcija)
+            {
+                Akcija akcija = t as Akcija;
+                if (checkBoxAkcije.IsChecked.GetValueOrDefault())
+                {
+                    if (akcija.DatumPocetka > DateTime.Today.Date)
+                        return false;
+                    if (akcija.DatumZavrsetka < DateTime.Today.Date)
+                        return false;
+                }
             }
 
             // Ako prodje sve provere!!!
@@ -453,10 +492,55 @@ namespace POP_SF07_16_GUI
         }
 
         // Pretraga prodaja
-        private void kupac_LostFocus(object sender, RoutedEventArgs e)
+        Namestaj nn = null;
+
+        private void prodaja_LostFocus(object sender, RoutedEventArgs e)
         {
             viewProdaja.Filter = Filter<Prodaja>;
             dgProdaja.ItemsSource = viewProdaja;
+        }
+
+        private void ponistiPretraguProdaje_Click(object sender, RoutedEventArgs e)
+        {
+            tbBrojRacuna.Text = "";
+            tbKupac.Text = "";
+            dpOd.SelectedDate = null;
+            dpDo.SelectedDate = null;
+
+            nn = null;
+            tbNamestaj.Text = "";
+
+            prodaja_LostFocus(sender, e);
+        }
+
+        private void izaberiNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            IzaberiNamestaj @in = new IzaberiNamestaj();
+            if (@in.ShowDialog() == true)
+            {
+                nn = @in.IzabranNamestaj;
+                tbNamestaj.Text = nn.Naziv;
+            }
+        }
+
+        private void ocistiNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            nn = null;
+            tbNamestaj.Text = "";
+        }
+        
+        // Pretraga korisnika
+        private void korisnik_LostFocus(object sender, RoutedEventArgs e)
+        {
+            viewKorisnik.Filter = Filter<Korisnik>;
+            dgKorisnik.ItemsSource = viewKorisnik;
+        }
+
+        // Pretraga akcija
+        private void aktuleneAkcije_Click(object sender, RoutedEventArgs e)
+        {
+            viewAkcija.Filter = Filter<Akcija>;
+            dgAkcija.ItemsSource = viewAkcija;
         }
     }
 }
